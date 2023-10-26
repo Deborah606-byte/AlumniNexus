@@ -7,14 +7,15 @@ app.engine("mustache", mustache());
 app.set("view engine", "mustache");
 app.set("views", path.join(__dirname, "views"));
 
-// require routes
-const homeRoutes = require("./routes/homeRoutes");
-const aboutRoutes = require("./routes/aboutRoutes");
-const loginRoutes = require("./routes/auth");
-const userRoutes = require("./routes/userRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+// require fontend routes
+const homeRoutes = require("./routes/frontendroutes/homeRoutes");
+const aboutRoutes = require("./routes/frontendroutes/aboutRoutes");
+const loginRoutes = require("./routes/frontendroutes/auth");
+const userRoutes = require("./routes/frontendroutes/userRoutes");
+const adminRoutes = require("./routes/frontendroutes/adminRoutes");
+const eventRoutes = require("./routes/frontendroutes/eventRoutes");
 
-//backend routes
+//require backend routes
 const userBackendRoutes = require("./routes/backendroutes/userRoutes");
 const userEventRoutes = require("./routes/backendroutes/eventRoutes");
 
@@ -26,13 +27,14 @@ app.use(express.static(public));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//views
+//static pages
 app.use("/", aboutRoutes);
 app.use("/home", homeRoutes);
 app.use("/auth", loginRoutes);
 app.use("/about", aboutRoutes);
-app.use("/dashboard", userRoutes);
+// app.use("/dashboard", userRoutes);
 app.use("/admin", adminRoutes);
+app.use("/events", eventRoutes);
 // app.use("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public", "pages", "about.html"));
 // });
@@ -42,6 +44,6 @@ app.use("/users", userBackendRoutes);
 app.use("/events", userEventRoutes);
 
 // Define the dashboard route
-app.get("/dashboard", eventController.getAllEvents);
+app.get("/dashboard", eventController.getUserEvents);
 
 app.listen(3000, () => console.log(`server started and running on port 3000`));

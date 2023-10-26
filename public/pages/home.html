@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 
     <link rel="stylesheet" href="../output.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -16,24 +16,36 @@
             <a href="#" class="font-extrabold">
                 <h1 class="text-secondary-200 text-2xl"><span class="text-secondary-100 text-3xl">A</span>lumni<span class="text-secondary-100 text-3xl">N</span>exus</h1>
             </a>
-            <div class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center ">
+            <div class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center">
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <li>
                         <a class="text-hover" aria-current="page" href="">Home</a>
                     </li>
-                    <li>
-                        <a class="text-secondary-100 hover:text-hover" href="">Pages & Events</a>
+                    <li class="relative group">
+                        <a class="text-secondary-100 hover:text-hover cursor-pointer" id="programsEvents " href="/events">Programs & Events</a>
+                        <ul class="absolute left-0 hidden mt-2 space-y-2 bg-primary rounded-lg shadow-lg border border-secondary-300 w-[100%] px-6 py-4 group-hover:block z-10 text-center" id="programsEventsDropdown" id="programsEventsDropdown">
+                            <li>
+                                <a href="#" class="text-secondary-100 hover:text-hover">Professional Development</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-secondary-100 hover:text-hover">Networking</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-secondary-100 hover:text-hover">Campus Events</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a class="text-secondary-100 hover:text-hover" href="">Alumni Stories</a>
                     </li>
                     <li>
-                        <a class="text-secondary-100 hover:text-hover" href="">Career Opportunity</a>
+                        <a class="text-secondary-100 hover:text-hover" href="">Career Opportunities</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+    
     
     <!-- carousel for hero section -->
     <div class="img-slider relative h-screen overflow-hidden">
@@ -153,8 +165,7 @@
     
     </div>
 
-    <!-- modal -->
-              
+   <script src="../js/dropdown.js" ></script>
     <script src="../js/carousel.js"></script>
 </body>
 </html>

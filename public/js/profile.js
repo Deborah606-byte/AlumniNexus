@@ -9,9 +9,16 @@ profileImage.addEventListener("mouseleave", () => {
   profileDropdown.classList.add("hidden");
 });
 
-const dropdownToggle = document.getElementById("dropdown-toggle");
-const dropdownMenu = document.getElementById("dropdown-menu");
+const dropdownToggle = document.getElementsByClassName("dropdown-toggle");
 
-dropdownToggle.addEventListener("click", () => {
-  dropdownMenu.classList.toggle("hidden");
+// dropdownToggle.addEventListener("click", () => {
+//
+// });
+Array.from(dropdownToggle).forEach((dropdown) => {
+  dropdown.addEventListener("click", () => {
+    const dropdownMenu = dropdown.nextElementSibling;
+    dropdownMenu.classList.toggle("hidden");
+  });
 });
+
+// console.log(dropdownToggle);
