@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-primary">
+    
+    <!-- Events goes here -->
+    <div class="card shadow-sm relative bg-secondary-300">
+    <img src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif" alt="seminar" class="w-full">
+    
+    <div class="absolute top-[49%] left-0 bg-black/50 w-full">
+        <ul class="list-disc px-6 py-2">
+            <li class="text-secondary-200 font-medium">{{eventCategory}}</li>
+            <li class="text-secondary-200 font-medium">{{eventSubTopics}}</li>
+        </ul>
+    </div>
+
+    <div class="absolute top-2 right-5">
+        <span id="dropdown-toggle" class="cursor-pointer"><i class="fa-solid fa-ellipsis-vertical text-primary"></i></span>
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300">
+            <ul class="py-1">
+                <li>
+                    <a href="#" class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover">Edit Event</a>
+                </li>
+                <li>
+                    <a href="#" class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex justify-start space-x-8 mb-4">
+        <div class="bg-primary px-4 py-2">
+            <p class="text-secondary-200 font-medium">{{eventDate}}</p>
+            <p class="text-secondary-200 font-medium">{{eventTime}}</p>
+        </div>
+        <div class="p-2">
+            <p class="text-primary font-medium text-2xl mb-2">{{eventName}}</p>
+            <div class="relative">
+                <span class="absolute"><i class="fa-regular fa-clock text-primary"></i></span>
+                <p class="pl-6 text-secondary-200 font-semibold text-">{{eventDuration}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <script src="../js/profile.js"></script>
+    <script src="../js/addEvent.js"></script>
+    <script src="../js/updateEvent.js"></script>
+    <script src="../js/deleteEvent.js"></script>
+</body>
+</html>

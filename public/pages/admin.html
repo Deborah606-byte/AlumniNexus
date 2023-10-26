@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="bg-secondary-100">
+        <div class="grid lg:grid-cols-12 ">
+            <div class="col-span-3 bg-primary p-10 space-y-6">
+                <a href="#" class="font-extrabold">
+                    <h1 class="text-secondary-200 text-2xl"><span class="text-secondary-100 text-3xl">A</span>lumni<span class="text-secondary-100 text-3xl">N</span>exus</h1>
+                </a>
+                <div>
+                    <a href="#" class="text-secondary-100 font-semibold text-2xl">Dashboard</a>
+                </div>
+                <div class="relative space-x-10">
+                    <span class="absolute left-0"><i class="fa-solid fa-user text-secondary-200"></i></span>
+                    <a href="#" class="text-secondary-100 font-medium">Account</a>
+                </div>
+                <div class="relative space-x-10">
+                    <span class="absolute left-0"><i class="fa-solid fa-users-line  text-secondary-200"></i></span>
+                    <a href="#" class="text-secondary-100 font-medium">Members</a>
+                </div>
+                <div class="relative space-x-10">
+                    <span class="absolute left-0"><i class="fa-solid fa-calendar-days text-secondary-200"></i></span>
+                    <a href="#" class="text-secondary-100 font-medium">Events</a>
+                </div>
+                <div class="relative space-x-10">
+                    <span class="absolute left-0"><i class="fa-solid fa-gear text-secondary-200"></i></span>
+                    <a href="#" class="text-secondary-100 font-medium">Settings</a>
+                </div>
+            </div>
+
+            <div class="col-span-9 p-10">
+                <div class="flex justify-end container mx-auto ">
+                        <ul class="flex space-x-4">
+                            <li class="relative group">
+                                <div class="relative inline-block text-secondary-200 cursor-pointer">
+                                    <img class="rounded-full h-10 w-10 border-2 border-secondary-200" src="../images/admin.avif" alt="">
+                                    <div class="profile-dropdown hidden absolute z-10 right-0 mt-2 w-48 bg-primary rounded-lg shadow-lg border border-secondary-300">
+                                        <ul class="py-1">
+                                            <li>
+                                                <a href="#" class="block px-4 py-2 text-secondary-200 hover:text-hover">Update Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="/home" class="block px-4 py-2 text-secondary-200 hover:text-hover">Log Out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pt-2">
+                                <a class="text-primary">Deborah Ama Paintsil</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-secondary-200 p-8 rounded-lg mt-10">
+                        <h3 class="text-secondary-100 font-semibold text-2xl pb-4">Programs & Events</h3>
+                        <div class="flex justify-between">
+                            <p>Created Events</p>
+                            <div class="relative space-x-2">
+                                <span class="absolute left-5"><i class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"></i></span>
+                                <a id="open-event-form" class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover" href="">Add Event</a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-7 py-5">
+                            <div class="leading-loose">
+                                <p>Category</p>
+                                <p>Professional Development</p>
+                            </div>
+                            <div>
+                                <p>Name</p>
+                                <p>Leadership Seminar</p>
+                            </div>
+                            <div>
+                                <p>Date</p>
+                                <p>Sep 12, 2023</p>
+                            </div>
+                            <div>
+                                <p>Time</p>
+                                <p>02:30 pm</p>
+                            </div>
+                            <div>
+                                <p>Duration</p>
+                                <p>4 hours</p>
+                            </div>
+                            <div>
+                                <p>Location</p>
+                                <p>ALC Campus</p>
+                            </div>
+                            <div>
+                                <p>Action</p>
+                                <span id="dropdown-toggle" class="cursor-pointer"><i class="fa-solid fa-ellipsis-vertical text-primary"></i></span>
+                                <!-- Dropdown Menu -->
+                                <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300">
+                                <ul class="py-1">
+                                 <li>
+                                <a href="#" id="edit-event-form" class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover">Edit Event</a>
+                                  </li>
+                                 <li>
+                                <a href="#" class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</a>
+                            </li>
+                        </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

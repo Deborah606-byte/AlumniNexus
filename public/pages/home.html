@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body class="bg-primary">
+    <header>
+        <nav class="flex justify-between items-center container mx-auto py-4">
+            <a href="#" class="font-extrabold">
+                <h1 class="text-secondary-200 text-2xl"><span class="text-secondary-100 text-3xl">A</span>lumni<span class="text-secondary-100 text-3xl">N</span>exus</h1>
+            </a>
+            <div class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center ">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a class="text-hover" aria-current="page" href="">Home</a>
+                    </li>
+                    <li>
+                        <a class="text-secondary-100 hover:text-hover" href="">Pages & Events</a>
+                    </li>
+                    <li>
+                        <a class="text-secondary-100 hover:text-hover" href="">Alumni Stories</a>
+                    </li>
+                    <li>
+                        <a class="text-secondary-100 hover:text-hover" href="">Career Opportunity</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- carousel for hero section -->
+    <div class="img-slider relative h-screen overflow-hidden">
+        <div class="carousel relative flex h-full">
+            <div class="slide w-full h-full relative">
+                <img src="../images/lovely-happy-friends-taking-selfie.jpg" alt="" class="object-cover w-full h-full">
+                <div class="info absolute top-1/2 transform -translate-y-1/2 text-secondary-200 text-center w-full">
+                    <h2 class="text-5xl font-semibold uppercase leading-relaxed">Alumni Community: <br>Where Lifelong <br> Bonds Form</h2>
+                </div>
+            </div>
+    
+            <div class="slide w-full h-full relative">
+                <img src="../images/successful-business-people-discussing-matters-terrace-roof-men-women-different-nationalities-terrace-roof-using-laptop-work-modern-technology-team-concept.jpg" alt="" class="object-cover w-full h-full">
+                <div class="info absolute top-1/2 transform -translate-y-1/2 text-secondary-200 text-center w-full">
+                    <h2 class="text-5xl font-semibold uppercase leading-relaxed">Crafting Success <br> Stories Together</h2>
+                </div>
+            </div>
+    
+            <div class="slide w-full h-full relative">
+                <img src="../images/friends-toasting-with-glasses-wine-eating-barbeque-during-outdoor-party.jpg" alt="" class="object-cover w-full h-full">
+                <div class="info absolute top-1/2 transform -translate-y-1/2 text-secondary-200 text-center w-full">
+                    <h2 class="text-5xl font-semibold uppercase leading-relaxed">Celebrating Memories, <br> Creating Futures</h2>
+                </div>
+            </div>
+        </div>
+    
+        <div class="dots flex justify-center mt-4 absolute bottom-4 left-0 right-0">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div> 
+    
+    <!-- upcoming events -->
+    <div class="bg-secondary-300/30">
+    <div class="container grid lg:grid-cols-12 py-16 mx-auto gap-8">
+        <div class="lg:col-span-5">
+            <img class="h-[90%] w-full" src="../images/happy-joyful-friends-talking-laughing_1262-21146.jpg" alt="">
+        </div>
+        <div class="lg:col-span-7 relative">
+            <h3 class="text-secondary-100 text-2xl font-medium tracking-wide">Upcoming Events</h3>
+            <h3 class="text-secondary-200 text-2xl font-bold uppercase mt-4 tracking-wider">Annual Meetup, Gathering <br> and scholarship presentation</h3>
+            <div class="relative mt-2">
+                <span class="absolute"><i class="fa-solid fa-location-dot text-secondary-300"></i></span>
+                <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">African Leadership Campus, Pamplemousses</p>
+            </div>
+
+            <div class="flex mx-auto space-x-10 mt-28">
+                <div class="text-secondary-200 text-center ">
+                    <p class="text-4xl font-medium mb-3">65</p>
+                    <p class="font-light">Days</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                    <p class="text-4xl font-medium mb-3">30</p>
+                    <p class="font-light">Hours</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                    <p class="text-4xl font-medium mb-3">45</p>
+                    <p class="font-light">Minutes</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                    <p class="text-4xl font-medium mb-3">60</p>
+                    <p class="font-light">Seconds</p>
+                </div>
+
+                <div class="mt-6 pl-12">
+                    <a href="" class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover">Join Now</a>
+                </div>
+            </div>
+            
+        <div class="absolute top-6 right-5">
+            <p class="bg-secondary-300/50 px-6 text-secondary-200 font-semibold text-2xl">21</p>
+            <p class="bg-secondary-300/50 px-6 text-primary font-light">Dec</p>
+            <p class="bg-secondary-300 px-6 text-primary font-light">2023</p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- dashboard -->
+    <div class="container mx-auto py-16">
+        <h2 class="text-secondary-100 text-3xl font-bold">My Nexus Alumni Dashboard</h2>
+        <div class="grid lg:grid-cols-2 mt-8 gap-16">
+            <div>
+                <span><i class="fa-solid fa-user text-secondary-200"></i></span>
+                <h4 class="text-secondary-100 font-medium py-4 text-2xl">Update My Information</h4>
+                <p class="text-secondary-200 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dignissim dignissim dui a consequat. Etiam molestie orci eget turpis sollicitudin, sed cursus tellus placerat. Etiam venenatis, sem a congue aliquet, nulla ipsum dictum massa, vel ultricies enim nibh ut neque. Cras euismod sem nibh, quis porttitor</p>
+
+                <div class="mt-8">
+                    <a href=""><button class="uppercase bg-secondary-100 hover:scale-110 py-2 px-4 text-center text-secondary-200 rounded-lg">Go to dashboard</button></a>
+                </div>
+            </div>
+            <div>
+                <span><i class="fa-solid fa-users text-secondary-200"></i></span>
+                <h4 class="text-secondary-100 font-medium py-4 text-2xl">View All Events</h4>
+                <p class="text-secondary-200 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dignissim dignissim dui a consequat. Etiam molestie orci eget turpis sollicitudin, sed cursus tellus placerat. Etiam venenatis, sem a congue aliquet, nulla ipsum dictum massa, vel ultricies enim nibh ut neque. Cras euismod sem nibh, quis porttitor</p>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- modal -->
+              
+    <script src="../js/carousel.js"></script>
+</body>
+</html>
