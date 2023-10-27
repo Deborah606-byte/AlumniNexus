@@ -1,11 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const {
-  getAllEvents,
-  createEvent,
-} = require("../../controllers/eventControllers");
+// const express = require("express");
+// const router = express.Router();
+// const {
+//   getAllEvents,
+//   createEvent,
+// } = require("../../controllers/eventControllers");
 
-router.get("/", getAllEvents);
-router.post("/", createEvent);
+// router.get("/", getAllEvents);
+// router.post("/", createEvent);
 
-module.exports = router;
+// module.exports = router;

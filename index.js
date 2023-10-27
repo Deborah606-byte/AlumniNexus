@@ -16,8 +16,7 @@ const adminRoutes = require("./routes/frontendroutes/adminRoutes");
 const eventRoutes = require("./routes/frontendroutes/eventRoutes");
 
 //require backend routes
-const userBackendRoutes = require("./routes/backendroutes/userRoutes");
-const userEventRoutes = require("./routes/backendroutes/eventRoutes");
+const connectDB = require("./utils/util");
 
 //events
 const eventController = require("./controllers/eventControllers");
@@ -33,21 +32,14 @@ app.use("/", aboutRoutes);
 app.use("/home", homeRoutes);
 app.use("/auth", loginRoutes);
 app.use("/about", aboutRoutes);
-// app.use("/dashboard", userRoutes);
-// app.use("/admin", adminRoutes);
-// app.use("/events", eventRoutes);
+app.use("/dashboard", userRoutes);
+app.use("/admin", adminRoutes);
+app.use("/events", eventRoutes);
 // app.use("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public", "pages", "about.html"));
 // });
 
 //database routes
-app.use("/users", userBackendRoutes);
-app.use("/events", userEventRoutes);
-
-// Define the view route
-app.get("/dashboard", eventController.getUserEvents);
-app.get("/admin", eventController.getAllEvents);
-app.get("/events", eventController.getAllEvents);
-app.get("/admin", userController.getAllUsers);
+connectDB();
 
 app.listen(3000, () => console.log(`server started and running on port 3000`));
