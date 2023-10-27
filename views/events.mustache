@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
 
-    <link rel="stylesheet" href="../output.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
@@ -158,48 +158,50 @@
       <h3 class="text-secondary-100 font-extrabold text-3xl text-center mb-5">
         All Alumni Events
       </h3>
+      {{#events}}
       <div class="grid lg:grid-cols-12 gap-10">
         <div class="col-span-1 mt-12">
-          <p class="bg-secondary-300 px-6 text-primary font-light">Dec</p>
-          <p class="bg-secondary-300 px-6 text-primary font-light">2023</p>
+          <p class="bg-secondary-300 px-6 text-primary font-light">
+            {{ eventMonth }}
+          </p>
+          <p class="bg-secondary-300 px-6 text-primary font-light">
+            {{ eventYear }}
+          </p>
         </div>
         <div class="col-span-8">
-          <h4 class="text-secondary-100 font-medium text-lg mb-2">International Alumni Mixers</h4>
+          <h4 class="text-secondary-100 font-medium text-lg mb-2">
+            {{ eventName }}
+          </h4>
           <p class="text-secondary-200 leading-relaxed">
-            Our International Alumni Mixers are a celebration of the global
-            reach of AlumniNexus. These events are dedicated to our alumni who
-            live abroad, providing them with a unique opportunity to connect
-            with fellow alumni in their local regions. Whether you're in New
-            York, London, Sydney, or anywhere around the world, our mixers are
-            designed to foster global connections and create lasting
-            friendships. Join us at our next international mixer and be part of
-            a worldwide network of alumni excellence."
+            {{ eventDescription }}
           </p>
           <div class="relative mt-2">
             <span class="absolute"
               ><i class="fa-solid fa-location-dot text-secondary-300"></i
             ></span>
             <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
-              African Leadership Campus, Pamplemousses
+              {{ eventLocation }}
             </p>
           </div>
           <div class="mt-10">
             <a
-                  href=""
-                  class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
-                  >View Details</a
-                >
+              href=""
+              class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
+              >View Details</a
+            >
           </div>
         </div>
         <div class="col-span-3 mt-12">
-            <a
-                  href=""
-                  class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
-                  >RSVP</a
-                >
+          <a
+            href=""
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
+            >RSVP</a
+          >
+        </div>
       </div>
+      {{/events}}
     </div>
 
-    <script src="../js/dropdown.js"></script>
+    <script src="/js/dropdown.js"></script>
   </body>
 </html>

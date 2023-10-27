@@ -7,6 +7,8 @@ const getAllUsers = (req, res) => {
     console.log({ users });
 
     res.json({ users });
+
+    res.render("admin", { users });
   });
 };
 

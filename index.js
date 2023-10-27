@@ -21,6 +21,7 @@ const userEventRoutes = require("./routes/backendroutes/eventRoutes");
 
 //events
 const eventController = require("./controllers/eventControllers");
+const userController = require("./controllers/userControllers");
 
 const public = path.join(__dirname, "public");
 app.use(express.static(public));
@@ -34,7 +35,7 @@ app.use("/auth", loginRoutes);
 app.use("/about", aboutRoutes);
 // app.use("/dashboard", userRoutes);
 // app.use("/admin", adminRoutes);
-app.use("/events", eventRoutes);
+// app.use("/events", eventRoutes);
 // app.use("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public", "pages", "about.html"));
 // });
@@ -43,8 +44,10 @@ app.use("/events", eventRoutes);
 app.use("/users", userBackendRoutes);
 app.use("/events", userEventRoutes);
 
-// Define the dashboard route
+// Define the view route
 app.get("/dashboard", eventController.getUserEvents);
 app.get("/admin", eventController.getAllEvents);
+app.get("/events", eventController.getAllEvents);
+app.get("/admin", userController.getAllUsers);
 
 app.listen(3000, () => console.log(`server started and running on port 3000`));

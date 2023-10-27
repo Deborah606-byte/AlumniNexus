@@ -660,8 +660,16 @@ video {
   z-index: 50;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
+}
+
+.col-span-8 {
+  grid-column: span 8 / span 8;
 }
 
 .col-span-9 {
