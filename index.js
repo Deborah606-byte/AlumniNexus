@@ -33,7 +33,7 @@ app.use("/home", homeRoutes);
 app.use("/auth", loginRoutes);
 app.use("/about", aboutRoutes);
 // app.use("/dashboard", userRoutes);
-app.use("/admin", adminRoutes);
+// app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
 // app.use("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public", "pages", "about.html"));
@@ -45,5 +45,6 @@ app.use("/events", userEventRoutes);
 
 // Define the dashboard route
 app.get("/dashboard", eventController.getUserEvents);
+app.get("/admin", eventController.getAllEvents);
 
 app.listen(3000, () => console.log(`server started and running on port 3000`));
