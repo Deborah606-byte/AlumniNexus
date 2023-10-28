@@ -1,11 +1,12 @@
 // const express = require("express");
-// const router = express.Router();
+// const eventsRouter = express.Router();
 // const {
 //   getAllEvents,
 //   createEvent,
 // } = require("../../controllers/eventControllers");
 
-// router.get("/", getAllEvents);
-// router.post("/", createEvent);
+// eventsRouter.get("/", getAllEvents);
+// eventsRouter.post("/", createEvent);
 
-// module.exports = router;
+// module.exports = eventsRouter;
+

@@ -19,8 +19,12 @@ const eventRoutes = require("./routes/frontendroutes/eventRoutes");
 const connectDB = require("./utils/util");
 
 //events
-const eventController = require("./controllers/eventControllers");
 const userController = require("./controllers/userControllers");
+// const eventsRouter = require("./routes/backendroutes/eventRoutes");
+// const eventController = require("./controllers/eventControllers");
+
+//backend routes
+const alumniAdminRoutes = require("./routes/backendroutes/userRoutes");
 
 const public = path.join(__dirname, "public");
 app.use(express.static(public));
@@ -39,6 +43,9 @@ app.use("/events", eventRoutes);
 //   res.sendFile(path.join(__dirname, "./public", "pages", "about.html"));
 // });
 
+app.use("/newAlumni", userController.createUser);
+app.use("/alumniAdmin", alumniAdminRoutes);
+app.get("/alumniAdmin", userController.getAllUsers);
 //database routes
 connectDB();
 
