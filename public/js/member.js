@@ -1,4 +1,4 @@
-const openMemberButton = document.getElementById("open-admin-edit-form");
+const openMemberButton = document.getElementById("open-admin-member-form");
 const memberModal = document.getElementById("admin-member-modal");
 const closeMemberButton = document.getElementById("close-admin-form");
 console.log(openMemberButton);
@@ -19,6 +19,6 @@ openMemberButton.addEventListener("click", openMemberModal);
 closeMemberButton.addEventListener("click", closeMemberModal);
 
 const adminform = document.getElementById("member-form");
-adminform.addEventListener("submit", function (event) {
-  event.preventDefault();
-});
+// adminform.addEventListener("submit", function (event) {
+//   // event.preventDefault();
+// });

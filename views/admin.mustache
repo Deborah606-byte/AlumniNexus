@@ -398,7 +398,7 @@
               >
                 <div class="flex justify-between">
                   <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
-                    Update user details
+                    Updates user details
                   </h2>
                   <span id=""
                     ><i
@@ -406,8 +406,8 @@
                     ></i
                   ></span>
                 </div>
-                <form action="/alumni-admin/{{ username }}" method="POST">
-                  <label for="username">Username:</label>
+                <form action="/users/user/{{ username }}" method="POST">
+                  <label for="username">Usernames:</label>
                   <input
                     class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                     type="text"
@@ -460,7 +460,7 @@
                   <div class="flex mx-auto space-x-32 py-5">
                     <a
                       class="rounded-full bg-secondary-100 text-secondary-200 px-4 py-2 hover:underline hover:text-primary"
-                      href="/alumni-admin"
+                      href="/users"
                       >Cancel</a
                     >
                     <button
@@ -487,8 +487,11 @@
                     ></i
                   ></span>
                 </div>
-                <form action="/alumni-admin/{{ username }}" method="POST">
-                  <label for="username">Delete Users:</label>
+                <form
+                  action="/users/delete/{{ username }}"
+                  method="POST"
+                >
+                  <label for="username">Delete Alumni User:</label>
                   <input
                     class="block"
                     id="username"
@@ -496,17 +499,6 @@
                     value="{{ username }}"
                     disabled
                   />
-                  <input type="radio" id="yes" name="yes" value="yes" />
-                  <label for="yes" class="text-primary text-sm font-medium"
-                    >Yes</label
-                  ><br />
-                  <input type="radio" id="no" name="no" value="no" />
-                  <label for="yes" class="text-primary text-sm font-medium"
-                    >No</label
-                  >
-
-                  <br />
-                  <br />
                   <!-- Button -->
                   <button
                     type="submit"
@@ -727,9 +719,8 @@
         ></span>
       </div>
       <form
-        action="/newAlumni"
+        action="/users/"
         method="POST"
-        id="member-form"
         class="flex flex-col items-start space-y-4 max-w-xl mx-auto w-full md:w-[50%]"
       >
         <div class="relative w-full flex items-center">
@@ -836,6 +827,7 @@
             >Cancel</a
           >
           <button
+            type="submit"
             class="rounded-full text-secondary-200 bg-primary mx-auto px-5 py-2 hover:text-hover"
           >
             Sign Up

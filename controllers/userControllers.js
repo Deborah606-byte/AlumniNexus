@@ -48,7 +48,7 @@ const updateUser = async (req, res) => {
       });
     } else {
       res.flash("Member updated succesfully");
-      res.redirect("/alumni-admin");
+      res.redirect("/users");
     }
   } catch (err) {
     console.error("An error occurred");
@@ -58,9 +58,8 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+  const { username } = req.params;
   try {
-    const username = req.params.username;
-
     const deletedUser = await User.findOneAndRemove({ username });
 
     if (!deletedUser) {

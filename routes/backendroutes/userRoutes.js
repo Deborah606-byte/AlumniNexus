@@ -10,7 +10,7 @@ const {
 userRouter.post("/", createUser);
 userRouter.get("/", getAllUsers);
 
-userRouter.post("/:username", updateUser);
-userRouter.post("/:username", deleteUser);
+userRouter.post("/user/:username", updateUser);
+userRouter.post("/delete/:username", deleteUser);
 
 module.exports = userRouter;
