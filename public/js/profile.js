@@ -11,9 +11,6 @@ profileImage.addEventListener("mouseleave", () => {
 
 const dropdownToggle = document.getElementsByClassName("dropdown-toggle");
 
-// dropdownToggle.addEventListener("click", () => {
-//
-// });
 Array.from(dropdownToggle).forEach((dropdown) => {
   dropdown.addEventListener("click", () => {
     const dropdownMenu = dropdown.nextElementSibling;
@@ -21,4 +18,4 @@ Array.from(dropdownToggle).forEach((dropdown) => {
   });
 });
 
-// console.log(dropdownToggle);
+console.log("button clicked");
