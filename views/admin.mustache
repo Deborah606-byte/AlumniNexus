@@ -377,14 +377,15 @@
                         href="#"
                         id="{{ username }}"
                         class="open-admin-edit-form block px-4 py-2 text-secondary-200 hover:text-hover"
-                        >Edit Event</a
+                        >Edit Alumni</a
                       >
                     </li>
                     <li>
                       <a
                         href="#"
-                        class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
-                        >Delete Event</a
+                        id="{{ username }}"
+                        class="open-admin-delete-form block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Delete Alumni</a
                       >
                     </li>
                   </ul>
@@ -468,6 +469,51 @@
                       Update User
                     </button>
                   </div>
+                </form>
+              </div>
+
+              <!-- deleting users -->
+              <div
+                id="{{ username }}"
+                class="admin-delete-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-sm hidden mx-auto"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+                    Delete Alumni Member
+                  </h2>
+                  <span id=""
+                    ><i
+                      class="close-delete-form fa-solid fa-xmark text-primary"
+                    ></i
+                  ></span>
+                </div>
+                <form action="/alumni-admin/{{ username }}" method="POST">
+                  <label for="username">Delete Users:</label>
+                  <input
+                    class="block"
+                    id="username"
+                    name="username"
+                    value="{{ username }}"
+                    disabled
+                  />
+                  <input type="radio" id="yes" name="yes" value="yes" />
+                  <label for="yes" class="text-primary text-sm font-medium"
+                    >Yes</label
+                  ><br />
+                  <input type="radio" id="no" name="no" value="no" />
+                  <label for="yes" class="text-primary text-sm font-medium"
+                    >No</label
+                  >
+
+                  <br />
+                  <br />
+                  <!-- Button -->
+                  <button
+                    type="submit"
+                    class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                  >
+                    Delete User
+                  </button>
                 </form>
               </div>
               {{/alumniUsers}}
@@ -804,5 +850,6 @@
     <script src="/js/addEvent.js"></script>
     <script src="/js/member.js"></script>
     <script src="/js/editmember.js"></script>
+    <script src="/js/deletemember.js"></script>
   </body>
 </html>

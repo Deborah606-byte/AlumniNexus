@@ -59,7 +59,23 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
-  } catch (error) {}
+    const username = req.params.username;
+
+    const deletedUser = await User.findOneAndRemove({ username });
+
+    if (!deletedUser) {
+      return res.status(404).send({
+        message: `Cannot delete user with username: ${username}. User not found!`,
+      });
+    }
+
+    console.log({ message: "User deleted successfully", deletedUser });
+    res.status(200).send("User deleted successfully");
+  } catch (error) {
+    console.error("An error occurred");
+    console.error({ error });
+    res.status(500).send("Error deleting user");
+  }
 };
 
 module.exports = {
