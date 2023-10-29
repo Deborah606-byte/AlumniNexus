@@ -43,16 +43,15 @@ const userController = require("./controllers/userControllers");
 const eventController = require("./controllers/eventControllers");
 
 // app.use("/dashboard", alumniCreatedEvent);
-app.use("/alumniAdmin", alumniAdminRoutes);
-app.use("/alumniAdmin", alumniEvents);
-// app.use("/alumniAdmin", alumniEvents);
+app.use("/alumni-admin", alumniAdminRoutes);
+app.use("/alumni-admin", alumniEvents);
 
 // Create a new alumni using a POST request
 app.post("/newAlumni", userController.createUser);
 
 // Get all alumni and its events using a GET request
-app.get("/alumniAdmin", userController.getAllUsers);
-app.get("/alumniAdmin", eventController.getAllEvents);
+app.get("/alumni-admin", userController.getAllUsers);
+app.get("/alumni-admin", eventController.getAllEvents);
 
 //Create a new event using a POST request
 app.post("/newEvent", eventController.createEvent);

@@ -33,22 +33,21 @@ const updateUser = async (req, res) => {
         .send({ message: "Data to update cannot be empty" });
     }
 
-    const id = req.params.id;
-    console.log("ID:", id);
+    const username = req.params.username;
     console.log("Request Body:", req.body);
 
-    const data = await User.findByIdAndUpdate(id, req.body, {
-      useFindAndModify: false,
+    const data = await User.findOneAndUpdate({ username }, req.body, {
+      new: true,
     });
 
     console.log("Updated Data:", data);
 
     if (!data) {
       res.status(404).send({
-        message: `Cannot update user with ${id}. Maybe user not found!`,
+        message: `Cannot update user with ${username}. Maybe user not found!`,
       });
     } else {
-      res.send(data);
+      res.redirect("/alumni-admin");
     }
   } catch (err) {
     console.error("An error occurred");

@@ -9,6 +9,6 @@ const {
 userRouter.post("/", createUser);
 userRouter.get("/", getAllUsers);
 
-userRouter.put("/alumniAdmin/:id", updateUser);
+userRouter.post("/:username", updateUser);
 
 module.exports = userRouter;
