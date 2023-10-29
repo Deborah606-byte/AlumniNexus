@@ -333,11 +333,11 @@
             <div class="flex justify-between mb-5">
               <p>Alumni Members</p>
               <div class="relative space-x-2">
-                <span class="absolute left-5"
-                  ><i
+                <span class="absolute left-5">
+                  <i
                     class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
-                  ></i
-                ></span>
+                  ></i>
+                </span>
                 <a
                   id="open-event-form"
                   class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
@@ -345,62 +345,49 @@
                   >Add Member</a
                 >
               </div>
+            </div>
+            <div class="grid grid-cols-6 py-5">
+              <!-- Header row for column labels -->
+              <div class="text-primary text-lg mb-2">Username</div>
+              <div class="text-primary text-lg mb-2">First name</div>
+              <div class="text-primary text-lg mb-2">Last name</div>
+              <div class="text-primary text-lg mb-2">Group</div>
+              <div class="text-primary text-lg mb-2">Email</div>
+              <div class="text-primary text-lg mb-2">Action</div>
+
+              <!-- Alumni user data -->
               {{#alumniUsers}}
-              <div class="grid grid-cols-6 py-5 space-x-4">
-                <!-- Category -->
-                <div>
-                  <p class="text-primary text-lg mb-2">Username</p>
-                  <p>{{ username }}</p>
-                </div>
-                <!-- Date -->
-                <div>
-                  <p class="text-primary text-lg mb-2">First name</p>
-                  <p>{{ firstName }}</p>
-                </div>
-                <!-- Time -->
-                <div>
-                  <p class="text-primary text-lg mb-2">Last name</p>
-                  <p>{{ lastName }}</p>
-                </div>
-                <!-- Duration -->
-                <div>
-                  <p class="text-primary text-lg mb-2">Group</p>
-                  <p>{{ group }}</p>
-                </div>
-                <!-- Location -->
-                <div>
-                  <p class="text-primary text-lg mb-2">Email</p>
-                  <p>{{ email }}</p>
-                </div>
-                <!-- Action -->
-                <div>
-                  <p class="text-primary text-lg mb-2">Action</p>
-                  <span id="dropdown-toggle" class="cursor-pointer">
-                    <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
-                  </span>
-                  <!-- Dropdown Menu -->
-                  <div
-                    id="dropdown-menu"
-                    class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
-                  >
-                    <ul class="py-1">
-                      <li>
-                        <a
-                          href="#"
-                          id="edit-event-form"
-                          class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
-                          >Edit Member</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
-                          >Delete Member</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
+              <div>{{ username }}</div>
+              <div>{{ firstName }}</div>
+              <div>{{ lastName }}</div>
+              <div>{{ group }}</div>
+              <div style="word-wrap: break-word">{{ email }}</div>
+              <div class="pl-4">
+                <span id="dropdown-toggle" class="cursor-pointer">
+                  <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
+                </span>
+                <!-- Dropdown Menu -->
+                <div
+                  id="dropdown-menu"
+                  class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                >
+                  <ul class="py-1">
+                    <li>
+                      <a
+                        href="#"
+                        id="edit-event-form"
+                        class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Edit Member</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Delete Member</a
+                      >
+                    </li>
+                  </ul>
                 </div>
               </div>
               {{/alumniUsers}}
