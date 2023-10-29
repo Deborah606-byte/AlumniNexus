@@ -47,6 +47,7 @@ const updateUser = async (req, res) => {
         message: `Cannot update user with ${username}. Maybe user not found!`,
       });
     } else {
+      res.flash("Member updated succesfully");
       res.redirect("/alumni-admin");
     }
   } catch (err) {

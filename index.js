@@ -1,7 +1,9 @@
 const express = require("express");
+const flash = require("flash-express");
 const path = require("path");
-const app = express();
 const mustache = require("mustache-express");
+
+const app = express();
 
 // Configure Mustache as the template engine
 app.engine("mustache", mustache());
@@ -15,6 +17,7 @@ app.use(express.static(public));
 // Parse request body
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(flash());
 
 // Connect to the database
 const connectDB = require("./utils/util");
