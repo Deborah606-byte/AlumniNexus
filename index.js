@@ -40,16 +40,12 @@ app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
 
 // Backend routes
-const alumniAdminRoutes = require("./routes/backendroutes/userRoutes");
+const alumniRoutes = require("./routes/backendroutes/userRoutes");
 const alumniEvents = require("./routes/backendroutes/eventRoutes");
-const userController = require("./controllers/userControllers");
-const eventController = require("./controllers/eventControllers");
 
-// app.use("/dashboard", alumniCreatedEvent);
-app.use("/users", alumniAdminRoutes);
+app.use("/users", alumniRoutes);
 
-//Create a new event using a POST request
-app.post("/newEvent", eventController.createEvent);
+app.use("/alumni-events", alumniEvents);
 
 // Start the server
 app.listen(3000, () => console.log("Server started and running on port 3000"));

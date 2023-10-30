@@ -391,6 +391,7 @@
                   </ul>
                 </div>
               </div>
+
               <!-- editing member -->
               <div
                 id="{{ username }}"
@@ -487,10 +488,7 @@
                     ></i
                   ></span>
                 </div>
-                <form
-                  action="/users/delete/{{ username }}"
-                  method="POST"
-                >
+                <form action="/users/delete/{{ username }}" method="POST">
                   <label for="username">Delete Alumni User:</label>
                   <input
                     class="block"
@@ -711,7 +709,7 @@
       class="fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
     >
       <div class="flex justify-between">
-        <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6 mx-auto">
           Add a new member
         </h2>
         <span id="close-admin-form"
@@ -837,11 +835,11 @@
     </div>
 
     <script type="text/javascript" src="flash/flash-client.js"></script>
+    <script src="/js/editmember.js"></script>
     <script src="/js/profile.js"></script>
     <script src="/js/admin.js"></script>
     <script src="/js/addEvent.js"></script>
     <script src="/js/member.js"></script>
-    <script src="/js/editmember.js"></script>
     <script src="/js/deletemember.js"></script>
   </body>
 </html>

@@ -1,40 +1,32 @@
-const openEditForm = document.getElementsByClassName("open-admin-edit-form");
-const editModal = document.getElementsByClassName("admin-edit-modal");
+const openEditFormButtons = document.querySelectorAll(".open-admin-edit-form");
+const editModals = document.querySelectorAll(".admin-edit-modal");
 
 // Function to open the member modal
-function openeditModal(id) {
-  Array.from(editModal).forEach((modal) => {
-    const modalId = modal.getAttribute("id");
-    if (id == modalId) {
+function openEditModal(id) {
+  editModals.forEach((modal) => {
+    if (modal.getAttribute("id") === id) {
       modal.classList.remove("hidden");
-      const closeEditForm = modal.getElementsByClassName("close-edit-form")[0];
+
+      const closeEditForm = modal.querySelector(".close-edit-form");
       closeEditForm.addEventListener("click", () => {
-        closeeditModal(id);
+        closeEditModal(id);
       });
     }
   });
 }
 
 // Function to close the member modal
-function closeeditModal(id) {
-  Array.from(editModal).forEach((modal) => {
-    const modalId = modal.getAttribute("id");
-    if (id == modalId) {
+function closeEditModal(id) {
+  editModals.forEach((modal) => {
+    if (modal.getAttribute("id") === id) {
       modal.classList.add("hidden");
     }
   });
 }
 
-const editForm = document.getElementById("member-form");
-editForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-});
-
-Array.from(openEditForm).forEach((admineditform) => {
-  console.log(admineditform);
-  admineditform.addEventListener("click", (event) => {
-    console.log(event);
-    const id = event.target.id;
-    openeditModal(id);
+openEditFormButtons.forEach((adminEditForm) => {
+  adminEditForm.addEventListener("click", (event) => {
+    const id = event.target.getAttribute("id");
+    openEditModal(id);
   });
 });
