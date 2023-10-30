@@ -1,32 +1,33 @@
-const openDeleteEventButtons = document.querySelectorAll(".delete-event-form");
-const deleteModals = document.querySelectorAll(".delete-event-modal");
+const openDeleteForm = document.getElementsByClassName("delete-event-form");
+const deleteModal = document.getElementsByClassName("delete-event-modal");
 
-// Function to open the delete event modal
-function openDeleteEventModal(id) {
-  deleteModals.forEach((alumni) => {
-    if (alumni.getAttribute("id") === id) {
-      alumni.classList.remove("hidden");
-
-      const closeDeleteForm = alumni.querySelector(".close-delete");
+// Function to open the delete member modal
+function openDeleteModal(id) {
+  Array.from(deleteModal).forEach((modal) => {
+    const modalId = modal.getAttribute("id");
+    if (id == modalId) {
+      modal.classList.remove("hidden");
+      const closeDeleteForm = modal.getElementsByClassName("close-delete")[0];
       closeDeleteForm.addEventListener("click", () => {
-        closeDeleteEventModal(id);
+        closeDeleteModal(id);
       });
     }
   });
 }
 
-// Function to close the delete event modal
-function closeDeleteEventModal(id) {
-  deleteModals.forEach((alumni) => {
-    if (alumni.getAttribute("id") === id) {
-      alumni.classList.add("hidden");
+// Function to close the delete member modal
+function closeDeleteModal(id) {
+  Array.from(deleteModal).forEach((modal) => {
+    const modalId = modal.getAttribute("id");
+    if (id == modalId) {
+      modal.classList.add("hidden");
     }
   });
 }
 
-openDeleteEventButtons.forEach((deleteForm) => {
+Array.from(openDeleteForm).forEach((deleteForm) => {
   deleteForm.addEventListener("click", (event) => {
-    const id = event.target.getAttribute("id");
-    openDeleteEventModal(id);
+    const id = event.target.id;
+    openDeleteModal(id);
   });
 });

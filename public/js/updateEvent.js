@@ -9,7 +9,9 @@ function openUpdateModal(id) {
 
       const closeUpdateForm = update.querySelector(".close-update");
       closeUpdateForm.addEventListener("click", () => {
+        console.log("Before close");
         closeUpdateModal(id);
+        console.log("After close");
       });
     }
   });
@@ -26,6 +28,7 @@ function closeUpdateModal(id) {
 
 openUpdateEventButtons.forEach((updateForm) => {
   updateForm.addEventListener("click", (event) => {
+
     const id = event.target.getAttribute("id");
     openUpdateModal(id);
   });
