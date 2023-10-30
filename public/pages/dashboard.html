@@ -170,7 +170,7 @@
       class="fixed inset-0 z-50 flex items-center justify-center hidden mt-4"
     >
       <form
-        action="/alumni-event/"
+        action="/alumni-events"
         method="POST"
         id="event-form"
         class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
@@ -222,37 +222,21 @@
           </div>
         </div>
 
-        <!-- event description and subtopics -->
+        <!-- event description and created by -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
             <label
-              for="eventSubTopics"
+              for="username"
               class="block text-secondary-100 text-sm font-medium"
-              >Event Sub Topics</label
+              >Created by</label
             >
-            <div id="eventSubTopics">
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
-                placeholder="Sub Topic 1"
-                required
-              />
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
-                placeholder="Sub Topic 2"
-                required
-              />
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50"
-                placeholder="Sub Topic 3"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
           </div>
 
           <div class="w-1/2 px-2">
@@ -265,7 +249,7 @@
               id="eventDescription"
               name="eventDescription"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
-              rows="6"
+              rows="2"
               required
             ></textarea>
           </div>

@@ -1,18 +1,32 @@
-const updateEventButton = document.querySelector(".updateEventbutton");
-const updateEventForm = document.getElementById("update-event");
-const updateModal = document.getElementById("update-event-modal");
-const closeUpdateButton = document.getElementById("close-update");
+const openUpdateEventButtons = document.querySelectorAll(".edit-event-form");
+const updateModal = document.querySelectorAll(".update-event-modal");
 
-// Function to open the update event modal
-function openUpdateEventModal() {
-  updateModal.classList.remove("hidden");
+// Function to open the member modal
+function openUpdateModal(id) {
+  updateModal.forEach((update) => {
+    if (update.getAttribute("id") === id) {
+      update.classList.remove("hidden");
+
+      const closeUpdateForm = update.querySelector(".close-update");
+      closeUpdateForm.addEventListener("click", () => {
+        closeUpdateModal(id);
+      });
+    }
+  });
 }
 
-// Function to close the update event modal
-function closeUpdateEventModal() {
-  updateModal.classList.add("hidden");
+// Function to close the member modal
+function closeUpdateModal(id) {
+  updateModal.forEach((update) => {
+    if (update.getAttribute("id") === id) {
+      update.classList.add("hidden");
+    }
+  });
 }
 
-// Event listeners
-updateEventButton.addEventListener("click", openUpdateEventModal);
-closeUpdateButton.addEventListener("click", closeUpdateEventModal);
+openUpdateEventButtons.forEach((updateForm) => {
+  updateForm.addEventListener("click", (event) => {
+    const id = event.target.getAttribute("id");
+    openUpdateModal(id);
+  });
+});

@@ -1,22 +1,33 @@
-const deleteEventButton = document.querySelectorAll(".deleteEventbutton");
-const deleteEventModal = document.getElementById("delete-event-modal");
-const closeDeleteEventButton = document.getElementById("close-delete");
+const openDeleteForm = document.getElementsByClassName("delete-event-form");
+const deleteModal = document.getElementsByClassName("delete-event-modal");
 
-// Function to open the delete event modal
-function openDeleteEventModal(event) {
-  event.preventDefault(); // Prevent the default link behavior
-  deleteEventModal.classList.remove("hidden");
+// Function to open the delete member modal
+function openDeleteModal(id) {
+  Array.from(deleteModal).forEach((modal) => {
+    const modalId = modal.getAttribute("id");
+    if (id == modalId) {
+      modal.classList.remove("hidden");
+      const closeDeleteForm = modal.getElementsByClassName("close-delete")[0];
+      closeDeleteForm.addEventListener("click", () => {
+        closeDeleteModal(id);
+      });
+    }
+  });
 }
 
-// Function to close the delete event modal
-function closeDeleteEventModal() {
-  deleteEventModal.classList.add("hidden");
+// Function to close the delete member modal
+function closeDeleteModal(id) {
+  Array.from(deleteModal).forEach((modal) => {
+    const modalId = modal.getAttribute("id");
+    if (id == modalId) {
+      modal.classList.add("hidden");
+    }
+  });
 }
 
-// Add click event listeners for all delete event buttons
-deleteEventButton.forEach((button) => {
-  button.addEventListener("click", openDeleteEventModal);
+Array.from(openDeleteForm).forEach((deleteForm) => {
+  deleteForm.addEventListener("click", (event) => {
+    const id = event.target.id;
+    openDeleteModal(id);
+  });
 });
-
-// Add click event listener for the close button
-closeDeleteEventButton.addEventListener("click", closeDeleteEventModal);

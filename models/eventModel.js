@@ -11,12 +11,10 @@ const EventSchema = new Schema({
     type: String,
     required: true,
   },
-  eventSubTopics: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
+  username: {
+    type: String,
+    required: true,
+  },
   eventDescription: {
     type: String,
     required: true,
