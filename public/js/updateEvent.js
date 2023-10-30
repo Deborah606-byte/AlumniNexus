@@ -1,7 +1,7 @@
 const openUpdateEventButtons = document.querySelectorAll(".edit-event-form");
 const updateModal = document.querySelectorAll(".update-event-modal");
 
-// Function to open the member modal
+// Function to open the update form modal
 function openUpdateModal(id) {
   updateModal.forEach((update) => {
     if (update.getAttribute("id") === id) {
@@ -15,7 +15,7 @@ function openUpdateModal(id) {
   });
 }
 
-// Function to close the member modal
+// Function to close the update form modal
 function closeUpdateModal(id) {
   updateModal.forEach((update) => {
     if (update.getAttribute("id") === id) {
