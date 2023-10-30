@@ -57,7 +57,7 @@ const updateMyEvent = async (req, res) => {
 
     if (!event) {
       return res.status(404).send({
-        message: `Cannot update event with id ${username}. Event not found!`,
+        message: `Cannot update event with username ${username}. Event not found!`,
       });
     } else {
       res.flash("success_msg", "Event updated successfully");
@@ -70,8 +70,29 @@ const updateMyEvent = async (req, res) => {
   }
 };
 
+const deleteMyEvent = async (req, res) => {
+  const { username } = req.params;
+  try {
+    const deletedEvent = await Event.findOneAndRemove({ username });
+
+    if (!deletedEvent) {
+      return res.status(404).send({
+        message: `Cannot delete event with username: ${username}. Event not found!`,
+      });
+    }
+
+    console.log({ message: "Event deleted successfully", deletedEvent });
+    res.status(200).send("Event deleted successfully");
+  } catch (error) {
+    console.error("An error occurred");
+    console.error({ error });
+    res.status(500).send("Error deleting event");
+  }
+};
+
 module.exports = {
   createEvent,
   getMyEvents,
   updateMyEvent,
+  deleteMyEvent,
 };

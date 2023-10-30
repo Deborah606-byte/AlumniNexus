@@ -347,8 +347,10 @@
           class="delete-event-modal fixed inset-0 z-50 flex items-center justify-center hidden"
         >
           <form
-            id=""
-            class="delete-event bg-white p-8 rounded-lg shadow-md max-w-md mx-auto"
+            id="delete-event"
+            action="/alumni-events/{{ username }}"
+            method="POST"
+            class="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto"
           >
             <div class="flex justify-between">
               <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
