@@ -39,6 +39,13 @@ app.use("/dashboard", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
 
+// // Handle 404 errors
+// app.get("*", (req, res) => {
+//   res
+//     .status(404)
+//     .sendFile(path.join(__dirname, "../../public", "pages", "404.html"));
+// });
+
 // Backend routes
 const alumniRoutes = require("./routes/backendroutes/userRoutes");
 const alumniEvents = require("./routes/backendroutes/eventRoutes");
