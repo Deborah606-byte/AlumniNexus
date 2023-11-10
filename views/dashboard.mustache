@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+      integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-primary">
+    <header class="bg-secondary-100">
+      <nav class="flex justify-between items-center container mx-auto py-2">
+        <a href="#" class="font-extrabold">
+          <h1 class="text-secondary-200 text-2xl">
+            <span class="text-primary text-3xl">A</span>lumni<span
+              class="text-primary text-3xl"
+              >N</span
+            >exus
+          </h1>
+        </a>
+        <div
+          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
+          >
+            <li class="relative space-x-2">
+              <span class="absolute left-5"
+                ><i
+                  class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
+                ></i
+              ></span>
+              <a
+                id="open-event-form"
+                class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
+                href=""
+                >Add Event</a
+              >
+            </li>
+            <li class="relative group">
+              <div
+                class="relative inline-block text-secondary-200 cursor-pointer"
+              >
+                <img
+                  class="rounded-full h-10 w-10 border-2 border-secondary-200"
+                  src="../images/doctor 2.png"
+                  alt=""
+                />
+                <div
+                  class="profile-dropdown hidden absolute z-10 right-0 mt-2 w-48 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                >
+                  <ul class="py-1">
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Update Profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/home"
+                        class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Log Out</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Events goes here -->
+    <div class="container mx-auto py-10">
+      <div class="grid grid-cols-3 gap-10">
+        {{#alumniEvents}}
+        <div class="card shadow-sm relative bg-secondary-300">
+          <img
+            class=""
+            src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
+            alt="seminar"
+            class="w-full"
+          />
+
+          <div class="absolute top-[46%] left-0 bg-black/30 w-full">
+            <p class="text-secondary-200 font-medium text-2xl mb-2">
+              {{ username }}
+            </p>
+          </div>
+
+          <div class="absolute top-2 right-5 z-50">
+            <span class="dropdown-toggle cursor-pointer"
+              ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
+            ></span>
+
+            <!-- Dropdown Menu -->
+            <div
+              class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+            >
+              <ul class="py-1">
+                <li>
+                  <a
+                    href="#"
+                    id="{{ username }}"
+                    class="edit-event-form block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Edit Event</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    id="{{ username }}"
+                    class="delete-event-form block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Delete Event</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-2">
+              <p class="text-secondary-200 font-medium">{{ eventMonth }}</p>
+              <p class="text-secondary-200 font-medium">{{ eventDay }}</p>
+            </div>
+            <div class="p-2">
+              <p class="text-primary font-medium text-2xl mb-2">
+                {{ eventName }}
+              </p>
+              <div class="relative">
+                <span class="absolute"
+                  ><i class="fa-regular fa-clock text-primary"></i
+                ></span>
+                <p class="pl-6 text-secondary-200 font-semibold text-">
+                  {{ eventTime }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="event-details"
+            class="p-6 text-secondary-200 bg-secondary-100"
+          >
+            <p class="text-primary font-medium text-xl mb-2">
+              {{ eventCategory }}
+            </p>
+            <p class="text-secondary-200 font-medium">
+              Duration: {{ eventDuration }}
+            </p>
+            <p class="text-secondary-200 font-medium">
+              Location: {{ eventLocation }}
+            </p>
+          </div>
+        </div>
+
+        <!-- update event -->
+        <div
+          id="{{ username }}"
+          class="update-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+        >
+          <div class="flex justify-between">
+            <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+              Update Event
+            </h2>
+            <span id=""
+              ><i class="close-update fa-solid fa-xmark text-primary"></i
+            ></span>
+          </div>
+          <form action="/alumni-events/{{ username }}" method="POST">
+            <!-- event category -->
+            <div class="mb-4 flex flex-wrap -mx-2">
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventCategory"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Event Category</label
+                >
+                <input
+                  type="text"
+                  id="eventCategory"
+                  name="eventCategory"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2"
+                  value="{{ eventCategory }}"
+                  required
+                />
+              </div>
+
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventName"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Event Name</label
+                >
+                <input
+                  type="text"
+                  id="eventName"
+                  name="eventName"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2"
+                  value="{{ eventName }}"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- event description and created by -->
+            <div class="mb-4 flex flex-wrap -mx-2">
+              <div class="w-1/2 px-2">
+                <label
+                  for="username"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Created by</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                  value="{{ username }}"
+                  disabled
+                />
+              </div>
+
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventDescription"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Description</label
+                >
+                <input
+                  type="text"
+                  id="eventDescription"
+                  name="eventDescription"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                  value="{{ eventDescription }}"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Date and Time -->
+            <div class="mb-4 flex flex-wrap -mx-2">
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventDate"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Date</label
+                >
+                <input
+                  type="date"
+                  id="eventDate"
+                  name="eventDate"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                  value="{{ eventDate }}"
+                  required
+                />
+              </div>
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventTime"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Time</label
+                >
+                <input
+                  type="time"
+                  id="eventTime"
+                  name="eventTime"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2"
+                  value="{{ eventTime }}"
+                  required
+                />
+              </div>
+            </div>
+
+            <!--  Duration and Location-->
+            <div class="mb-4 flex flex-wrap -mx-2">
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventDuration"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Duration (hours)</label
+                >
+                <input
+                  type="number"
+                  id="eventDuration"
+                  name="eventDuration"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2"
+                  value="{{ eventDuration }}"
+                  required
+                />
+              </div>
+              <div class="w-1/2 px-2">
+                <label
+                  for="eventLocation"
+                  class="block text-secondary-100 text-sm font-medium"
+                  >Location</label
+                >
+                <input
+                  type="text"
+                  id="eventLocation"
+                  name="eventLocation"
+                  class="w-full p-2 rounded-lg border-gray-500 border-2"
+                  value="{{ eventLocation }}"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between">
+              <button
+                type="button"
+                class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+                onclick="cancelEvent()"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+              >
+                Update Event
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- delete event -->
+        <div
+          id="{{ username }}"
+          class="delete-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-sm hidden mx-auto"
+        >
+          <div class="flex justify-between">
+            <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+              Delete Event
+            </h2>
+            <span id=""
+              ><i class="close-delete fa-solid fa-xmark text-primary"></i
+            ></span>
+          </div>
+          <form
+            id="delete-event"
+            action="/alumni-events/delete/{{ username }}"
+            method="POST"
+          >
+            <p class="text-secondary-100 mb-2">Delete this event:</p>
+            <input type="radio" id="yes" name="yes" value="yes" />
+            <label for="yes" class="text-primary text-sm font-medium">Yes</label
+            ><br />
+            <input type="radio" id="no" name="no" value="no" />
+            <label for="yes" class="text-primary text-sm font-medium">No</label>
+
+            <br />
+            <br />
+            <!-- Button -->
+            <button
+              type="submit"
+              class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+            >
+              Delete Event
+            </button>
+          </form>
+        </div>
+        {{/alumniEvents}}
+      </div>
+    </div>
+
+    <!-- adding event -->
+    <div
+      id="event-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center hidden mt-4"
+    >
+      <form
+        action="/alumni-events/"
+        method="POST"
+        id="event-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Add Event
+          </h2>
+          <span id="close-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Event Name -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventCategory"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Categories</label
+            >
+            <select
+              id="eventCategory"
+              name="eventCategory"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+            >
+              <option value="None">None</option>
+              <option value="Professional Development">
+                Professional Development
+              </option>
+              <option value="Networking">Networking</option>
+              <option value="Campus Events">Campus Events</option>
+            </select>
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventName"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Name</label
+            >
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- event description and created by -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="username"
+              class="block text-secondary-100 text-sm font-medium"
+              >Created by</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDescription"
+              class="block text-secondary-100 text-sm font-medium"
+              >Description</label
+            >
+            <textarea
+              id="eventDescription"
+              name="eventDescription"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="2"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDate"
+              class="block text-secondary-100 text-sm font-medium"
+              >Date</label
+            >
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventTime"
+              class="block text-secondary-100 text-sm font-medium"
+              >Time</label
+            >
+            <input
+              type="time"
+              id="eventTime"
+              name="eventTime"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!--  Duration and Location-->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDuration"
+              class="block text-secondary-100 text-sm font-medium"
+              >Duration (hours)</label
+            >
+            <input
+              type="number"
+              id="eventDuration"
+              name="eventDuration"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventLocation"
+              class="block text-secondary-100 text-sm font-medium"
+              >Location</label
+            >
+            <input
+              type="text"
+              id="eventLocation"
+              name="eventLocation"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelEvent()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Create Event
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="/js/profile.js"></script>
+    <script src="/js/addEvent.js"></script>
+    <script src="/js/updateEvent.js"></script>
+    <script src="/js/deleteEvent.js"></script>
+  </body>
+</html>
