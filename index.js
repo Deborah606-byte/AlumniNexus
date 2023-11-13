@@ -30,6 +30,7 @@ const loginRoutes = require("./routes/frontendroutes/auth");
 const userRoutes = require("./routes/frontendroutes/userRoutes");
 const adminRoutes = require("./routes/frontendroutes/adminRoutes");
 const eventRoutes = require("./routes/frontendroutes/eventRoutes");
+const detailRoutes = require("./routes/frontendroutes/detailRoutes");
 
 app.use("/", aboutRoutes);
 app.use("/home", homeRoutes);
@@ -38,6 +39,7 @@ app.use("/about", aboutRoutes);
 app.use("/dashboard", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
+app.use("/details", detailRoutes);
 
 // // Handle 404 errors
 // app.get("*", (req, res) => {
