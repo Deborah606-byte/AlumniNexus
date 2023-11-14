@@ -32,6 +32,7 @@ const adminRoutes = require("./routes/frontendroutes/adminRoutes");
 const eventRoutes = require("./routes/frontendroutes/eventRoutes");
 const detailRoutes = require("./routes/frontendroutes/detailRoutes");
 const eventOne = require("./routes/frontendroutes/professionalRoutes");
+const alumniStories = require("./routes/frontendroutes/storiesRoutes");
 
 app.use("/", aboutRoutes);
 app.use("/home", homeRoutes);
@@ -42,6 +43,7 @@ app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
 app.use("/details", detailRoutes);
 app.use("/professional", eventOne);
+app.use("/stories", alumniStories);
 
 // // Handle 404 errors
 // app.get("*", (req, res) => {

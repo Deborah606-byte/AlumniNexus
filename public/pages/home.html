@@ -37,30 +37,47 @@
             <li>
               <a class="text-hover" aria-current="page" href="">Home</a>
             </li>
-            <li class="relative group">
+            <li class="relative group inline-block">
               <a
-                class="text-secondary-100 hover:text-hover cursor-pointer"
-                id="programsEvents "
-                href="/events"
+                class="cursor-pointer inline-flex gap-x-1.5 text-secondary-100"
+                id="menu-button"
                 >Programs & Events</a
               >
               <ul
-                class="absolute left-0 hidden mt-2 space-y-2 bg-primary rounded-lg shadow-lg border border-secondary-300 w-[100%] px-6 py-4 group-hover:block z-10 text-center"
-                id="programsEventsDropdown"
+                class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-primary border-2 border-secondary-300 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabindex="-1"
                 id="programsEventsDropdown"
               >
                 <li>
-                  <a href="#" class="text-secondary-100 hover:text-hover"
+                  <a
+                    href="/professional"
+                    class="text-secondary-100 block px-4 py-2 text-sm hover:text-hover"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-0"
                     >Professional Development</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="text-secondary-100 hover:text-hover"
+                  <a
+                    href="#"
+                    class="text-secondary-100 block px-4 py-2 text-sm hover:text-hover"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-1"
                     >Networking</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="text-secondary-100 hover:text-hover"
+                  <a
+                    href="#"
+                    class="text-secondary-100 block px-4 py-2 text-sm hover:text-hover"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-2"
                     >Campus Events</a
                   >
                 </li>
@@ -672,7 +689,7 @@
         </div>
       </div>
     </div>
-    <script src="../js/dropdown.js"></script>
+    <script src="../js/navbar.js"></script>
     <script src="../js/carousel.js"></script>
   </body>
 </html>
