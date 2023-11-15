@@ -191,173 +191,170 @@
         All Alumni Events
       </h3>
 
-      <div class="flex justify-between mb-8">
-        <!-- Back arrow (Backward)-->
-        <div class="flex items-center justify-center">
-          <button
-            class="text-secondary-100 text-2xl hover:text-secondary-200"
-            onclick="prevEvent()"
-          >
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        </div>
-
-        <!-- Right Arrow (Forward) -->
-        <div class="flex items-center justify-center">
-          <button
-            class="text-secondary-100 text-2xl hover:text-secondary-200"
-            onclick="nextEvent()"
-          >
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Event 1 -->
-      <div id="event1" class="event-container grid lg:grid-cols-12 gap-10">
-        <div class="col-span-1 mt-24 mx-auto">
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">Dec</p>
-          <p
-            class="bg-secondary-300 px-4 py-2 text-primary font-bold text-center"
-          >
-            24
-          </p>
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">2023</p>
-        </div>
-
-        <div class="col-span-8">
-          <h4 class="text-secondary-100 font-medium text-2xl mb-5">
-            International Alumni Mixers
-          </h4>
-          <p class="text-secondary-200 leading-loose text-xl font-light">
-            Our International Alumni Mixers are a celebration of the global
-            reach of AlumniNexus. These events are dedicated to our alumni who
-            live abroad, providing them with a unique opportunity to connect
-            with fellow alumni in their local regions. Whether you're in New
-            York, London, Sydney, or anywhere around the world, our mixers are
-            designed to foster global connections and create lasting
-            friendships. Join us at our next international mixer and be part of
-            a worldwide network of alumni excellence.
-          </p>
-          <div class="relative mt-8">
-            <span class="absolute"
-              ><i class="fa-solid fa-location-dot text-secondary-300"></i
-            ></span>
-            <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
-              African Leadership Campus, Pamplemousses
-            </p>
+      <div class="grid lg:grid-cols-3 gap-10">
+        <!-- networking -->
+        <div class="card shadow-sm relative bg-secondary-300 w-80">
+          <img
+            class=""
+            src="../images/homecoming.jpg"
+            alt="seminar"
+            class="w-full h-full"
+          />
+          <div class="absolute top-[29.5%] left-0 bg-black/50 w-full">
+            <h4 class="text-secondary-100 font-medium text-xl mb-5">
+              International Alumni Mixers
+            </h4>
           </div>
-          <div class="mt-10">
-            <a
-              href="/details"
-              class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
-              >View Details</a
-            >
-          </div>
-        </div>
-        <div class="col-span-3 mt-24">
-          <a
-            href=""
-            class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
-            >RSVP</a
-          >
-        </div>
-      </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-16">
+              <p class="text-secondary-200 font-medium mb-2">Dec</p>
+              <p class="text-secondary-200 font-medium text-center mb-2">24</p>
+              <p class="text-secondary-200 font-medium">2023</p>
+            </div>
+            <div class="p-2">
+              <p class="text-secondary-200 text-sm font-light leading-relaxed">
+                Our International Alumni Mixers are a celebration of the global
+                reach of AlumniNexus. These events are dedicated to our alumni
+                who live abroad, providing them with a unique opportunity to
+                connect with fellow alumni in their local regions.
+              </p>
 
-      <!-- Event 2 -->
-      <div id="event2" class="event-container grid lg:grid-cols-12 gap-10">
-        <div class="col-span-1 mt-24 mx-auto">
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">Nov</p>
-          <p
-            class="bg-secondary-300 px-4 py-2 text-primary font-bold text-center"
-          >
-            28
-          </p>
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">2023</p>
-        </div>
-
-        <div class="col-span-8">
-          <h4 class="text-secondary-100 font-medium text-2xl mb-5">
-            Alumni Networking Gala
-          </h4>
-          <p class="text-secondary-200 leading-loose text-xl font-light">
-            Join us for an evening of networking and celebration at the Alumni
-            Networking Gala. Connect with fellow alumni, share experiences, and
-            build valuable professional connections. Don't miss this opportunity
-            to strengthen your network and celebrate the achievements of our
-            alumni community.
-          </p>
-          <div class="relative mt-8">
-            <span class="absolute"
-              ><i class="fa-solid fa-location-dot text-secondary-300"></i
-            ></span>
-            <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
-              University of Mauritius, Moka
-            </p>
+              <div class="relative mt-5">
+                <span class="absolute"
+                  ><i class="fa-solid fa-location-dot text-primary"></i
+                ></span>
+                <p
+                  class="pl-5 text-secondary-200 font-light text-sm tracking-wide"
+                >
+                  African Leadership Campus, Pamplemousses
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="mt-10">
+          <br />
+
+          <div class="flex justify-between px-2 py-2">
             <a
               href=""
-              class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
               >View Details</a
             >
-          </div>
-        </div>
-        <div class="col-span-3 mt-24">
-          <a
-            href=""
-            class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
-            >RSVP</a
-          >
-        </div>
-      </div>
-
-      <!-- Event 3 -->
-      <div id="event3" class="event-container grid lg:grid-cols-12 gap-10">
-        <div class="col-span-1 mt-24 mx-auto">
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">Dec</p>
-          <p
-            class="bg-secondary-300 px-4 py-2 text-primary font-bold text-center"
-          >
-            15
-          </p>
-          <p class="bg-secondary-300 px-4 py-2 text-primary font-light">2023</p>
-        </div>
-
-        <div class="col-span-8">
-          <h4 class="text-secondary-100 font-medium text-2xl mb-5">
-            Career Development Workshop
-          </h4>
-          <p class="text-secondary-200 leading-loose text-xl font-light">
-            Enhance your career skills at our Career Development Workshop. This
-            event is designed to provide alumni with valuable insights and
-            practical tips for professional growth. Whether you're looking to
-            climb the corporate ladder, explore new career paths, or start your
-            own venture, this workshop will equip you with the knowledge and
-            tools to succeed.
-          </p>
-          <div class="relative mt-8">
-            <span class="absolute"
-              ><i class="fa-solid fa-location-dot text-secondary-300"></i
-            ></span>
-            <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
-              Seminar Room, African Leadership Campus, Pamplemousses
-            </p>
-          </div>
-          <div class="mt-10">
             <a
               href=""
-              class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
-              >View Details</a
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+              >RSVP</a
             >
           </div>
         </div>
-        <div class="col-span-3 mt-24">
-          <a
-            href=""
-            class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
-            >RSVP</a
-          >
+
+        <!-- networking -->
+        <div class="card shadow-sm relative bg-secondary-300 w-80">
+          <img
+            class=""
+            src="../images/carousel1.PNG"
+            alt="seminar"
+            class="w-full h-full"
+          />
+          <div class="absolute top-[29.5%] left-0 bg-black/50 w-full">
+            <h4 class="text-secondary-100 font-medium text-xl mb-5">
+              Alumni Networking Gala
+            </h4>
+          </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-16">
+              <p class="text-secondary-200 font-medium mb-2">Nov</p>
+              <p class="text-secondary-200 font-medium text-center mb-2">28</p>
+              <p class="text-secondary-200 font-medium">2023</p>
+            </div>
+            <div class="p-2">
+              <p class="text-secondary-200 text-sm font-light leading-relaxed">
+                Join us for an evening of networking and celebration at the
+                Alumni Networking Gala. Connect with fellow alumni, share
+                experiences, and build valuable professional connections. Don't
+                miss this opportunity to strengthen your network.
+              </p>
+
+              <div class="relative mt-5">
+                <span class="absolute"
+                  ><i class="fa-solid fa-location-dot text-primary"></i
+                ></span>
+                <p
+                  class="pl-5 text-secondary-200 font-light text-sm tracking-wide"
+                >
+                  University of Mauritius, Moka Mauritus
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="flex justify-between px-2 py-2">
+            <a
+              href=""
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+              >View Details</a
+            >
+            <a
+              href=""
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+              >RSVP</a
+            >
+          </div>
+        </div>
+
+        <!-- professional development -->
+        <div class="card shadow-sm relative bg-secondary-300 w-80">
+          <img
+            class=""
+            src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
+            alt="seminar"
+            class="w-full h-full"
+          />
+          <div class="absolute top-[29.5%] left-0 bg-black/50 w-full">
+            <h4 class="text-secondary-100 font-medium text-xl mb-5">
+              Career Development Workshop
+            </h4>
+          </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-16">
+              <p class="text-secondary-200 font-medium mb-2">Dec</p>
+              <p class="text-secondary-200 font-medium text-center mb-2">15</p>
+              <p class="text-secondary-200 font-medium">2023</p>
+            </div>
+            <div class="p-2">
+              <p class="text-secondary-200 text-sm font-light leading-relaxed">
+                Enhance your career skills at our Career Development Workshop.
+                This event is designed to provide alumni with valuable insights
+                and practical tips for professional growth. If you are looking
+                to start your own career or join a firm this event is for you.
+              </p>
+
+              <div class="relative mt-5">
+                <span class="absolute"
+                  ><i class="fa-solid fa-location-dot text-primary"></i
+                ></span>
+                <p
+                  class="pl-5 text-secondary-200 font-light text-sm tracking-wide"
+                >
+                  Seminar Room, ALC, Pamplemousses
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="flex justify-between px-2 py-2">
+            <a
+              href=""
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+              >View Details</a
+            >
+            <a
+              href=""
+              class="bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+              >RSVP</a
+            >
+          </div>
         </div>
       </div>
     </div>
