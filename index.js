@@ -34,6 +34,7 @@ const detailRoutes = require("./routes/frontendroutes/detailRoutes");
 const job = require("./routes/frontendroutes/jobRoutes");
 const alumniStories = require("./routes/frontendroutes/storiesRoutes");
 const registerEvent = require("./routes/frontendroutes/rsvpRoutes");
+const jobDetails = require("./routes/frontendroutes/jobDetailsRoutes");
 
 app.use("/", aboutRoutes);
 app.use("/home", homeRoutes);
@@ -46,6 +47,7 @@ app.use("/details", detailRoutes);
 app.use("/opportunity", job);
 app.use("/stories", alumniStories);
 app.use("/rsvp", registerEvent);
+app.use("/jobdetails", jobDetails);
 
 // // Handle 404 errors
 // app.get("*", (req, res) => {

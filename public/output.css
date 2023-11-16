@@ -712,6 +712,10 @@ video {
   grid-column: span 9 / span 9;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 .-mx-2 {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
@@ -725,6 +729,11 @@ video {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .-mt-1 {
@@ -1157,6 +1166,10 @@ video {
   gap: 2rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -1539,6 +1552,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1919,6 +1937,11 @@ video {
 .hover\:bg-secondary-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(196 155 75 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-hover:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 197 218 / var(--tw-bg-opacity));
 }
 
 .hover\:text-black:hover {

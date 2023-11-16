@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Professional Development</title>
+    <title>Job Details</title>
 
     <link rel="stylesheet" href="../output.css" />
     <link rel="stylesheet" href="../css/styles.css" />
@@ -94,202 +94,103 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero bg-secondary-100 text-primary py-20">
-      <div class="container mx-auto text-center">
-        <h1 class="text-5xl font-bold mb-4">
-          Explore Exciting Career Opportunities
-        </h1>
-        <p class="text-lg text-secondary-200 mb-8">
-          Find the perfect job that aligns with your skills and passion.
-        </p>
-
-        <!-- Search Bar (Optional) -->
-        <div class="max-w-md mx-auto mb-8">
-          <input
-            type="text"
-            placeholder="Search for jobs..."
-            class="w-full px-4 py-2 border border-secondary-300 rounded-md"
-          />
-        </div>
-
-        <!-- Call to Action Button (Optional) -->
-        <a
-          href="#jobList"
-          class="bg-primary text-secondary-100 py-2 px-8 rounded-full text-lg hover:bg-hover"
-          >View Jobs</a
-        >
-      </div>
-    </section>
-
-    <!-- jobs goes here -->
-    <main class="container mx-auto w-[80%]">
-      <!-- Page Title -->
-      <section id="jobList" class="py-10">
-        <h2 class="text-secondary-100 text-4xl font-bold mb-8">
-          Available Opportunities
-        </h2>
-
-        <!-- Job Opportunities List -->
-        <div class="grid lg:grid-cols-2 gap-10">
-          <!-- Job Opportunity 1 -->
-          <div class="p-6 border border-secondary-300 rounded-lg">
-            <h3 class="text-secondary-200 text-2xl font-semibold mb-4">
-              Job Title 1
-            </h3>
-            <p class="text-secondary-200 mb-4">Company: XYZ Corporation</p>
-            <p class="text-secondary-200 mb-4">Location: City, Country</p>
-            <p class="text-secondary-200 mb-4">Posted on: Month DD, YYYY</p>
-            <a href="/jobdetails" class="text-secondary-100 hover:text-hover"
-              >Learn More</a
-            >
-          </div>
-
-          <!-- Job Opportunity 2 -->
-          <div class="p-6 border border-secondary-300 rounded-lg">
-            <h3 class="text-secondary-200 text-2xl font-semibold mb-4">
-              Job Title 2
-            </h3>
-            <p class="text-secondary-200 mb-4">Company: ABC Tech Solutions</p>
-            <p class="text-secondary-200 mb-4">Location: City, Country</p>
-            <p class="text-secondary-200 mb-4">Posted on: Month DD, YYYY</p>
-            <a href="/jobdetails" class="text-secondary-100 hover:text-hover"
-              >Learn More</a
-            >
-          </div>
-
-          <!-- Add more job opportunities as needed -->
+    <main class="container mx-auto my-10">
+      <!-- Job Details Section -->
+      <section class="mb-10">
+        <div class="bg-secondary-100 p-8 rounded-md">
+          <h2 class="text-3xl font-bold mb-4">Job Title</h2>
+          <p class="text-secondary-200 text-lg mb-4">Company Name</p>
+          <p class="text-secondary-200 mb-6">
+            Job Description Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p class="text-secondary-200 mb-4">Location: City, Country</p>
+          <p class="text-secondary-200 mb-4">
+            Salary: $60,000 - $80,000 per year
+          </p>
+          <!-- Other job details go here -->
+          <a href="#applyNow" class="text-primary font-semibold hover:underline"
+            >Apply</a
+          >
         </div>
       </section>
-    </main>
 
-    <!-- subscribe -->
-    <div class="bg-black/30">
-      <div class="container mx-auto w-[80%]">
-        <div class="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div
-              class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
-            >
-              <div class="max-w-xl lg:max-w-lg">
-                <h2
-                  class="text-3xl font-bold tracking-tight text-secondary-100 sm:text-4xl"
-                >
-                  Subscribe to our newsletter.
-                </h2>
-                <p class="mt-4 text-lg leading-8 text-secondary-200">
-                  Stay connected with AlumniNexus! Subscribe to our newsletter
-                  for the latest updates, exclusive alumni stories, and upcoming
-                  event announcements. Join our community and never miss out on
-                  exciting news.
-                </p>
-                <div class="mt-6 flex max-w-md gap-x-4">
-                  <label for="email-address" class="sr-only"
-                    >Email address</label
-                  >
-                  <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    required
-                    class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-secondary-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                    placeholder="Enter your email"
-                  />
-                  <button
-                    type="submit"
-                    class="flex-none rounded-md bg-hover px-3.5 py-2.5 text-sm font-semibold text-secondary-200 shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-              <dl
-                class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
-              >
-                <div class="flex flex-col items-start">
-                  <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                    <svg
-                      class="h-6 w-6 text-secondary-200"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
-                      />
-                    </svg>
-                  </div>
-                  <dt class="mt-4 font-semibold text-secondary-100">
-                    Weekly articles
-                  </dt>
-                  <dd class="mt-2 leading-7 text-secondary-200">
-                    Explore thought-provoking articles in our weekly newsletter.
-                    Discover insights, success stories, and valuable tips from
-                    fellow alumni
-                  </dd>
-                </div>
-                <div class="flex flex-col items-start">
-                  <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                    <svg
-                      class="h-6 w-6 text-secondary-200"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.35 15m.002 0h-.002"
-                      />
-                    </svg>
-                  </div>
-                  <dt class="mt-4 font-semibold text-secondary-100">No spam</dt>
-                  <dd class="mt-2 leading-7 text-secondary-200">
-                    We promise no spam—just meaningful content to keep you
-                    informed and inspired.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-          <div
-            class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
-            aria-hidden="true"
+      <!-- Apply Now Section -->
+      <section id="applyNow">
+        <div class="bg-secondary-100 p-8 rounded-md">
+          <h2 class="text-3xl font-bold mb-4">Apply Now</h2>
+          <p class="text-secondary-200 mb-6">
+            Interested in this position? Fill out the application form below:
+          </p>
+
+          <!-- Job Application Form -->
+          <form
+            action="#"
+            method="POST"
+            class="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            <div
-              class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-              style="
-                clip-path: polygon(
-                  74.1% 44.1%,
-                  100% 61.6%,
-                  97.5% 26.9%,
-                  85.5% 0.1%,
-                  80.7% 2%,
-                  72.5% 32.5%,
-                  60.2% 62.4%,
-                  52.4% 68.1%,
-                  47.5% 58.3%,
-                  45.2% 34.5%,
-                  27.5% 76.7%,
-                  0.1% 64.9%,
-                  17.9% 100%,
-                  27.6% 76.8%,
-                  76.1% 97.7%,
-                  74.1% 44.1%
-                );
-              "
-            ></div>
-          </div>
+            <!-- Personal Information -->
+            <div>
+              <label for="fullName" class="text-secondary-200">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="w-full px-4 py-2 border border-secondary-300 rounded-md mb-4"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="text-secondary-200"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full px-4 py-2 border border-secondary-300 rounded-md mb-4"
+              />
+            </div>
+
+            <!-- Other form fields (e.g., resume upload, cover letter) go here -->
+
+            <div class="col-span-2">
+              <label for="message" class="text-secondary-200"
+                >Why are you a good fit for this position?</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-2 border border-secondary-300 rounded-md mb-4"
+              ></textarea>
+            </div>
+
+            <div class="col-span-2">
+              <button
+                type="submit"
+                class="bg-secondary-300 text-secondary-200 py-2 px-8 rounded-full hover:bg-hover"
+              >
+                Submit Application
+              </button>
+            </div>
+          </form>
         </div>
+      </section>
+
+      <!-- Navigation buttons -->
+      <!-- Back arrow (Backward)-->
+      <div class="">
+        <a
+          href="/opportunity"
+          class="text-secondary-100 text-lg hover:text-secondary-200"
+        >
+          <i class="fas fa-chevron-left"></i> Back to Job Opportunities
+        </a>
       </div>
-    </div>
+    </main>
 
     <!-- footer starts here -->
     <div class="bg-black/50">
@@ -400,7 +301,5 @@
         </div>
       </div>
     </div>
-
-    <script src="../js/navbar.js"></script>
   </body>
 </html>
