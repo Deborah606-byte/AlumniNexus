@@ -600,8 +600,8 @@ video {
   top: -2rem;
 }
 
-.bottom-0 {
-  bottom: 0px;
+.bottom-10 {
+  bottom: 2.5rem;
 }
 
 .bottom-4 {
@@ -680,14 +680,6 @@ video {
   top: 92%;
 }
 
-.left-24 {
-  left: 6rem;
-}
-
-.left-28 {
-  left: 7rem;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -741,6 +733,10 @@ video {
 
 .-mt-8 {
   margin-top: -2rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .mb-12 {
@@ -911,10 +907,6 @@ video {
   height: 410px;
 }
 
-.h-\[50\%\] {
-  height: 50%;
-}
-
 .h-\[500px\] {
   height: 500px;
 }
@@ -933,26 +925,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[100vh\] {
-  height: 100vh;
-}
-
-.h-\[00vh\] {
-  height: 00vh;
-}
-
-.h-\[vh\] {
-  height: vh;
-}
-
-.h-\[80vh\] {
-  height: 80vh;
-}
-
-.h-\[50vh\] {
-  height: 50vh;
 }
 
 .min-h-\[60vh\] {
@@ -1057,26 +1029,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[100\] {
-  width: 100;
-}
-
-.w-\[100vh\] {
-  width: 100vh;
-}
-
-.w-\[200vh\] {
-  width: 200vh;
-}
-
-.w-\[220vh\] {
-  width: 220vh;
 }
 
 .min-w-0 {
@@ -1327,12 +1279,20 @@ video {
   border-width: 8px;
 }
 
+.border-\[3px\] {
+  border-width: 3px;
+}
+
 .border-r {
   border-right-width: 1px;
 }
 
 .border-dashed {
   border-style: dashed;
+}
+
+.border-dotted {
+  border-style: dotted;
 }
 
 .border-gray-300 {
@@ -1348,6 +1308,11 @@ video {
 .border-primary {
   --tw-border-opacity: 1;
   border-color: rgb(9 68 70 / var(--tw-border-opacity));
+}
+
+.border-secondary-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(196 155 75 / var(--tw-border-opacity));
 }
 
 .border-secondary-200 {
@@ -1441,6 +1406,11 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-none {
+  -o-object-fit: none;
+     object-fit: none;
 }
 
 .p-10 {
@@ -1619,10 +1589,6 @@ video {
 
 .pt-36 {
   padding-top: 9rem;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .text-center {
@@ -2149,6 +2115,11 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:px-28 {
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .lg\:px-8 {
