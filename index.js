@@ -43,7 +43,7 @@ app.use("/dashboard", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
 app.use("/details", detailRoutes);
-app.use("/professional", job);
+app.use("/opportunity", job);
 app.use("/stories", alumniStories);
 app.use("/rsvp", registerEvent);
 
