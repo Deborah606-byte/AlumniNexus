@@ -19,3 +19,31 @@ Array.from(dropdownToggle).forEach((dropdown) => {
 });
 
 console.log("button clicked");
+
+const openProfileButton = document.getElementById("update-profile-form");
+const profileModal = document.getElementById("profile-modal");
+const closeProfileButton = document.getElementById("close-profile-form");
+
+// Function to open the profile modal
+function openProfileModal(profile) {
+  profile.preventDefault();
+  profileModal.classList.remove("hidden");
+}
+
+// Function to close the event modal
+function closeProfileModal() {
+  profileModal.classList.add("hidden");
+}
+
+// Function to cancel the profile update
+function cancelUpdateProfile() {
+  closeProfileModal();
+}
+
+openProfileButton.addEventListener("click", openProfileModal);
+closeProfileButton.addEventListener("click", closeProfileModal);
+
+const updateProfileForm = document.querySelector("form");
+updateProfileForm.addEventListener("submit", function (profile) {
+  console.log("Button clicked");
+});

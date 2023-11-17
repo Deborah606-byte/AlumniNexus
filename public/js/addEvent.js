@@ -13,6 +13,11 @@ function closeEventModal() {
   eventModal.classList.add("hidden");
 }
 
+// Function to cancel the profile update
+function cancelEvent() {
+  closeEventModal();
+}
+
 openEventButton.addEventListener("click", openEventModal);
 closeEventButton.addEventListener("click", closeEventModal);
 

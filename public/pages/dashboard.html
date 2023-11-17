@@ -59,14 +59,14 @@
                   <ul class="py-1">
                     <li>
                       <a
-                        href="#"
+                        id="update-profile-form"
                         class="block px-4 py-2 text-secondary-200 hover:text-hover"
                         >Update Profile</a
                       >
                     </li>
                     <li>
                       <a
-                        href="/home"
+                        id="logout-form"
                         class="block px-4 py-2 text-secondary-200 hover:text-hover"
                         >Log Out</a
                       >
@@ -102,27 +102,25 @@
           </div>
 
           <div class="absolute top-2 right-5">
-            <span id="dropdown-toggle" class="cursor-pointer"
+            <span id="" class="dropdown-toggle cursor-pointer"
               ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
             ></span>
             <!-- Dropdown Menu -->
             <div
-              id="dropdown-menu"
-              class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+              id=""
+              class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
             >
               <ul class="py-1">
                 <li>
                   <a
-                    href="#"
-                    id="edit-event-form"
-                    class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                    id=""
+                    class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
                     >Edit Event</a
                   >
                 </li>
                 <li>
                   <a
-                    href="#"
-                    class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                    class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
                     >Delete Event</a
                   >
                 </li>
@@ -167,7 +165,7 @@
     <!-- adding event -->
     <div
       id="event-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center hidden mt-4"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
     >
       <form
         action="/alumni-events"
@@ -340,41 +338,33 @@
 
     <!-- update event -->
     <div
-      id="update-event-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center hidden mt-8"
+      id=""
+      class="update-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
     >
-      <form
-        id="update-event"
-        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
-      >
-        <div class="flex justify-between">
-          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
-            Update Event
-          </h2>
-          <span id="close-update"
-            ><i class="fa-solid fa-xmark text-primary"></i
-          ></span>
-        </div>
-
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+          Update Event
+        </h2>
+        <span id=""
+          ><i class="close-update fa-solid fa-xmark text-primary"></i
+        ></span>
+      </div>
+      <form action="" method="POST">
+        <!-- event category -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
             <label
               for="eventCategory"
               class="block text-secondary-100 text-sm font-medium"
-              >Event Categories</label
+              >Event Category</label
             >
-            <select
+            <input
+              type="text"
               id="eventCategory"
               name="eventCategory"
               class="w-full p-2 rounded-lg border-gray-500 border-2"
-            >
-              <option value="None">None</option>
-              <option value="Professional Development">
-                Professional Development
-              </option>
-              <option value="Networking">Networking</option>
-              <option value="Campus Events">Campus Events</option>
-            </select>
+              required
+            />
           </div>
 
           <div class="w-1/2 px-2">
@@ -387,43 +377,27 @@
               type="text"
               id="eventName"
               name="eventName"
-              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
               required
             />
           </div>
         </div>
 
-        <!-- event description and subtopics -->
+        <!-- event description and created by -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
             <label
-              for="eventSubTopics"
+              for="username"
               class="block text-secondary-100 text-sm font-medium"
-              >Event Sub Topics</label
+              >Created by</label
             >
-            <div id="subTopicsContainer">
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
-                placeholder="Sub Topic 1"
-                required
-              />
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
-                placeholder="Sub Topic 2"
-                required
-              />
-              <input
-                type="text"
-                name="eventSubTopic"
-                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50"
-                placeholder="Sub Topic 3"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              disabled
+            />
           </div>
 
           <div class="w-1/2 px-2">
@@ -432,13 +406,13 @@
               class="block text-secondary-100 text-sm font-medium"
               >Description</label
             >
-            <textarea
+            <input
+              type="text"
               id="eventDescription"
               name="eventDescription"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
-              rows="6"
               required
-            ></textarea>
+            />
           </div>
         </div>
 
@@ -525,22 +499,21 @@
       </form>
     </div>
 
-    <!-- delete event -->
-    <div
-      id="delete-event-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center hidden"
-    >
-      <form
-        id="delete-event"
-        class="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto"
-      >
-        <div class="flex justify-between">
-          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">Delete</h2>
-          <span id="close-delete"
-            ><i class="fa-solid fa-xmark text-primary"></i
-          ></span>
-        </div>
+    <!-- deleting an event -->
 
+    <div
+      id=""
+      class="delete-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-sm hidden mx-auto"
+    >
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+          Delete Event
+        </h2>
+        <span id=""
+          ><i class="close-delete fa-solid fa-xmark text-primary"></i
+        ></span>
+      </div>
+      <form id="delete-event" action="" method="POST">
         <p class="text-secondary-100 mb-2">Delete this event:</p>
         <input type="radio" id="yes" name="yes" value="yes" />
         <label for="yes" class="text-primary text-sm font-medium">Yes</label
@@ -560,9 +533,262 @@
       </form>
     </div>
 
+    <!-- update profile -->
+    <div
+      id="profile-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action=""
+        method="POST"
+        id="profile-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Update my profile
+          </h2>
+          <span id="close-profile-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Name -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="first-name"
+              class="block text-secondary-100 text-sm font-medium"
+              >First Name</label
+            >
+            <input
+              type="text"
+              name="firstName"
+              id="first-name"
+              autocomplete="given-name"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="First Name"
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="last-name"
+              class="block text-secondary-100 text-sm font-medium"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              name="lastName"
+              id="last-name"
+              autocomplete="family-name"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+
+        <!-- username and email -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="username"
+              class="block text-secondary-100 text-sm font-medium"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              autocomplete="username"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Username Eg:janesmith"
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="email"
+              class="block text-secondary-100 text-sm font-medium"
+              >Email</label
+            >
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <!-- year group and telephone -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="group"
+              class="block text-secondary-100 text-sm font-medium"
+              >Year Group</label
+            >
+            <input
+              type="text"
+              name="group"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Year Group"
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="tel"
+              class="block text-secondary-100 text-sm font-medium"
+              >Telephone</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+              placeholder="230-5908-4528"
+            />
+          </div>
+        </div>
+
+        <!--  profile photo-->
+        <label for="photo" class="block text-sm font-medium text-primary"
+          >Photo</label
+        >
+        <div class="flex items-center gap-x-3">
+          <svg
+            class="h-12 w-12 text-gray-300"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <button
+            type="button"
+            class="rounded-lg bg-seconday-100 px-2.5 py-1.5 text-sm font-semibold text-secondary-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Change
+          </button>
+        </div>
+
+        <label
+          for="cover-photo"
+          class="block text-sm font-medium leading-6 text-primary"
+          >Cover photo</label
+        >
+        <div
+          class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-6"
+        >
+          <div class="text-center">
+            <svg
+              class="mx-auto h-12 w-12 text-gray-300"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <div class="mt-4 flex text-sm text-gray-600">
+              <label
+                for="file-upload"
+                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+              >
+                <span>Upload a file</span>
+                <input
+                  id="file-upload"
+                  name="file-upload"
+                  type="file"
+                  class="sr-only"
+                />
+              </label>
+              <p class="pl-1">or drag and drop</p>
+            </div>
+            <p class="text-xs leading-5 text-gray-600">
+              PNG, JPG, GIF up to 10MB
+            </p>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-2">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelUpdateProfile()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Update profile
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- logout -->
+    <div
+      id="logout-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action=""
+        method=""
+        id="logout-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Log Out
+          </h2>
+          <span id="close-logout-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Name -->
+        <p class="text-secondary-100">Log out of my Dashboard</p>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-2">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelLogout()"
+          >
+            Cancel
+          </button>
+          <a href="/home">
+            <button
+              type="button"
+              class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+            >
+              Log Out
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>
+
     <script src="../js/profile.js"></script>
     <script src="../js/addEvent.js"></script>
     <script src="../js/updateEvent.js"></script>
     <script src="../js/deleteEvent.js"></script>
+    <script src="../js/logout.js"></script>
   </body>
 </html>

@@ -26,12 +26,8 @@ function closeDeleteModal(id) {
 
 // Add a click event listener to each delete button
 deleteButtons.forEach((deleteButton) => {
-  
- 
-
   deleteButton.addEventListener("click", (event) => {
     const id = event.target.getAttribute("id");
     openDeleteModal(id);
-    
   });
 });
