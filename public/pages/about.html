@@ -23,12 +23,13 @@
             >exus
           </h1>
         </a>
-        <div
-          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
-        >
-          <ul
-            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
-          >
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="menu-icon">
+            <i class="fa-solid fa-bars text-secondary-100"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-4">
+          <ul class="flex flex-col md:flex-row items-center gap-8">
             <li>
               <a class="text-hover" aria-current="page" href="">About Us</a>
             </li>
@@ -47,7 +48,7 @@
                 >Speakers</a
               >
             </li>
-            <li class="">
+            <li>
               <a
                 class="rounded-full text-secondary-200 border-2 border-secondary-300 px-8 hover:bg-secondary-100 py-2"
                 href="/auth/login"
@@ -57,6 +58,38 @@
           </ul>
         </div>
       </nav>
+      <div class="md:hidden nav-links bg-secondary-300 py-10 hidden">
+        <ul class="flex flex-col items-center gap-4">
+          <li>
+            <a
+              class="text-secondary-100 hover:text-hover"
+              aria-current="page"
+              href=""
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="">FAQ</a>
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="#testimonials"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="#speakers"
+              >Speakers</a
+            >
+          </li>
+          <li>
+            <a
+              class="rounded-full text-secondary-200 border-2 border-secondary-100 px-8 hover:bg-primary py-2"
+              href="/auth/login"
+              >Log in</a
+            >
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- herosection starts here -->
@@ -113,8 +146,12 @@
     <div id="about-nexus" class="container mx-auto pb-16 w-[80%]">
       <h3 class="text-secondary-100 font-bold text-4xl mb-8">Discover</h3>
       <div class="grid lg:grid-cols-2 gap-10">
-        <div class="flex justify-between space-x-8">
-          <img class="w-[30%] h-[30%] mt-4" src="../images/meet.png" alt="" />
+        <div class="flex justify-between lg:space-y-8 lg:space-x-8">
+          <img
+            class="w-[30%] h-[30%] lg:w-[30%] lg:h-[30%]"
+            src="../images/meet.png"
+            alt=""
+          />
           <div>
             <p class="text-secondary-100 text-2xl mb-4">Our Meetups</p>
             <p class="text-secondary-100">"Connect and Reconnect"</p>
@@ -129,9 +166,9 @@
             </p>
           </div>
         </div>
-        <div class="flex justify-between space-x-8">
+        <div class="flex justify-between lg:space-y-8 lg:space-x-8">
           <img
-            class="w-[30%] h-[30%] mt-4"
+            class="w-[30%] h-[30%] lg:w-[30%] lg:h-[30%]"
             src="../images/heritage.png"
             alt=""
           />
@@ -151,13 +188,9 @@
         </div>
       </div>
 
-      <div class="lg:w-1/2 mx-auto w-[80%]">
-        <div class="flex justify-between space-x-8">
-          <img
-            class="w-[18%] h-[18%] mt-4"
-            src="../images/calendar.png"
-            alt=""
-          />
+      <div class="lg:w-[50%] container mx-auto w-full mt-8">
+        <div class="flex justify-between lg:space-y-8 lg:space-x-8">
+          <img class="w-[20%] h-[20%]" src="../images/calendar.png" alt="" />
           <div>
             <p class="text-secondary-100 text-2xl mb-4">Our Events</p>
             <p class="text-secondary-100">"Where Moments Become Memories"</p>
@@ -175,11 +208,11 @@
       </div>
     </div>
 
-    <!-- alumni gols,values -->
+    <!-- alumni goals,values -->
     <div class="container mx-auto py-16 w-[80%]">
       <div class="grid lg:grid-cols-3 gap-10">
         <!-- goal -->
-        <div class="bg-secondary-300 px-4 py-8 w-80 relative">
+        <div class="bg-secondary-300 px-4 py-8 relative">
           <p class="text-secondary-100 text-2xl mb-4 text-center font-bold">
             Our Goal
           </p>
@@ -191,12 +224,12 @@
             experiences, we strive to empower our members to reach new heights
             in their careers and beyond.
           </p>
-          <span class="absolute -top-8 right-0"
+          <span class="absolute -top-8 lg:right-0"
             ><img class="w-[30%] h-[30%]" src="../images/goal.png" alt=""
           /></span>
         </div>
         <!-- approach -->
-        <div class="bg-secondary-300 px-4 py-8 w-80 relative">
+        <div class="bg-secondary-300 px-4 py-8 relative">
           <p class="text-secondary-100 text-2xl mb-4 text-center font-bold">
             Our Approach
           </p>
@@ -208,12 +241,12 @@
             networking, and cultural experiences that contribute to the personal
             and collective growth of our community.
           </p>
-          <span class="absolute -top-8 right-0"
+          <span class="absolute -top-8 lg:right-0"
             ><img class="w-[30%] h-[30%]" src="../images/approach.png" alt=""
           /></span>
         </div>
         <!-- mission -->
-        <div class="bg-secondary-300 px-4 py-8 w-80 relative">
+        <div class="bg-secondary-300 px-4 py-8 relative">
           <p class="text-secondary-100 text-2xl mb-4 text-center font-bold">
             Our Mission
           </p>
@@ -225,7 +258,7 @@
             foster a sense of belonging, collaboration, and shared achievement
             among our alumni members.
           </p>
-          <span class="absolute -top-8 right-0"
+          <span class="absolute -top-8 lg:right-0"
             ><img class="w-[30%] h-[30%]" src="../images/mission.png" alt=""
           /></span>
         </div>
@@ -674,5 +707,7 @@
         </div>
       </div>
     </div>
+
+    <script src="../js/navbar.js"></script>
   </body>
 </html>
