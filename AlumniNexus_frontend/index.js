@@ -19,9 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(flash());
 
-// // Connect to the database
-// const connectDB = require("./utils/util");
-// connectDB();
 
 // Frontend routes
 const homeRoutes = require("./routes/homeRoutes");
