@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+
+    <link rel="stylesheet" href="../output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+      integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-primary">
+    <header class="bg-secondary-100">
+      <nav class="flex justify-between items-center container mx-auto py-2">
+        <a href="#" class="font-extrabold">
+          <h1 class="text-secondary-200 text-2xl">
+            <span class="text-primary text-3xl">A</span>lumni<span
+              class="text-primary text-3xl"
+              >N</span
+            >exus
+          </h1>
+        </a>
+        <div
+          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
+          >
+            <li class="relative space-x-2">
+              <span class="absolute left-5"
+                ><i
+                  class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
+                ></i
+              ></span>
+              <a
+                id="open-event-form"
+                class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
+                href=""
+                >Add Event</a
+              >
+            </li>
+            <li class="relative group">
+              <div
+                class="relative inline-block text-secondary-200 cursor-pointer"
+              >
+                <img
+                  class="rounded-full h-10 w-10 border-2 border-secondary-200"
+                  src="../images/doctor 2.png"
+                  alt=""
+                />
+                <div
+                  class="profile-dropdown hidden absolute z-10 right-0 mt-2 w-48 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                >
+                  <ul class="py-1">
+                    <li>
+                      <a
+                        id="update-profile-form"
+                        class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Update Profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        id="logout-form"
+                        class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Log Out</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Events goes here -->
+    <div class="container mx-auto py-10">
+      <div class="grid grid-cols-3 gap-10">
+        <div class="card shadow-sm relative bg-secondary-300">
+          <img
+            class=""
+            src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
+            alt="seminar"
+            class="w-full"
+          />
+
+          <div class="absolute top-[49%] left-0 bg-black/50 w-full">
+            <ul class="list-disc px-6 py-2">
+              <li class="text-secondary-200 font-medium">Leadership Skills</li>
+              <li class="text-secondary-200 font-medium">Management</li>
+              <li class="text-secondary-200 font-medium">
+                Personal Development
+              </li>
+            </ul>
+          </div>
+
+          <div class="absolute top-2 right-5">
+            <span id="" class="dropdown-toggle cursor-pointer"
+              ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
+            ></span>
+            <!-- Dropdown Menu -->
+            <div
+              id=""
+              class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+            >
+              <ul class="py-1">
+                <li>
+                  <a
+                    id=""
+                    class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Edit Event</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Delete Event</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-2">
+              <p class="text-secondary-200 font-medium">Nov</p>
+              <p class="text-secondary-200 font-medium">23</p>
+            </div>
+            <div class="p-2">
+              <p class="text-primary font-medium text-2xl mb-2">
+                Leadership Summit
+              </p>
+              <div class="relative">
+                <span class="absolute"
+                  ><i class="fa-regular fa-clock text-primary"></i
+                ></span>
+                <p class="pl-6 text-secondary-200 font-semibold text-">
+                  12:00 noon
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div id="event-details" class="p-6 text-secondary-200 bg-secondary-100">
+                    <p class="text-primary font-medium text-xl mb-2">Leadership Summit</p>
+                    <p class="text-secondary-200 font-medium">Duration: 2 hours</p>
+                    <p class="text-secondary-200 font-medium">Location: ALC</p>
+                    <p class="text-secondary-200 font-medium">Sub Topics:</p>
+                    <ul class="list-disc pl-6">
+                        <li class="text-secondary-200 font-medium">Leadership Skills</li>
+                        <li class="text-secondary-200 font-medium">Management</li>
+                        <li class="text-secondary-200 font-medium">Personal Development</li>
+                    </ul>
+                </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- adding event -->
+    <div
+      id="event-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action="/alumni-events"
+        method="POST"
+        id="event-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Add Event
+          </h2>
+          <span id="close-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Event Name -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventCategory"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Categories</label
+            >
+            <select
+              id="eventCategory"
+              name="eventCategory"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+            >
+              <option value="None">None</option>
+              <option value="Professional Development">
+                Professional Development
+              </option>
+              <option value="Networking">Networking</option>
+              <option value="Campus Events">Campus Events</option>
+            </select>
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventName"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Name</label
+            >
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- event description and created by -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="username"
+              class="block text-secondary-100 text-sm font-medium"
+              >Created by</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDescription"
+              class="block text-secondary-100 text-sm font-medium"
+              >Description</label
+            >
+            <textarea
+              id="eventDescription"
+              name="eventDescription"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="2"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDate"
+              class="block text-secondary-100 text-sm font-medium"
+              >Date</label
+            >
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventTime"
+              class="block text-secondary-100 text-sm font-medium"
+              >Time</label
+            >
+            <input
+              type="time"
+              id="eventTime"
+              name="eventTime"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!--  Duration and Location-->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDuration"
+              class="block text-secondary-100 text-sm font-medium"
+              >Duration (hours)</label
+            >
+            <input
+              type="number"
+              id="eventDuration"
+              name="eventDuration"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventLocation"
+              class="block text-secondary-100 text-sm font-medium"
+              >Location</label
+            >
+            <input
+              type="text"
+              id="eventLocation"
+              name="eventLocation"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelEvent()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Create Event
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- update event -->
+    <div
+      id=""
+      class="update-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+    >
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+          Update Event
+        </h2>
+        <span id=""
+          ><i class="close-update fa-solid fa-xmark text-primary"></i
+        ></span>
+      </div>
+      <form action="" method="POST">
+        <!-- event category -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventCategory"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Category</label
+            >
+            <input
+              type="text"
+              id="eventCategory"
+              name="eventCategory"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventName"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Name</label
+            >
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- event description and created by -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="username"
+              class="block text-secondary-100 text-sm font-medium"
+              >Created by</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              disabled
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDescription"
+              class="block text-secondary-100 text-sm font-medium"
+              >Description</label
+            >
+            <input
+              type="text"
+              id="eventDescription"
+              name="eventDescription"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDate"
+              class="block text-secondary-100 text-sm font-medium"
+              >Date</label
+            >
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventTime"
+              class="block text-secondary-100 text-sm font-medium"
+              >Time</label
+            >
+            <input
+              type="time"
+              id="eventTime"
+              name="eventTime"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!--  Duration and Location-->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDuration"
+              class="block text-secondary-100 text-sm font-medium"
+              >Duration (hours)</label
+            >
+            <input
+              type="number"
+              id="eventDuration"
+              name="eventDuration"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventLocation"
+              class="block text-secondary-100 text-sm font-medium"
+              >Location</label
+            >
+            <input
+              type="text"
+              id="eventLocation"
+              name="eventLocation"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelEvent()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Update Event
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- deleting an event -->
+
+    <div
+      id=""
+      class="delete-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-sm hidden mx-auto"
+    >
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+          Delete Event
+        </h2>
+        <span id=""
+          ><i class="close-delete fa-solid fa-xmark text-primary"></i
+        ></span>
+      </div>
+      <form id="delete-event" action="" method="POST">
+        <p class="text-secondary-100 mb-2">Delete this event:</p>
+        <input type="radio" id="yes" name="yes" value="yes" />
+        <label for="yes" class="text-primary text-sm font-medium">Yes</label
+        ><br />
+        <input type="radio" id="no" name="no" value="no" />
+        <label for="yes" class="text-primary text-sm font-medium">No</label>
+
+        <br />
+        <br />
+        <!-- Button -->
+        <button
+          type="submit"
+          class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+        >
+          Delete Event
+        </button>
+      </form>
+    </div>
+
+    <!-- update profile -->
+    <div
+      id="profile-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action=""
+        method="POST"
+        id="profile-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Update my profile
+          </h2>
+          <span id="close-profile-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Name -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="first-name"
+              class="block text-secondary-100 text-sm font-medium"
+              >First Name</label
+            >
+            <input
+              type="text"
+              name="firstName"
+              id="first-name"
+              autocomplete="given-name"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="First Name"
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="last-name"
+              class="block text-secondary-100 text-sm font-medium"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              name="lastName"
+              id="last-name"
+              autocomplete="family-name"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+
+        <!-- username and email -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="username"
+              class="block text-secondary-100 text-sm font-medium"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              autocomplete="username"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Username Eg:janesmith"
+            />
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="email"
+              class="block text-secondary-100 text-sm font-medium"
+              >Email</label
+            >
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <!-- year group and telephone -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="group"
+              class="block text-secondary-100 text-sm font-medium"
+              >Year Group</label
+            >
+            <input
+              type="text"
+              name="group"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              placeholder="Year Group"
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="tel"
+              class="block text-secondary-100 text-sm font-medium"
+              >Telephone</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+              placeholder="230-5908-4528"
+            />
+          </div>
+        </div>
+
+        <!--  profile photo-->
+        <label for="photo" class="block text-sm font-medium text-primary"
+          >Photo</label
+        >
+        <div class="flex items-center gap-x-3">
+          <svg
+            class="h-12 w-12 text-gray-300"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <button
+            type="button"
+            class="rounded-lg bg-seconday-100 px-2.5 py-1.5 text-sm font-semibold text-secondary-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Change
+          </button>
+        </div>
+
+        <label
+          for="cover-photo"
+          class="block text-sm font-medium leading-6 text-primary"
+          >Cover photo</label
+        >
+        <div
+          class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-6"
+        >
+          <div class="text-center">
+            <svg
+              class="mx-auto h-12 w-12 text-gray-300"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <div class="mt-4 flex text-sm text-gray-600">
+              <label
+                for="file-upload"
+                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+              >
+                <span>Upload a file</span>
+                <input
+                  id="file-upload"
+                  name="file-upload"
+                  type="file"
+                  class="sr-only"
+                />
+              </label>
+              <p class="pl-1">or drag and drop</p>
+            </div>
+            <p class="text-xs leading-5 text-gray-600">
+              PNG, JPG, GIF up to 10MB
+            </p>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-2">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelUpdateProfile()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Update profile
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- logout -->
+    <div
+      id="logout-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action=""
+        method=""
+        id="logout-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Log Out
+          </h2>
+          <span id="close-logout-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Name -->
+        <p class="text-secondary-100">Log out of my Dashboard</p>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-2">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelLogout()"
+          >
+            Cancel
+          </button>
+          <a href="/home">
+            <button
+              type="button"
+              class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+            >
+              Log Out
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <script src="../js/profile.js"></script>
+    <script src="../js/addEvent.js"></script>
+    <script src="../js/updateEvent.js"></script>
+    <script src="../js/deleteEventDashboard.js"></script>
+    <script src="../js/logout.js"></script>
+  </body>
+</html>

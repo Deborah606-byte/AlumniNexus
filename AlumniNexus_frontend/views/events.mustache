@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+      integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-primary">
+    <header>
+      <nav class="flex justify-between items-center container mx-auto py-4">
+        <a href="#" class="font-extrabold">
+          <h1 class="text-secondary-200 text-2xl">
+            <span class="text-secondary-100 text-3xl">A</span>lumni<span
+              class="text-secondary-100 text-3xl"
+              >N</span
+            >exus
+          </h1>
+        </a>
+        <div
+          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
+          >
+            <li>
+              <a class="text-secondary-100 hover:text-hover" href="/home"
+                >Home</a
+              >
+            </li>
+            <li class="relative group">
+              <a class="text-hover cursor-pointer" id="programsEvents " href=""
+                >Programs & Events</a
+              >
+              <ul
+                class="absolute left-0 hidden mt-2 space-y-2 bg-primary rounded-lg shadow-lg border border-secondary-300 w-full px-6 py-4 group-hover:block z-10 text-center"
+                id="programsEventsDropdown"
+                id="programsEventsDropdown"
+              >
+                <li>
+                  <a href="#" class="text-secondary-100 hover:text-hover"
+                    >Professional Development</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-secondary-100 hover:text-hover"
+                    >Networking</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-secondary-100 hover:text-hover"
+                    >Campus Events</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="text-secondary-100 hover:text-hover" href=""
+                >Alumni Stories</a
+              >
+            </li>
+            <li>
+              <a class="text-secondary-100 hover:text-hover" href=""
+                >Career Opportunity</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mx-auto">
+      <div class="container grid lg:grid-cols-12 py-16 mx-auto gap-8">
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <img class="h-full w-full" src="../images/gathering.jpg" alt="" />
+            <div class="time absolute top-1/2 left-5 w-full">
+              <div class="flex mx-auto space-x-10">
+                <div class="text-secondary-200 text-center">
+                  <p class="text-4xl font-medium mb-3">65</p>
+                  <p class="font-light">Days</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                  <p>.</p>
+                  <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                  <p class="text-4xl font-medium mb-3">30</p>
+                  <p class="font-light">Hours</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                  <p>.</p>
+                  <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                  <p class="text-4xl font-medium mb-3">45</p>
+                  <p class="font-light">Minutes</p>
+                </div>
+
+                <div class="text-secondary-200 -mt-1">
+                  <p>.</p>
+                  <p>.</p>
+                </div>
+
+                <div class="text-secondary-200 text-center">
+                  <p class="text-4xl font-medium mb-3">60</p>
+                  <p class="font-light">Seconds</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7 relative">
+          <div class="flex justify-start space-x-4">
+            <h3
+              class="text-secondary-200 text-2xl font-medium tracking-wide uppercase"
+            >
+              Upcoming Events
+            </h3>
+            <p class="text-secondary-200 uppercase text-xs mt-1">
+              November 7, 2023
+            </p>
+          </div>
+
+          <h3
+            class="text-secondary-200 text-2xl font-bold uppercase mt-4 tracking-wider"
+          >
+            Annual Meetup, Gathering <br />
+            and scholarship presentation
+          </h3>
+          <div class="relative mt-2">
+            <span class="absolute"
+              ><i class="fa-solid fa-location-dot text-secondary-300"></i
+            ></span>
+            <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
+              African Leadership Campus, Pamplemousses
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Alumni Events -->
+    <div class="container mx-auto py-5">
+      <h3 class="text-secondary-100 font-extrabold text-3xl text-center mb-5">
+        All Alumni Events
+      </h3>
+      {{#events}}
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="col-span-1 mt-12">
+          <p class="bg-secondary-300 px-6 text-primary font-light">
+            {{ eventMonth }}
+          </p>
+          <p class="bg-secondary-300 px-6 text-primary font-light">
+            {{ eventYear }}
+          </p>
+        </div>
+        <div class="col-span-8">
+          <h4 class="text-secondary-100 font-medium text-lg mb-2">
+            {{ eventName }}
+          </h4>
+          <p class="text-secondary-200 leading-relaxed">
+            {{ eventDescription }}
+          </p>
+          <div class="relative mt-2">
+            <span class="absolute"
+              ><i class="fa-solid fa-location-dot text-secondary-300"></i
+            ></span>
+            <p class="pl-5 text-secondary-200 font-light text-sm tracking-wide">
+              {{ eventLocation }}
+            </p>
+          </div>
+          <div class="mt-10">
+            <a
+              href=""
+              class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-8 hover:text-hover"
+              >View Details</a
+            >
+          </div>
+        </div>
+        <div class="col-span-3 mt-12">
+          <a
+            href=""
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-16 hover:text-hover"
+            >RSVP</a
+          >
+        </div>
+      </div>
+      {{/events}}
+    </div>
+
+    <script src="/js/dropdown.js"></script>
+  </body>
+</html>

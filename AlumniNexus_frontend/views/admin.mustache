@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+      integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="bg-secondary-100">
+      <div class="grid lg:grid-cols-12">
+        <div class="col-span-3 bg-primary p-10 space-y-6">
+          <a href="#" class="font-extrabold">
+            <h1 class="text-secondary-200 text-2xl">
+              <span class="text-secondary-100 text-3xl">A</span>lumni<span
+                class="text-secondary-100 text-3xl"
+                >N</span
+              >exus
+            </h1>
+          </a>
+          <div>
+            <a
+              href="#"
+              class="text-secondary-100 font-semibold text-2xl"
+              onclick="showSection('dashboard')"
+              >Dashboard</a
+            >
+          </div>
+          <div class="relative space-x-10">
+            <span class="absolute left-0"
+              ><i class="fa-solid fa-user text-secondary-200"></i
+            ></span>
+            <a
+              href="#"
+              class="text-secondary-100 font-medium"
+              onclick="showSection('account')"
+              >Account</a
+            >
+          </div>
+          <div class="relative space-x-10">
+            <span class="absolute left-0"
+              ><i class="fa-solid fa-users-line text-secondary-200"></i
+            ></span>
+            <a
+              href="#"
+              class="text-secondary-100 font-medium"
+              onclick="showSection('members')"
+              >Members</a
+            >
+          </div>
+          <div class="relative space-x-10">
+            <span class="absolute left-0"
+              ><i class="fa-solid fa-calendar-days text-secondary-200"></i
+            ></span>
+            <a
+              href="#"
+              class="text-secondary-100 font-medium"
+              onclick="showSection('events')"
+              >Events</a
+            >
+          </div>
+          <div class="relative space-x-10">
+            <span class="absolute left-0"
+              ><i class="fa-solid fa-calendar-check text-secondary-200"></i
+            ></span>
+            <a
+              href="#"
+              class="text-secondary-100 font-medium"
+              onclick="showSection('myevents')"
+              >My Events</a
+            >
+          </div>
+          <div class="relative space-x-10">
+            <span class="absolute left-0"
+              ><i class="fa-solid fa-gear text-secondary-200"></i
+            ></span>
+            <a
+              href="#"
+              class="text-secondary-100 font-medium"
+              onclick="showSection('settings')"
+              >Settings</a
+            >
+          </div>
+        </div>
+
+        <div class="col-span-9 p-10">
+          <div class="flex justify-end container mx-auto">
+            <ul class="flex space-x-4">
+              <li class="relative group">
+                <div
+                  class="relative inline-block text-secondary-200 cursor-pointer"
+                >
+                  <img
+                    class="rounded-full h-10 w-10 border-2 border-secondary-200"
+                    src="../images/admin.avif"
+                    alt=""
+                  />
+                  <div
+                    class="profile-dropdown hidden absolute z-10 right-0 mt-2 w-48 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                  >
+                    <ul class="py-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                          >Update Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="/home"
+                          class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                          >Log Out</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="pt-2">
+                <a class="text-primary">Deborah Ama Paintsil</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Events Section -->
+          <div
+            id="events"
+            class="admin-popup bg-secondary-200 p-8 rounded-lg mt-10 hidden"
+          >
+            <div class="flex justify-between mb-5">
+              <h3 class="text-secondary-100 font-semibold text-2xl pb-4">
+                Programs & Events
+              </h3>
+              <div class="relative space-x-2">
+                <input
+                  type="text"
+                  id="event-search"
+                  class="rounded-full border-secondary-300 px-3 py-1 focus:outline-none focus:border-primary"
+                  placeholder="Search Events"
+                />
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <p>Created Events</p>
+            </div>
+
+            {{#alumniEvents}}
+            <div class="grid grid-cols-6 py-5 space-x-4">
+              <!-- Category -->
+              <div>
+                <p class="text-primary text-lg mb-2">Category</p>
+                <p>{{ eventCategory }}</p>
+              </div>
+              <!-- Date -->
+              <div>
+                <p class="text-primary text-lg mb-2">Date</p>
+                <p>{{ eventDate }}</p>
+              </div>
+              <!-- Time -->
+              <div>
+                <p class="text-primary text-lg mb-2">Time</p>
+                <p>{{ eventTime }}</p>
+              </div>
+              <!-- Duration -->
+              <div>
+                <p class="text-primary text-lg mb-2">Duration</p>
+                <p>{{ eventDuration }}</p>
+              </div>
+              <!-- Location -->
+              <div>
+                <p class="text-primary text-lg mb-2">Location</p>
+                <p>{{ eventLocation }}</p>
+              </div>
+              <!-- Action -->
+              <div>
+                <p class="text-primary text-lg mb-2">Action</p>
+                <span id="dropdown-toggle" class="cursor-pointer">
+                  <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
+                </span>
+                <!-- Dropdown Menu -->
+                <div
+                  id="dropdown-menu"
+                  class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                >
+                  <ul class="py-1">
+                    <li>
+                      <a
+                        href="#"
+                        id="edit-event-form"
+                        class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Edit Event</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Delete Event</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {{/alumniEvents}}
+          </div>
+
+          <!-- My Events -->
+          <div
+            id="myevents"
+            class="bg-secondary-200 p-8 rounded-lg mt-10 hidden"
+          >
+            <div class="flex justify-between mb-5">
+              <p>My Events</p>
+              <div class="relative space-x-2">
+                <span class="absolute left-5"
+                  ><i
+                    class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
+                  ></i
+                ></span>
+                <a
+                  id="open-event-form"
+                  class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
+                  href=""
+                  >Add Event</a
+                >
+              </div>
+              <div class="grid col-span-3"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+              {{#events}}
+              <div class="card shadow-sm relative bg-secondary-300">
+                <img
+                  class=""
+                  src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
+                  alt="seminar"
+                  class="w-full"
+                />
+
+                <div class="absolute top-[36%] left-0 bg-black/50 w-full">
+                  <ul class="list-disc px-6 py-2">
+                    {{#eventSubTopic}}
+                    <li class="text-secondary-200 font-medium">{{.}}</li>
+                    {{/eventSubTopic}}
+                  </ul>
+                </div>
+
+                <div class="absolute top-2 right-5 z-50">
+                  <span class="dropdown-toggle cursor-pointer"
+                    ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
+                  ></span>
+                  <!-- Dropdown Menu -->
+                  <div
+                    class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                  >
+                    <ul class="py-1">
+                      <li>
+                        <a
+                          href="#"
+                          id="edit-event-form"
+                          class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                          >Edit Event</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
+                          >Delete Event</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="flex justify-start space-x-8 mb-4">
+                  <div class="bg-primary px-4 py-2">
+                    <p class="text-secondary-200 font-medium">
+                      {{ eventMonth }}
+                    </p>
+                    <p class="text-secondary-200 font-medium">{{ eventDay }}</p>
+                  </div>
+                  <div class="p-2">
+                    <p class="text-primary font-medium text-2xl mb-2">
+                      {{ eventName }}
+                    </p>
+                    <div class="relative">
+                      <span class="absolute"
+                        ><i class="fa-regular fa-clock text-primary"></i
+                      ></span>
+                      <p class="pl-6 text-secondary-200 font-semibold text-">
+                        {{ eventTime }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="event-details"
+                  class="p-6 text-secondary-200 bg-secondary-100"
+                >
+                  <p class="text-primary font-medium text-xl mb-2">
+                    {{ eventCategory }}
+                  </p>
+                  <p class="text-secondary-200 font-medium">
+                    Duration: {{ eventDuration }}
+                  </p>
+                  <p class="text-secondary-200 font-medium">
+                    Location: {{ eventLocation }}
+                  </p>
+                </div>
+              </div>
+              {{/events}}
+            </div>
+          </div>
+
+          <!-- Members -->
+          <div
+            id="members"
+            class="bg-secondary-200 p-8 rounded-lg mt-10 hidden"
+          >
+            <div class="flex justify-between mb-5">
+              <p>Alumni Members</p>
+              <div class="relative space-x-2">
+                <span class="absolute left-5 mt-2">
+                  <i
+                    class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
+                  ></i>
+                </span>
+                <button
+                  id="open-admin-member-form"
+                  class="addMemberButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
+                >
+                  Add Member
+                </button>
+              </div>
+            </div>
+            <div class="grid grid-cols-6 py-4">
+              <!-- Header row for column labels -->
+              <div class="text-primary text-lg mb-2">Username</div>
+              <div class="text-primary text-lg mb-2">First name</div>
+              <div class="text-primary text-lg mb-2">Last name</div>
+              <div class="text-primary text-lg mb-2">Group</div>
+              <div class="text-primary text-lg mb-2">Email</div>
+              <div class="text-primary text-lg mb-2">Action</div>
+
+              <!-- Alumni user data -->
+              {{#alumniUsers}}
+              <div>{{ username }}</div>
+              <div>{{ firstName }}</div>
+              <div>{{ lastName }}</div>
+              <div>{{ group }}</div>
+              <div style="word-wrap: break-word">{{ email }}</div>
+              <div class="pl-4">
+                <span id="" class="cursor-pointer dropdown-toggle">
+                  <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
+                </span>
+
+                <!-- Dropdown Menu -->
+                <div
+                  class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+                >
+                  <ul class="py-1">
+                    <li>
+                      <a
+                        href="#"
+                        id="{{ username }}"
+                        class="open-admin-edit-form block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Edit Alumni</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        id="{{ username }}"
+                        class="open-admin-delete-form block px-4 py-2 text-secondary-200 hover:text-hover"
+                        >Delete Alumni</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- editing member -->
+              <div
+                id="{{ username }}"
+                class="admin-edit-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+                    Updates user details
+                  </h2>
+                  <span id=""
+                    ><i
+                      class="close-edit-form fa-solid fa-xmark text-primary"
+                    ></i
+                  ></span>
+                </div>
+                <form action="/users/user/{{ username }}" method="POST">
+                  <label for="username">Usernames:</label>
+                  <input
+                    class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                    type="text"
+                    id="username"
+                    name="username"
+                    value="{{ username }}"
+                    disabled
+                  />
+
+                  <label for="firstName">First Name:</label>
+                  <input
+                    class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value="{{ firstName }}"
+                    required
+                  />
+
+                  <label for="lastName">Last Name:</label>
+                  <input
+                    class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value="{{ lastName }}"
+                    required
+                  />
+
+                  <label for="group">Group:</label>
+                  <input
+                    class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                    type="text"
+                    id="group"
+                    name="group"
+                    value="{{ group }}"
+                    required
+                  />
+
+                  <label for="email">Email:</label>
+                  <input
+                    class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                    type="text"
+                    id="email"
+                    name="email"
+                    value="{{ email }}"
+                    required
+                  />
+
+                  <div class="flex mx-auto space-x-32 py-5">
+                    <a
+                      class="rounded-full bg-secondary-100 text-secondary-200 px-4 py-2 hover:underline hover:text-primary"
+                      href="/users"
+                      >Cancel</a
+                    >
+                    <button
+                      class="rounded-full text-secondary-200 bg-primary mx-auto px-5 py-2 hover:text-hover"
+                    >
+                      Update User
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- deleting users -->
+              <div
+                id="{{ username }}"
+                class="admin-delete-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-sm hidden mx-auto"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+                    Delete Alumni Member
+                  </h2>
+                  <span id=""
+                    ><i
+                      class="close-delete-form fa-solid fa-xmark text-primary"
+                    ></i
+                  ></span>
+                </div>
+                <form action="/users/delete/{{ username }}" method="POST">
+                  <label for="username">Delete Alumni User:</label>
+                  <input
+                    class="block"
+                    id="username"
+                    name="username"
+                    value="{{ username }}"
+                    disabled
+                  />
+                  <!-- Button -->
+                  <button
+                    type="submit"
+                    class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                  >
+                    Delete User
+                  </button>
+                </form>
+              </div>
+              {{/alumniUsers}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- adding event -->
+    <div
+      id="event-modal"
+      class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
+    >
+      <form
+        action="/events"
+        method="POST"
+        id="event-form"
+        class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+      >
+        <div class="flex justify-between">
+          <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+            Add Event
+          </h2>
+          <span id="close-form"
+            ><i class="fa-solid fa-xmark text-primary"></i
+          ></span>
+        </div>
+
+        <!-- Event Name -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventCategory"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Categories</label
+            >
+            <select
+              id="eventCategory"
+              name="eventCategory"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+            >
+              <option value="None">None</option>
+              <option value="Professional Development">
+                Professional Development
+              </option>
+              <option value="Networking">Networking</option>
+              <option value="Campus Events">Campus Events</option>
+            </select>
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventName"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Name</label
+            >
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- event description and subtopics -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventSubTopics"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Sub Topics</label
+            >
+            <div id="eventSubTopics">
+              <input
+                type="text"
+                name="eventSubTopic"
+                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
+                placeholder="Sub Topic 1"
+                required
+              />
+              <input
+                type="text"
+                name="eventSubTopic"
+                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50 mb-3"
+                placeholder="Sub Topic 2"
+                required
+              />
+              <input
+                type="text"
+                name="eventSubTopic"
+                class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-primary/50"
+                placeholder="Sub Topic 3"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDescription"
+              class="block text-secondary-100 text-sm font-medium"
+              >Description</label
+            >
+            <textarea
+              id="eventDescription"
+              name="eventDescription"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDate"
+              class="block text-secondary-100 text-sm font-medium"
+              >Date</label
+            >
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventTime"
+              class="block text-secondary-100 text-sm font-medium"
+              >Time</label
+            >
+            <input
+              type="time"
+              id="eventTime"
+              name="eventTime"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!--  Duration and Location-->
+        <div class="mb-4 flex flex-wrap -mx-2">
+          <div class="w-1/2 px-2">
+            <label
+              for="eventDuration"
+              class="block text-secondary-100 text-sm font-medium"
+              >Duration (hours)</label
+            >
+            <input
+              type="number"
+              id="eventDuration"
+              name="eventDuration"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+          <div class="w-1/2 px-2">
+            <label
+              for="eventLocation"
+              class="block text-secondary-100 text-sm font-medium"
+              >Location</label
+            >
+            <input
+              type="text"
+              id="eventLocation"
+              name="eventLocation"
+              class="w-full p-2 rounded-lg border-gray-500 border-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between">
+          <button
+            type="button"
+            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+            onclick="cancelEvent()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Create Event
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- adding memeber -->
+    <div
+      id="admin-member-modal"
+      class="fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+    >
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-secondary-100 font-semibold mb-6 mx-auto">
+          Add a new member
+        </h2>
+        <span id="close-admin-form"
+          ><i class="fa-solid fa-xmark text-primary"></i
+        ></span>
+      </div>
+      <form
+        action="/users/"
+        method="POST"
+        class="flex flex-col items-start space-y-4 max-w-xl mx-auto w-full md:w-[50%]"
+      >
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-user text-primary"></i
+          ></span>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            autocomplete="username"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="Username Eg:janesmith"
+          />
+        </div>
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-user text-primary"></i
+          ></span>
+          <input
+            type="text"
+            name="firstName"
+            id="first-name"
+            autocomplete="given-name"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="First Name"
+          />
+        </div>
+
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-user text-primary"></i
+          ></span>
+          <input
+            type="text"
+            name="lastName"
+            id="last-name"
+            autocomplete="family-name"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="Last Name"
+          />
+        </div>
+
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-envelope text-primary"></i
+          ></span>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="Email"
+          />
+        </div>
+
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-users text-primary"></i
+          ></span>
+          <input
+            type="text"
+            name="group"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="Year Group"
+          />
+        </div>
+
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5"
+            ><i class="fa-solid fa-phone"></i
+          ></span>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+            placeholder="230-5908-4528"
+          />
+        </div>
+
+        <div class="relative w-full flex items-center">
+          <span class="absolute top-2 left-5">
+            <i class="fa-solid fa-lock text-primary"></i>
+          </span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+            placeholder="Password"
+          />
+          <span class="absolute top-2 right-5">
+            <i class="fa-regular fa-eye-slash text-primary"></i>
+          </span>
+        </div>
+
+        <div class="flex mx-auto space-x-32">
+          <a
+            class="rounded-full bg-secondary-100 text-secondary-200 px-4 py-2 hover:underline hover:text-primary"
+            href="/about"
+            >Cancel</a
+          >
+          <button
+            type="submit"
+            class="rounded-full text-secondary-200 bg-primary mx-auto px-5 py-2 hover:text-hover"
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="flash/flash-client.js"></script>
+    <script src="/js/editmember.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/addEvent.js"></script>
+    <script src="/js/member.js"></script>
+    <script src="/js/deletemember.js"></script>
+  </body>
+</html>
