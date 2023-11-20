@@ -1,2 +1,0 @@
-# AlumniNexus
-Alumni website

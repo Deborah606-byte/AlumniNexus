@@ -1,4 +1,0 @@
-{
-    "watch": ["index.js", "views/", "controllers/", "routes/"],
-    "ext": "js, css, mustache, html"
-  }
