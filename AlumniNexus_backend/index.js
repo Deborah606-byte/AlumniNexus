@@ -8,7 +8,7 @@ const app = express();
 // Parse request body
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(flash());
+app.use(flash({ duration: 60000 }));
 
 // Connect to the database
 const connectDB = require("./config/dbconfig");

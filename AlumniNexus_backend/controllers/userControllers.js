@@ -1,15 +1,37 @@
 const User = require("../models/userModel");
 
+// const createUser = async (req, res) => {
+//   const signUpData = req.body;
+//   try {
+//     const newAlumni = await User.create(signUpData);
+//     console.log({ message: "Member added successfully", newAlumni });
+//     res.status(200).send("Sign up made successfully");
+//   } catch (error) {
+//     console.error("An error occurred");
+//     console.error({ error: err });
+//     res.status(500).send("Error creating user");
+//   }
+// };
+
 const createUser = async (req, res) => {
   const signUpData = req.body;
   try {
     const newAlumni = await User.create(signUpData);
     console.log({ message: "Member added successfully", newAlumni });
-    res.status(200).send("Sign up made successfully");
+
+    // Set a flash message
+    res.flash("success", {
+      message: "Sign up made successfully",
+      duration: 60000,
+    });
+
+    // Redirect to the login page
+    res.redirect("http://localhost:3000/auth/login");
   } catch (error) {
     console.error("An error occurred");
-    console.error({ error: err });
-    res.status(500).send("Error creating user");
+    console.error({ error });
+    res.flash("error", "Error creating user");
+    res.redirect("http://localhost:3000/auth/signup"); // Redirect to signup page in case of an error
   }
 };
 
