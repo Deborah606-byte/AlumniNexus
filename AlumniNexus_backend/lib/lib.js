@@ -1,6 +1,6 @@
 const Event = require("../models/eventModel");
 
-exports.getMyEvents = async (req, res) => {
+exports.getEvents = async (req, res) => {
   try {
     const alumniEvents = await Event.find({});
     // Adding date manipulation logic to each event
