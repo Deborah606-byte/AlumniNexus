@@ -19,13 +19,15 @@ document
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
+        console.log(data);
+
+        localStorage.setItem("alumni", JSON.stringify(data.data));
 
         // Show a popup message
         alert("Login successful! Welcome to the home page.");
 
         // Redirect to the home page or any desired destination
-        window.location.href = "/home"; // Update with your home page URL
+        window.location.href = "/home";
       })
       .catch((error) => {
         console.error("Error:", error);

@@ -1,6 +1,7 @@
 const openLogoutButton = document.getElementById("logout-form");
 const logoutModal = document.getElementById("logout-modal");
 const closeLogoutButton = document.getElementById("close-logout-form");
+const dashboardLogout = document.getElementById("dashboard_logout");
 
 // Function to open the logout modal
 function openLogoutModal(logout) {
@@ -18,6 +19,13 @@ function cancelLogout() {
   closeLogoutModal();
 }
 
+//Function to clear and logout
+function alumniLogout() {
+  localStorage.removeItem("alumni");
+  window.location.href = "/auth/login";
+}
+
+dashboardLogout.addEventListener("click", alumniLogout);
 openLogoutButton.addEventListener("click", openLogoutModal);
 closeLogoutButton.addEventListener("click", closeLogoutModal);
 

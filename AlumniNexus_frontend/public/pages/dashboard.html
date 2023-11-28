@@ -393,7 +393,6 @@
             >
             <input
               type="text"
-              id="username"
               name="username"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
               disabled
@@ -599,8 +598,7 @@
             <input
               type="text"
               name="username"
-              id="username"
-              autocomplete="username"
+              id="update-username"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="Username Eg:janesmith"
             />
@@ -632,6 +630,7 @@
               >Year Group</label
             >
             <input
+              id="group"
               type="text"
               name="group"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
@@ -709,7 +708,7 @@
                 <span>Upload a file</span>
                 <input
                   id="file-upload"
-                  name="file-upload"
+                  name="fileUpload"
                   type="file"
                   class="sr-only"
                 />
@@ -773,14 +772,13 @@
           >
             Cancel
           </button>
-          <a href="/home">
-            <button
-              type="button"
-              class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
-            >
-              Log Out
-            </button>
-          </a>
+          <button
+            id="dashboard_logout"
+            type="button"
+            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+          >
+            Log Out
+          </button>
         </div>
       </form>
     </div>
@@ -790,5 +788,6 @@
     <script src="../js/updateEvent.js"></script>
     <script src="../js/deleteEventDashboard.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../services/dashboard.js"></script>
   </body>
 </html>
