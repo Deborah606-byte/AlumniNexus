@@ -19,7 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(flash());
 
-
 // Frontend routes
 const homeRoutes = require("./routes/homeRoutes");
 const aboutRoutes = require("./routes/aboutRoutes");
@@ -33,10 +32,13 @@ const alumniStories = require("./routes/storiesRoutes");
 const registerEvent = require("./routes/rsvpRoutes");
 const jobDetails = require("./routes/jobDetailsRoutes");
 
+//public
 app.use("/", aboutRoutes);
-app.use("/home", homeRoutes);
-app.use("/auth", loginRoutes);
 app.use("/about", aboutRoutes);
+app.use("/auth", loginRoutes);
+
+//private
+app.use("/home", homeRoutes);
 app.use("/dashboard", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/events", eventRoutes);
@@ -52,7 +54,6 @@ app.use("/jobdetails", jobDetails);
 //     .status(404)
 //     .sendFile(path.join(__dirname, "../../public", "pages", "404.html"));
 // });
-
 
 // Start the server
 app.listen(3000, () => console.log("Server started and running on port 3000"));

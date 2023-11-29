@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     // Show a popup message
     // alert("Please login!.");
-    window.location.href = "/auth/login";
+    // window.location.href = "/auth/login";
   }
 });
 

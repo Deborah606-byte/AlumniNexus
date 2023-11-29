@@ -168,8 +168,8 @@
       class="fixed inset-0 z-50 items-center justify-center hidden mt-4"
     >
       <form
-        action="/alumni-events"
-        method="POST"
+        action=""
+        method=""
         id="event-form"
         class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
       >
@@ -220,18 +220,25 @@
           </div>
         </div>
 
-        <!-- event description and created by -->
+        <!-- event description and event speaker -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
             <label
-              for="username"
+              for="eventSpeaker"
               class="block text-secondary-100 text-sm font-medium"
-              >Created by</label
+              >Event Speaker</label
             >
             <input
               type="text"
-              id="username"
-              name="username"
+              id="events"
+              name="eventSpeaker"
+              class="w-full p-2 mb-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+            <input
+              type="text"
+              id="events"
+              name="eventSpeaker"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
               required
             />
@@ -247,7 +254,25 @@
               id="eventDescription"
               name="eventDescription"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
-              rows="2"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- event Agenda -->
+        <div class="mb-4 -mx-2">
+          <div class="px-2">
+            <label
+              for="eventAgenda"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Agenda</label
+            >
+            <textarea
+              id="eventAgenda"
+              name="eventAgenda"
+              class="w-full block p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="3"
               required
             ></textarea>
           </div>
@@ -789,5 +814,6 @@
     <script src="../js/deleteEventDashboard.js"></script>
     <script src="../js/logout.js"></script>
     <script src="../services/dashboard.js"></script>
+    <script src="../services/events.js"></script>
   </body>
 </html>
