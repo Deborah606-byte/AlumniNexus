@@ -5,6 +5,17 @@ document
 
     const eventData = new FormData(this);
 
+    const currentUser = JSON.parse(localStorage.getItem("alumni")) || null;
+    console.log({
+      currentUser,
+      eventData: JSON.stringify(Object.fromEntries(eventData)),
+    });
+
+    if (currentUser == null) return;
+
+    const { _id: userId } = currentUser.user;
+    eventData.append("userId", userId);
+
     fetch("http://localhost:8080/api/events/create", {
       method: "POST",
       headers: {
