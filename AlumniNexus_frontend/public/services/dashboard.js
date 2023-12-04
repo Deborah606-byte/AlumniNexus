@@ -29,19 +29,48 @@ window.addEventListener("DOMContentLoaded", () => {
       "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
     img.alt = "seminar";
 
-    // Create title element
-    const title = document.createElement("p");
-    title.className = "text-primary font-medium text-2xl mb-2";
-    title.textContent = event.eventName || "No title";
-
     // Append image and title to the card
     card.appendChild(img);
-    card.appendChild(title);
+
+    // Create speakersContainer element
+    const speakersContainer = document.createElement("div");
+    speakersContainer.className =
+      "absolute top-[49%] left-0 bg-black/50 w-full";
+
+    // Check if event has speakers property and it is an array
+    if (event.eventSpeaker && Array.isArray(event.eventSpeaker)) {
+      const speakersList = document.createElement("ul");
+      speakersList.className = "list-disc px-6 py-2";
+
+      // Add "Speakers" title
+      const speakersTitle = document.createElement("p");
+      speakersTitle.className = "text-secondary-200 font-xl";
+      speakersTitle.textContent = "Speakers";
+      speakersList.appendChild(speakersTitle);
+
+      // Add speakers to the list
+      event.eventSpeaker.forEach((speaker) => {
+        const speakerElement = document.createElement("li");
+        speakerElement.className = "text-secondary-200 font-medium";
+        speakerElement.textContent = speaker;
+
+        speakersList.appendChild(speakerElement);
+      });
+
+      // Append the list to speakersContainer
+      speakersContainer.appendChild(speakersList);
+    }
+
+    // Append speakersContainer to the card
+    card.appendChild(speakersContainer);
 
     // Create dateContainer element
+    const eventFooter = document.createElement("div");
+    eventFooter.className = "flex justify-start space-x-8 mb-4";
     const dateContainer = document.createElement("div");
-    dateContainer.className = "flex justify-start space-x-8 mb-4";
+    dateContainer.className = "bg-primary px-4 py-2";
 
+    eventFooter.appendChild(dateContainer);
     // Check if event has date property
     if (event.eventDate) {
       // Format the date to display only the month and day
@@ -50,35 +79,23 @@ window.addEventListener("DOMContentLoaded", () => {
         { month: "short", day: "numeric" }
       );
 
-      // Create date element
-      const date = document.createElement("p");
-      date.className = "text-secondary-200 font-medium";
-      date.textContent = formattedDate;
+      formattedDate.split(" ").forEach((e) => {
+        // Create date element
+        const date = document.createElement("p");
+        date.className = "text-secondary-200 font-medium";
+        date.textContent = e;
 
-      // Create time element
-      const time = document.createElement("p");
-      time.className = "text-secondary-200 font-medium";
-      time.textContent = event.eventTime || "";
-
-      // Append date and time to dateContainer
-      dateContainer.appendChild(date);
-      dateContainer.appendChild(time);
+        // Append date and time to dateContainer
+        dateContainer.appendChild(date);
+      });
     }
 
     // Append dateContainer to the card
-    card.appendChild(dateContainer);
+    card.appendChild(eventFooter);
 
-    // Create detailsContainer element for additional details like location and speakers
+    // Create detailsContainer element for additional details like speakers
     const detailsContainer = document.createElement("div");
     detailsContainer.className = "p-2";
-
-    // Check if event has location property
-    if (event.eventLocation) {
-      const location = document.createElement("p");
-      location.className = "text-secondary-200 font-medium text-xl mb-2";
-      location.textContent = `Location: ${event.eventLocation}`;
-      detailsContainer.appendChild(location);
-    }
 
     // Create timeContainer element for time
     const timeContainer = document.createElement("div");
@@ -98,11 +115,17 @@ window.addEventListener("DOMContentLoaded", () => {
     timeContainer.appendChild(clockIcon);
     timeContainer.appendChild(eventTime);
 
+    // Create title element
+    const title = document.createElement("p");
+    title.className = "text-primary font-medium text-2xl mb-2";
+    title.textContent = event.eventName || "No title";
+
     // Append timeContainer to detailsContainer
+    detailsContainer.appendChild(title);
     detailsContainer.appendChild(timeContainer);
 
     // Append detailsContainer to the card
-    card.appendChild(detailsContainer);
+    eventFooter.appendChild(detailsContainer);
 
     // Create dropdownContainer element
     const dropdownContainer = document.createElement("div");
@@ -146,38 +169,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Append dropdownContainer to the card
     card.appendChild(dropdownContainer);
-
-    // Create speakersContainer element
-    const speakersContainer = document.createElement("div");
-    speakersContainer.className =
-      "absolute top-[49%] left-0 bg-black/50 w-full";
-
-    // Check if event has speakers property and it is an array
-    if (event.eventSpeaker && Array.isArray(event.eventSpeaker)) {
-      const speakersList = document.createElement("ul");
-      speakersList.className = "list-disc px-6 py-2";
-
-      // Add "Speakers" title
-      const speakersTitle = document.createElement("li");
-      speakersTitle.className = "text-secondary-200 font-medium";
-      speakersTitle.textContent = "Speakers";
-      speakersList.appendChild(speakersTitle);
-
-      // Add speakers to the list
-      event.eventSpeaker.forEach((speaker) => {
-        const speakerElement = document.createElement("li");
-        speakerElement.className = "text-secondary-200 font-medium";
-        speakerElement.textContent = speaker;
-
-        speakersList.appendChild(speakerElement);
-      });
-
-      // Append the list to speakersContainer
-      speakersContainer.appendChild(speakersList);
-    }
-
-    // Append speakersContainer to the card
-    card.appendChild(speakersContainer);
 
     return card;
   }

@@ -146,12 +146,78 @@
             </div>
           </div>
         </div>
+
+
+        <div class="card shadow-sm relative bg-secondary-300">
+          <img
+            class=""
+            src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
+            alt="seminar"
+            class="w-full"
+          />
+
+          <div class="absolute top-[49%] left-0 bg-black/50 w-full">
+            <ul class="list-disc px-6 py-2">
+              <li class="text-secondary-200 font-medium">Leadership Skills</li>
+              <li class="text-secondary-200 font-medium">Management</li>
+              <li class="text-secondary-200 font-medium">
+                Personal Development
+              </li>
+            </ul>
+          </div>
+
+          <div class="absolute top-2 right-5">
+            <span id="" class="dropdown-toggle cursor-pointer"
+              ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
+            ></span>
+            <div
+              id=""
+              class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
+            >
+              <ul class="py-1">
+                <li>
+                  <a
+                    id=""
+                    class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Edit Event</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
+                    >Delete Event</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-start space-x-8 mb-4">
+            <div class="bg-primary px-4 py-2">
+              <p class="text-secondary-200 font-medium">Nov</p>
+              <p class="text-secondary-200 font-medium">23</p>
+            </div>
+            <div class="p-2">
+              <p class="text-primary font-medium text-2xl mb-2">
+                Leadership Summit
+              </p>
+              <div class="relative">
+                <span class="absolute"
+                  ><i class="fa-regular fa-clock text-primary"></i
+                ></span>
+                <p class="pl-6 text-secondary-200 font-semibold text-">
+                  12:00 noon
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div> -->
-    <div
-      id="event-container"
-      class="container mx-auto py-10 grid grid-cols-3 gap-10"
-    ></div>
+
+    <!-- rendering events -->
+    <div class="container mx-auto py-10">
+      <div id="event-container" class="grid grid-cols-3 gap-10"></div>
+    </div>
 
     <!-- adding event -->
     <div
