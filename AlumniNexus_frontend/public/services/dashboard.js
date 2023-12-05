@@ -7,48 +7,40 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderEvents(events) {
-    // Clear existing content in the event container
     eventContainer.innerHTML = "";
 
-    // Loop through the events and create a card for each
     events.forEach((event) => {
       const eventCard = createEventCard(event);
       eventContainer.appendChild(eventCard);
     });
   }
 
+  //event cards
   function createEventCard(event) {
-    // Create HTML elements for the event card
     const card = document.createElement("div");
     card.className = "card shadow-sm relative bg-secondary-300";
 
-    // Create image element
     const img = document.createElement("img");
     img.className = "w-full";
     img.src =
       "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
     img.alt = "seminar";
 
-    // Append image and title to the card
     card.appendChild(img);
 
-    // Create speakersContainer element
     const speakersContainer = document.createElement("div");
     speakersContainer.className =
       "absolute top-[49%] left-0 bg-black/50 w-full";
 
-    // Check if event has speakers property and it is an array
     if (event.eventSpeaker && Array.isArray(event.eventSpeaker)) {
       const speakersList = document.createElement("ul");
       speakersList.className = "list-disc px-6 py-2";
 
-      // Add "Speakers" title
       const speakersTitle = document.createElement("p");
-      speakersTitle.className = "text-secondary-200 font-xl";
+      speakersTitle.className = "text-secondary-200 font-bold text-xl -mx-6";
       speakersTitle.textContent = "Speakers";
       speakersList.appendChild(speakersTitle);
 
-      // Add speakers to the list
       event.eventSpeaker.forEach((speaker) => {
         const speakerElement = document.createElement("li");
         speakerElement.className = "text-secondary-200 font-medium";
@@ -57,110 +49,88 @@ window.addEventListener("DOMContentLoaded", () => {
         speakersList.appendChild(speakerElement);
       });
 
-      // Append the list to speakersContainer
       speakersContainer.appendChild(speakersList);
     }
 
-    // Append speakersContainer to the card
     card.appendChild(speakersContainer);
 
-    // Create dateContainer element
     const eventFooter = document.createElement("div");
     eventFooter.className = "flex justify-start space-x-8 mb-4";
     const dateContainer = document.createElement("div");
     dateContainer.className = "bg-primary px-4 py-2";
 
     eventFooter.appendChild(dateContainer);
-    // Check if event has date property
     if (event.eventDate) {
-      // Format the date to display only the month and day
       const formattedDate = new Date(event.eventDate).toLocaleDateString(
         undefined,
         { month: "short", day: "numeric" }
       );
 
       formattedDate.split(" ").forEach((e) => {
-        // Create date element
         const date = document.createElement("p");
         date.className = "text-secondary-200 font-medium";
         date.textContent = e;
 
-        // Append date and time to dateContainer
         dateContainer.appendChild(date);
       });
     }
 
-    // Append dateContainer to the card
     card.appendChild(eventFooter);
 
-    // Create detailsContainer element for additional details like speakers
     const detailsContainer = document.createElement("div");
     detailsContainer.className = "p-2";
 
-    // Create timeContainer element for time
     const timeContainer = document.createElement("div");
     timeContainer.className = "relative";
 
-    // Create clock icon
     const clockIcon = document.createElement("span");
     clockIcon.className = "absolute";
     clockIcon.innerHTML = '<i class="fa-regular fa-clock text-primary"></i>';
 
-    // Create time element
     const eventTime = document.createElement("p");
     eventTime.className = "pl-6 text-secondary-200 font-semibold text-";
     eventTime.textContent = event.eventTime || "Time not specified";
 
-    // Append clock icon and time to timeContainer
     timeContainer.appendChild(clockIcon);
     timeContainer.appendChild(eventTime);
 
-    // Create title element
     const title = document.createElement("p");
     title.className = "text-primary font-medium text-2xl mb-2";
     title.textContent = event.eventName || "No title";
 
-    // Append timeContainer to detailsContainer
     detailsContainer.appendChild(title);
     detailsContainer.appendChild(timeContainer);
 
-    // Append detailsContainer to the card
     eventFooter.appendChild(detailsContainer);
 
-    // Create dropdownContainer element
     const dropdownContainer = document.createElement("div");
     dropdownContainer.className = "absolute top-2 right-5";
 
-    // Create three dots icon element
+    // Dropdown
     const threeDotsIcon = document.createElement("span");
-    threeDotsIcon.id = ""; // Set your ID if needed
+    threeDotsIcon.id = "dropdownToggle"; // Set an ID for easier reference
     threeDotsIcon.className = "dropdown-toggle cursor-pointer";
     threeDotsIcon.innerHTML =
       '<i class="fa-solid fa-ellipsis-vertical text-primary"></i>';
 
-    // Create dropdownMenu element
     const dropdownMenu = document.createElement("div");
-    dropdownMenu.id = ""; // Set your ID if needed
+    dropdownMenu.id = "dropdownMenu"; // Set an ID for easier reference
     dropdownMenu.className =
       "dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300";
 
-    // Create a list of actions
     const actionsList = document.createElement("ul");
     actionsList.className = "py-1";
 
-    // Add "Edit Event" action
     const editEventAction = document.createElement("li");
     editEventAction.innerHTML =
-      '<a id="" class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Edit Event</a>';
+      '<a id="editEvent" class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Edit Event</a>';
     actionsList.appendChild(editEventAction);
 
-    // Add "Delete Event" action
     const deleteEventAction = document.createElement("li");
     deleteEventAction.innerHTML =
-      '<a class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</a>';
+      '<a id="deleteEvent" class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</a>';
     actionsList.appendChild(deleteEventAction);
 
-    // Append the list to the dropdownMenu
     dropdownMenu.appendChild(actionsList);
 
     // Append threeDotsIcon and dropdownMenu to dropdownContainer
@@ -169,6 +139,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Append dropdownContainer to the card
     card.appendChild(dropdownContainer);
+
+    // Event listener to toggle dropdown visibility
+    threeDotsIcon.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
+
+    // Event listener to close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+      if (!dropdownContainer.contains(event.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
 
     return card;
   }
@@ -211,4 +193,21 @@ window.addEventListener("DOMContentLoaded", () => {
     alert("Please login!.");
     window.location.href = "/auth/login";
   }
+
+  document.getElementById("editEvent").addEventListener("click", () => {
+    //Logic for editing an event here
+    console.log("Edit Event clicked");
+  });
+
+  document.getElementById("deleteEvent").addEventListener("click", () => {
+    // Logic for deleting an event here
+    console.log("Delete Event clicked");
+
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this event?"
+    );
+    if (confirmDelete) {
+      // Perform the deletion logic
+    }
+  });
 });
