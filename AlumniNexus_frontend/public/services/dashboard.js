@@ -133,8 +133,7 @@ window.addEventListener("DOMContentLoaded", () => {
     actionsList.appendChild(editEventAction);
 
     const deleteEventAction = document.createElement("li");
-    deleteEventAction.innerHTML =
-      '<button id="deleteEvent" class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</button>';
+    deleteEventAction.innerHTML = `<button id=${event._id} class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover">Delete Event</button>`;
     actionsList.appendChild(deleteEventAction);
 
     dropdownMenu.appendChild(actionsList);
@@ -262,15 +261,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     deleteEventElements.forEach((deleteEventElement) => {
       deleteEventElement.addEventListener("click", (event) => {
-        // const eventId = getEventIdFromElement(event.target);
-        // Logic for deleting an event here
-        console.log("Delete Event clicked for Event ID:", event.target);
+        const deleteModal = document.querySelector("#delete-event-modal");
+        deleteModal.classList.remove("hidden");
 
-        const confirmDelete = confirm(
-          "Are you sure you want to delete this event?"
-        );
-        if (confirmDelete) {
-          // Perform the deletion logic with the eventId
+        const closeDelelteForm = document.querySelector(".close-delete");
+        closeDelelteForm.addEventListener("click", () => {
+          deleteModal.classList.add("hidden");
+        });
+
+        if (event.target.id) {
+          const myEvent = myEvents.filter(
+            (createdEvent) => createdEvent._id == event.target.id
+          )[0];
+
+          console.log(myEvent);
+          const deleteForm = document.querySelector("#delete-event");
+          deleteForm.setAttribute("eventId", event.target.id);
         }
       });
     });

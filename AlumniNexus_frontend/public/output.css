@@ -1029,6 +1029,11 @@ video {
   min-width: 0px;
 }
 
+.min-w-min {
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1047,6 +1052,10 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-xs {
+  max-width: 20rem;
 }
 
 .flex-auto {
