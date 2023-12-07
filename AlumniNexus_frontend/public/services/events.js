@@ -32,6 +32,7 @@ document
       .then((data) => {
         console.log("Success:", data.message);
         alert("Event Added Successfully!");
+        window.location.reload();
         document.getElementById("event-modal").classList.add("hidden");
       })
       .catch((error) => {

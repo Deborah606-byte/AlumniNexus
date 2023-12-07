@@ -6,6 +6,7 @@
     <title>User</title>
 
     <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
@@ -215,8 +216,9 @@
     </div> -->
 
     <!-- rendering events -->
+    <div class="loader items-center justify-center mx-auto mt-10 hidden"></div>
     <div class="container mx-auto py-10">
-      <div id="event-container" class="grid grid-cols-3 gap-10"></div>
+      <div id="event-container" class="grid lg:grid-cols-3 gap-10"></div>
     </div>
 
     <!-- adding event -->
@@ -287,15 +289,15 @@
             >
             <input
               type="text"
-              id="events"
-              name="eventSpeaker"
+              id="eventSpeaker1"
+              name="eventSpeaker1"
               class="w-full p-2 mb-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
               required
             />
             <input
               type="text"
-              id="events"
-              name="eventSpeaker"
+              id="eventSpeaker2"
+              name="eventSpeaker2"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
               required
             />
@@ -420,8 +422,8 @@
 
     <!-- update event -->
     <div
-      id=""
-      class="update-event-modal fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+      id="update-event-modal"
+      class="fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
     >
       <div class="flex justify-between">
         <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
@@ -431,7 +433,7 @@
           ><i class="close-update fa-solid fa-xmark text-primary"></i
         ></span>
       </div>
-      <form action="" method="POST">
+      <form action="" method="" id="updateForm">
         <!-- event category -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
@@ -465,19 +467,27 @@
           </div>
         </div>
 
-        <!-- event description and created by -->
+        <!-- event description and event speaker -->
         <div class="mb-4 flex flex-wrap -mx-2">
           <div class="w-1/2 px-2">
             <label
-              for="username"
+              for="eventSpeaker"
               class="block text-secondary-100 text-sm font-medium"
-              >Created by</label
+              >Event Speaker</label
             >
             <input
               type="text"
-              name="username"
+              id="eventSpeaker1"
+              name="eventSpeaker1"
+              class="w-full p-2 mb-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              required
+            />
+            <input
+              type="text"
+              id="eventSpeaker2"
+              name="eventSpeaker2"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
-              disabled
+              required
             />
           </div>
 
@@ -487,13 +497,31 @@
               class="block text-secondary-100 text-sm font-medium"
               >Description</label
             >
-            <input
-              type="text"
+            <textarea
               id="eventDescription"
               name="eventDescription"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="3"
               required
-            />
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- event Agenda -->
+        <div class="mb-4 -mx-2">
+          <div class="px-2">
+            <label
+              for="eventAgenda"
+              class="block text-secondary-100 text-sm font-medium"
+              >Event Agenda</label
+            >
+            <textarea
+              id="eventAgenda"
+              name="eventAgenda"
+              class="w-full block p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+              rows="3"
+              required
+            ></textarea>
           </div>
         </div>
 
@@ -503,14 +531,14 @@
             <label
               for="eventDate"
               class="block text-secondary-100 text-sm font-medium"
-              >Date</label
-            >
+              >Date: <span id="eventDateValue"></span
+            ></label>
+
             <input
               type="date"
               id="eventDate"
               name="eventDate"
               class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
-              required
             />
           </div>
           <div class="w-1/2 px-2">
@@ -564,9 +592,9 @@
         <!-- Buttons -->
         <div class="flex justify-between">
           <button
+            id="cancelUpdate"
             type="button"
             class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
-            onclick="cancelEvent()"
           >
             Cancel
           </button>
@@ -872,5 +900,6 @@
     <script src="../js/logout.js"></script>
     <script src="../services/dashboard.js"></script>
     <script src="../services/events.js"></script>
+    <script src="../services/updateEvent.js"></script>
   </body>
 </html>
