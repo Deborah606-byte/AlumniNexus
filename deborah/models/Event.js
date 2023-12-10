@@ -11,7 +11,11 @@ const EventSchema = new Schema({
     type: String,
     required: true,
   },
-  username: {
+  eventSpeaker: {
+    type: [String],
+    required: true,
+  },
+  eventAgenda: {
     type: String,
     required: true,
   },
@@ -35,6 +39,11 @@ const EventSchema = new Schema({
     type: String,
     required: true,
   },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User", 
+    required: true,
+  }
 });
 
 module.exports = mongoose.model("Event", EventSchema);

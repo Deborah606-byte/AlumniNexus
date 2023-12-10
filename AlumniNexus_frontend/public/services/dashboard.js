@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const speakersContainer = document.createElement("div");
     speakersContainer.className =
-      "absolute top-[48%] left-0 bg-black/50 w-full";
+      "absolute top-[35%] left-0 bg-black/50 w-full";
 
     if (event.eventSpeaker && Array.isArray(event.eventSpeaker)) {
       const speakersList = document.createElement("ul");
@@ -67,20 +67,23 @@ window.addEventListener("DOMContentLoaded", () => {
     dateContainer.className = "bg-primary px-4 py-2";
 
     eventFooter.appendChild(dateContainer);
+
     if (event.eventDate) {
-      const formattedDate = new Date(event.eventDate).toLocaleDateString(
-        undefined,
-        { month: "short", day: "numeric" }
-      );
-
-      formattedDate.split(" ").forEach((e) => {
-        const date = document.createElement("p");
-        date.className = "text-secondary-200 font-medium";
-        date.textContent = e;
-
-        dateContainer.appendChild(date);
+      const eventDate = new Date(event.eventDate);
+      
+      const formattedDate = eventDate.toLocaleDateString('en-US', {
+        month: "short",
+        day: "numeric",
+        timeZone: "UTC"
       });
+    
+      const date = document.createElement("p");
+      date.className = "text-secondary-200 font-medium";
+      date.textContent = formattedDate;
+    
+      dateContainer.appendChild(date);
     }
+    
 
     card.appendChild(eventFooter);
 
@@ -188,7 +191,7 @@ window.addEventListener("DOMContentLoaded", () => {
           return response.json();
         })
         .then((events) => {
-          // console.log("Events:", events);
+          console.log("Events:", events);
           renderEvents(events);
           myEvents = events;
           loader.classList.add("hidden");

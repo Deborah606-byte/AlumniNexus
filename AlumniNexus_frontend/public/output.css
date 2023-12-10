@@ -656,6 +656,10 @@ video {
   top: -100%;
 }
 
+.top-\[35\%\] {
+  top: 35%;
+}
+
 .top-\[36\%\] {
   top: 36%;
 }
@@ -666,14 +670,6 @@ video {
 
 .top-\[46\%\] {
   top: 46%;
-}
-
-.top-\[48\%\] {
-  top: 48%;
-}
-
-.top-\[49\%\] {
-  top: 49%;
 }
 
 .top-\[52\%\] {
@@ -1027,11 +1023,6 @@ video {
 
 .min-w-0 {
   min-width: 0px;
-}
-
-.min-w-min {
-  min-width: -moz-min-content;
-  min-width: min-content;
 }
 
 .max-w-2xl {

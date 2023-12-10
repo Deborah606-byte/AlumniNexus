@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
-const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -14,17 +13,33 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  email: { type: String, required: true, unique: true },
-  group: {
-    type: Number,
+  email: {
+    type: String,
     required: true,
+    unique: true,
   },
-  phone: {
+  group: {
     type: String,
   },
   password: {
     type: String,
     required: true,
+    select: false,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+  },
+  fileUpload: {
+    type: String,
+  },
+  role: {
+    type: String,
+    enum: ["alumni", "admin"],
+    default: "alumni",
   },
 });
 
