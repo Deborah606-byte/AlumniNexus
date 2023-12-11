@@ -1,9 +1,21 @@
+let image;
+const fileInput = document.getElementById("image")
+fileInput.addEventListener("change", function(){
+  image = fileInput?.files[0];
+});
+
+const createButton = document.getElementById("create-event-button");
+
 document
   .getElementById("event-form")
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
+    createButton.innerHTML = "Creating...";
+
     const eventData = new FormData(this);
+    eventData.delete("file");
+    eventData.append("file", image)
 
     const currentUser = JSON.parse(localStorage.getItem("alumni")) || null;
     console.log({
@@ -18,10 +30,7 @@ document
 
     fetch("http://localhost:8080/api/events/create", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(Object.fromEntries(eventData)),
+      body: eventData,
     })
       .then((response) => {
         if (!response.ok) {
@@ -32,11 +41,12 @@ document
       .then((data) => {
         console.log("Success:", data.message);
         alert("Event Added Successfully!");
+        createButton.innerHTML = "Create Event";
         window.location.reload();
         document.getElementById("event-modal").classList.add("hidden");
       })
       .catch((error) => {
-        console.error("Error:", error.message);
+        console.error("Error:", error);
         alert("Error: Event creation failed");
       });
   });

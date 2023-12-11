@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const fileUploads = require("express-fileupload");
 
 const userRoutes = require("./routes/UserRoutes.js");
 const eventRoutes = require("./routes/EventRoutes.js");
@@ -13,6 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(fileUploads({useTempFiles: true}))
 
 const allowedOrigins = ["http://localhost:3000"];
 const corsOptions = {

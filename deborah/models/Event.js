@@ -19,6 +19,16 @@ const EventSchema = new Schema({
     type: String,
     required: true,
   },
+  image:{
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url:{
+      type: String,
+      required: true,
+    }
+  },
   eventDescription: {
     type: String,
     required: true,

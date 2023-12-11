@@ -27,8 +27,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const img = document.createElement("img");
     img.className = "w-full";
     img.src =
+      event?.image?.url ||
       "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
-    img.alt = "seminar";
+    img.alt = event.eventName;
 
     card.appendChild(img);
 
@@ -70,20 +71,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (event.eventDate) {
       const eventDate = new Date(event.eventDate);
-      
-      const formattedDate = eventDate.toLocaleDateString('en-US', {
+
+      const formattedDate = eventDate.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
-        timeZone: "UTC"
+        timeZone: "UTC",
       });
-    
+
       const date = document.createElement("p");
       date.className = "text-secondary-200 font-medium";
       date.textContent = formattedDate;
-    
+
       dateContainer.appendChild(date);
     }
-    
 
     card.appendChild(eventFooter);
 

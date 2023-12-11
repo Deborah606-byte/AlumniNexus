@@ -1,4 +1,5 @@
 const Event = require("../models/Event");
+const cloudinary = require("../utils/cloudinary");
 
 const create = async (req, res) => {
   //authenticate
@@ -15,13 +16,24 @@ const create = async (req, res) => {
     eventLocation,
     userId,
   } = req.body;
-
+  const image = req.files?.file
+  
   try {
+    const result = await cloudinary.uploader.upload(image?.tempFilePath, {
+      folder: "events",
+      resource_type: "auto",
+      // width: 300,
+      // crop: "scale"
+    })
     const eventData = new Event({
       eventCategory,
       eventName,
       eventSpeaker: [eventSpeaker1, eventSpeaker2],
       eventAgenda,
+      image: {
+        public_id: result.public_id,
+        url: result.secure_url
+      },
       eventDescription,
       eventDate,
       eventTime,
