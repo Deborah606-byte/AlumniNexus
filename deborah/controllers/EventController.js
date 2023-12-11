@@ -67,7 +67,14 @@ const updateEvent = async (req, res) => {
     eventLocation,
   } = req.body;
 
+  const image = req.files?.file
   try {
+    const result = await cloudinary.uploader.upload(image?.tempFilePath, {
+      folder: "events",
+      resource_type: "auto",
+      // width: 300,
+      // crop: "scale"
+    })
     const event = await Event.findByIdAndUpdate(
       id,
       {
@@ -75,6 +82,10 @@ const updateEvent = async (req, res) => {
         eventName,
         eventSpeaker: [eventSpeaker1, eventSpeaker2],
         eventAgenda,
+        image: {
+          public_id: result.public_id,
+          url: result.secure_url
+        },
         eventDescription,
         eventDate,
         eventTime,
