@@ -28,9 +28,12 @@
             >exus
           </h1>
         </a>
-        <div
-          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
-        >
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="menu-icon">
+            <i class="fa-solid fa-bars text-secondary-200"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-4">
           <ul
             class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
           >
@@ -81,6 +84,54 @@
           </ul>
         </div>
       </nav>
+      <div class="md:hidden nav-links py-10 hidden">
+        <ul class="flex flex-col items-center gap-4">
+          <li class="relative space-x-2">
+            <span class="absolute left-5"
+              ><i
+                class="fa-solid fa-circle-plus text-secondary-100 hover:text-hover"
+              ></i
+            ></span>
+            <a
+              id="open-event-form"
+              class="addEventButton rounded-full text-secondary-200 border-secondary-300 px-8 bg-primary py-2 hover:text-hover"
+              href=""
+              >Add Event</a
+            >
+          </li>
+          <li class="relative group">
+            <div
+              class="relative inline-block text-secondary-200 cursor-pointer"
+            >
+              <img
+                class="rounded-full h-10 w-10 border-2 border-secondary-200"
+                src="../images/users.png"
+                alt=""
+              />
+              <div
+                class="profile-dropdown hidden absolute z-10 right-0 mt-2 w-48 bg-primary rounded-lg shadow-lg border border-secondary-300"
+              >
+                <ul class="py-1">
+                  <li>
+                    <a
+                      id="update-profile-form"
+                      class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                      >View Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      id="logout-form"
+                      class="block px-4 py-2 text-secondary-200 hover:text-hover"
+                      >Log Out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- rendering events -->
@@ -529,7 +580,7 @@
 
     <div
       id="delete-event-modal"
-      class="fixed inset-0 z-50 justify-center mt-4 bg-white p-8 rounded-lg shadow-sm max-w-xs hidden mx-auto"
+      class="inset-0 z-50 justify-center mt-4 bg-white hidden p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
     >
       <div class="flex justify-between">
         <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
@@ -723,6 +774,7 @@
       </form>
     </div>
 
+    <script src="../js/navbar.js"></script>
     <script src="../js/profile.js"></script>
     <script src="../js/addEvent.js"></script>
     <script src="../js/updateEvent.js"></script>

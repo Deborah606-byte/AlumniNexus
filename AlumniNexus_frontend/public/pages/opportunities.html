@@ -23,9 +23,12 @@
             >exus
           </h1>
         </a>
-        <div
-          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
-        >
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="menu-icon">
+            <i class="fa-solid fa-bars text-secondary-100"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-4">
           <ul
             class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
           >
@@ -50,6 +53,26 @@
           </ul>
         </div>
       </nav>
+      <div class="md:hidden nav-links py-10 hidden">
+        <ul class="flex flex-col items-center gap-4">
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/home">Home</a>
+          </li>
+          <li>
+            <a href="/events" class="text-secondary-100 hover:text-hover"
+              >Programs & Events</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/stories"
+              >Alumni Stories</a
+            >
+          </li>
+          <li>
+            <a class="text-hover" href="">Career Opportunity</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- Hero Section -->

@@ -28,9 +28,12 @@
             >exus
           </h1>
         </a>
-        <div
-          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
-        >
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="menu-icon">
+            <i class="fa-solid fa-bars text-secondary-100"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-4">
           <ul
             class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
           >
@@ -55,6 +58,26 @@
           </ul>
         </div>
       </nav>
+      <div class="md:hidden nav-links py-10 hidden">
+        <ul class="flex flex-col items-center gap-4">
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/home">Home</a>
+          </li>
+          <li class="">
+            <a class="cursor-pointer text-hover">Programs & Events</a>
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/stories"
+              >Alumni Stories</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/opportunity"
+              >Career Opportunity</a
+            >
+          </li>
+        </ul>
+      </div>
     </header>
 
     <div class="bg-secondary-300/30">
@@ -68,11 +91,11 @@
                 alt=""
               />
               <div
-                class="time absolute top-1/2 transform -translate-y-1/2 left-20 text-center w-full"
+                class="time absolute top-1/2 transform -translate-y-1/2 text-center left-10 w-full"
               >
-                <div class="flex mx-auto space-x-10">
+                <div class="flex mx-auto space-x-2" id="countdown">
                   <div class="text-secondary-200 text-center">
-                    <p class="text-4xl font-medium mb-3">65</p>
+                    <p class="days text-4xl font-xl mb-3">65</p>
                     <p class="font-light">Days</p>
                   </div>
 
@@ -82,7 +105,7 @@
                   </div>
 
                   <div class="text-secondary-200 text-center">
-                    <p class="text-4xl font-medium mb-3">30</p>
+                    <p class="hours text-4xl font-xl mb-3">30</p>
                     <p class="font-light">Hours</p>
                   </div>
 
@@ -92,7 +115,7 @@
                   </div>
 
                   <div class="text-secondary-200 text-center">
-                    <p class="text-4xl font-medium mb-3">45</p>
+                    <p class="minutes text-4xl font-xl mb-3">45</p>
                     <p class="font-light">Minutes</p>
                   </div>
 
@@ -102,7 +125,7 @@
                   </div>
 
                   <div class="text-secondary-200 text-center">
-                    <p class="text-4xl font-medium mb-3">60</p>
+                    <p class="seconds text-4xl font-xl mb-3">60</p>
                     <p class="font-light">Seconds</p>
                   </div>
                 </div>
@@ -148,7 +171,9 @@
         All Alumni Events
       </h3>
 
-      <div class="flex items-center justify-center mx-auto py-10 space-x-4">
+      <div
+        class="flex flex-col md:flex-row items-center justify-center mx-auto py-10 space-x-4"
+      >
         <button
           id="searchButton"
           class="bg-secondary-100 text-secondary-200 py-2 px-8 rounded-full"
@@ -442,6 +467,7 @@
     </div>
 
     <script src="../js/navbar.js"></script>
+    <script src="../js/countdown.js"></script>
     <script defer type="module" src="../js/eventPage.js"></script>
   </body>
 </html>
