@@ -28,12 +28,13 @@
             >exus
           </h1>
         </a>
-        <div
-          class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center"
-        >
-          <ul
-            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8"
-          >
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="menu-icon">
+            <i class="fa-solid fa-bars text-secondary-100"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-4">
+          <ul class="flex flex-col md:flex-row items-center gap-8">
             <li>
               <a class="text-hover cursor-pointer" aria-current="page" href=""
                 >Home</a
@@ -64,6 +65,37 @@
           </ul>
         </div>
       </nav>
+      <div class="md:hidden nav-links py-10 hidden">
+        <ul class="flex flex-col items-center gap-4">
+          <li>
+            <a class="text-hover cursor-pointer" aria-current="page" href=""
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="/events" class="text-secondary-100 hover:text-hover"
+              >Programs & Events</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/stories"
+              >Alumni Stories</a
+            >
+          </li>
+          <li>
+            <a class="text-secondary-100 hover:text-hover" href="/opportunity"
+              >Career Opportunities</a
+            >
+          </li>
+
+          <button
+            id="dashboard-link"
+            class="uppercase bg-secondary-100 hover:scale-110 py-2 px-4 text-center text-secondary-200 rounded-lg"
+          >
+            My dashboard
+          </button>
+        </ul>
+      </div>
     </header>
 
     <!-- carousel for hero section -->
@@ -129,10 +161,12 @@
 
     <!-- upcoming events -->
     <div class="bg-secondary-300/30">
-      <div class="container grid lg:grid-cols-12 py-16 mx-auto gap-8 w-[80%]">
+      <div
+        class="container grid lg:grid-cols-12 py-16 mx-auto gap-8 w-[80%] overflow-hidden"
+      >
         <div class="lg:col-span-5">
           <img
-            class="h-[90%] w-full"
+            class="h-[300px] w-[400px]"
             src="../images/happy-joyful-friends-talking-laughing_1262-21146.jpg"
             alt=""
           />
@@ -156,9 +190,9 @@
             </p>
           </div>
 
-          <div class="flex mx-auto space-x-8 mt-28">
+          <div class="flex mx-auto space-x-2 mt-28" id="countdown">
             <div class="text-secondary-200 text-center">
-              <p class="text-4xl font-medium mb-3">65</p>
+              <p class="days text-4xl font-xl mb-3">65</p>
               <p class="font-light">Days</p>
             </div>
 
@@ -168,7 +202,7 @@
             </div>
 
             <div class="text-secondary-200 text-center">
-              <p class="text-4xl font-medium mb-3">30</p>
+              <p class="hours text-4xl font-xl mb-3">30</p>
               <p class="font-light">Hours</p>
             </div>
 
@@ -178,7 +212,7 @@
             </div>
 
             <div class="text-secondary-200 text-center">
-              <p class="text-4xl font-medium mb-3">45</p>
+              <p class="minutes text-4xl font-xl mb-3">45</p>
               <p class="font-light">Minutes</p>
             </div>
 
@@ -188,16 +222,8 @@
             </div>
 
             <div class="text-secondary-200 text-center">
-              <p class="text-4xl font-medium mb-3">60</p>
+              <p class="seconds text-4xl font-xl mb-3">60</p>
               <p class="font-light">Seconds</p>
-            </div>
-
-            <div class="mt-6 pl-12">
-              <a
-                href=""
-                class="bg-secondary-300 text-secondary-200 rounded-lg py-5 px-8 hover:text-hover"
-                >Join Now</a
-              >
             </div>
           </div>
 
@@ -223,7 +249,7 @@
         <div>
           <span><i class="fa-solid fa-user text-secondary-200"></i></span>
           <h4 class="text-secondary-100 font-medium py-4 text-2xl">
-            Update My Information
+            View My Profile
           </h4>
           <p class="text-secondary-200 text-justify">
             Keep your profile up-to-date. Showcase your achievements, share your
@@ -313,9 +339,9 @@
             </div>
           </div>
           <div class="mt-8">
-            <a href=""
+            <a href="/stories"
               ><button
-                class="bg-secondary-300 hover:scale-110 py-2 px-24 text-center text-secondary-200"
+                class="bg-secondary-300 hover:scale-110 py-2 px-16 text-center text-secondary-200"
               >
                 View Alumni Stories
               </button></a
@@ -343,7 +369,7 @@
               </div>
             </div>
 
-            <div class="flex justify-start space-x-4 mb-8">
+            <div class="flex justify-start space-x-4 mb-10">
               <img
                 class="w-36 h-28 mt-2 rounded-full"
                 src="../images/developer.avif"
@@ -359,7 +385,7 @@
               </div>
             </div>
 
-            <div class="flex justify-start space-x-4 mb-8">
+            <div class="flex justify-start space-x-4 mb-10">
               <img
                 class="w-36 h-28 mt-2 rounded-full"
                 src="../images/secretary.avif"
@@ -392,7 +418,7 @@
             </div>
           </div>
           <div class="mt-8">
-            <a href=""
+            <a href="/opportunity"
               ><button
                 class="bg-secondary-300 hover:scale-110 py-2 px-16 text-center text-secondary-200"
               >
@@ -407,8 +433,8 @@
             Event Calendar
           </h4>
           <div class="pl-4">
-            <h4 class="text-secondary-100 font-light mb-4">November 2023</h4>
-            <div class="flex justify-start space-x-4 mb-8">
+            <h4 class="text-secondary-100 font-light mb-6">November 2023</h4>
+            <div class="flex justify-start space-x-4 mb-10">
               <div class="px-4 py-2">
                 <p class="text-secondary-200 font-medium">MON</p>
                 <p class="text-secondary-100 font-medium text-center">7</p>
@@ -426,7 +452,7 @@
               </div>
             </div>
 
-            <div class="flex justify-start space-x-4 mb-8">
+            <div class="flex justify-start space-x-4 mb-10">
               <div class="px-4 py-2">
                 <p class="text-secondary-200 font-medium">SUN</p>
                 <p class="text-secondary-100 font-medium text-center">13</p>
@@ -444,7 +470,7 @@
               </div>
             </div>
 
-            <div class="flex justify-start space-x-4 mb-8">
+            <div class="flex justify-start space-x-4 mb-10">
               <div class="px-4 py-2">
                 <p class="text-secondary-200 font-medium">TUES</p>
                 <p class="text-secondary-100 font-medium text-center">22</p>
@@ -479,13 +505,14 @@
                   skills while contributing to a greater cause. Let's unite for
                   a day of service and make a difference together."
                 </p>
+                <br />
               </div>
             </div>
 
-            <div class="mt-6">
-              <a href=""
+            <div class="mt-10">
+              <a href="/events"
                 ><button
-                  class="bg-secondary-300 hover:scale-110 py-2 px-24 text-center text-secondary-200"
+                  class="bg-secondary-300 hover:scale-110 py-2 px-16 text-center text-secondary-200"
                 >
                   View Alumni Events
                 </button></a
@@ -659,5 +686,6 @@
     </div>
     <script src="../js/navbar.js"></script>
     <script src="../js/carousel.js"></script>
+    <script src="../js/countdown.js"></script>
   </body>
 </html>

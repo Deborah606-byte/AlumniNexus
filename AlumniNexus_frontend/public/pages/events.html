@@ -165,17 +165,26 @@
           id="categorySelect"
         >
           <option class="mb-2" value="all">All Events</option>
-          <option class="mb-2" value="professional">
+          <option class="mb-2" value="Professional Development">
             Professional Development
           </option>
-          <option class="mb-2" value="networking">Networking</option>
-          <option class="mb-2" value="campus">Campus Events</option>
+          <option class="mb-2" value="Networking">Networking</option>
+          <option class="mb-2" value="Campus Events">Campus Events</option>
         </select>
       </div>
 
       <div
+        class="loader items-center justify-center mx-auto mt-10 hidden"
+      ></div>
+
+      <div
         id="all-events-container"
         class="grid lg:grid-cols-3 gap-10 container"
+      ></div>
+
+      <div
+        id="no-events-message"
+        class="text-secondary-200 font-light text-xl text-center italic"
       ></div>
 
       <!-- Load more div -->

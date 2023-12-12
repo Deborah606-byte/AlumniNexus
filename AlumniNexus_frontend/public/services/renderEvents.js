@@ -31,7 +31,7 @@ function createEventCard(event) {
   card.appendChild(aspectWrapper);
 
   const img = document.createElement("img");
-  img.className = "object-cover";
+  img.className = "object-cover w-full h-[200px]";
   img.src =
     event?.image?.url ||
     "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
@@ -100,8 +100,7 @@ function createEventCard(event) {
   flexContainer.appendChild(detailsContainer);
 
   const buttonContainer = document.createElement("div");
-  buttonContainer.className = "flex justify-between px-2 py-2";
-  card.appendChild(buttonContainer);
+  buttonContainer.className = "flex justify-between items-center px-2 py-2";
 
   const viewDetailsBtn = document.createElement("a");
   viewDetailsBtn.href = "/details";
@@ -117,6 +116,8 @@ function createEventCard(event) {
   rsvpBtn.textContent = "RSVP";
   buttonContainer.appendChild(rsvpBtn);
 
+  card.appendChild(buttonContainer);
+
   return card;
 }
 
@@ -124,17 +125,38 @@ function searchEvents() {
   console.log("Search button clicked");
   const selectedCategory = document.getElementById("categorySelect").value;
   const eventCards = document.querySelectorAll(".card");
+  let foundEvents = false;
 
-  console.log("Selected Category:", selectedCategory);
+  // Show loader during search
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    loader.classList.remove("hidden");
+  }
 
   eventCards.forEach((card) => {
     const cardCategory = card.getAttribute("data-category");
     if (selectedCategory === "all" || cardCategory === selectedCategory) {
       card.style.display = "block";
+      foundEvents = true;
     } else {
       card.style.display = "none";
     }
   });
+
+  // Hide loader after search is completed
+  if (loader) {
+    loader.classList.add("hidden");
+  }
+
+  // Display a message if no events are found
+  const messageContainer = document.getElementById("no-events-message");
+  if (messageContainer) {
+    if (!foundEvents) {
+      messageContainer.textContent = `No events found for the category: ${selectedCategory}`;
+    } else {
+      messageContainer.textContent = ""; // Clear the message if events are found
+    }
+  }
 }
 
 export { renderAllEvents, searchEvents };
