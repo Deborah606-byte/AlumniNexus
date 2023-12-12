@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (currentUser) {
     const alumniDashboard = document.getElementById("dashboard-link");
     console.log(currentUser);
-    alumniDashboard.addEventListener("click", function () {
+    alumniDashboard?.addEventListener("click", function () {
       if (currentUser.user.role == "alumni") {
         window.location.href = "/dashboard";
       } else {

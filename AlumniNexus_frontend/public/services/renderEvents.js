@@ -24,7 +24,7 @@ function createEventCard(event) {
   const card = document.createElement("div");
   card.id = event._id;
   card.className = "card shadow-sm relative bg-secondary-300 w-80";
-  card.setAttribute("data-category", event.category);
+  card.setAttribute("data-category", event.eventCategory);
 
   const aspectWrapper = document.createElement("div");
   aspectWrapper.className = "aspect-w-4 aspect-h-3";
@@ -121,8 +121,11 @@ function createEventCard(event) {
 }
 
 function searchEvents() {
+  console.log("Search button clicked");
   const selectedCategory = document.getElementById("categorySelect").value;
   const eventCards = document.querySelectorAll(".card");
+
+  console.log("Selected Category:", selectedCategory);
 
   eventCards.forEach((card) => {
     const cardCategory = card.getAttribute("data-category");
