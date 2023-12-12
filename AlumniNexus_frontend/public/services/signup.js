@@ -13,17 +13,18 @@ document
       body: JSON.stringify(Object.fromEntries(formData)),
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
-        // Show a success message
-        alert("Signup successful! Please log in.");
-        // Redirect to the login page
-        window.location.href = "/auth/login";
+        if (data.message == "fail") {
+          console.log("Error:", data);
+          alert(data.data.message);
+        } else {
+          // Show a success message
+          alert("Signup successful! Please log in.");
+          // Redirect to the login page
+          window.location.href = "/auth/login";
+        }
       })
       .catch((error) => {
         console.error("Error:", error);

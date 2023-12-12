@@ -15,7 +15,28 @@ const signup = async (req, res) => {
     role,
   } = req.body;
 
+  console.log(
+    "REACHED HERE",
+    username,
+    phone,
+    email,
+    password,
+    firstName,
+    lastName,
+    address
+    )
+
   try {
+
+    if(!username || !firstName || !lastName || !email || !password || !address){
+      return res.status(400).json({
+        message: "fail",
+        data: {
+          message: "Please fill all required fields",
+        },
+      }); 
+    }
+
     //Check if user already exists
     let existing_user = await User.findOne({ email: email });
 
@@ -65,7 +86,7 @@ const signup = async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    res.status(500).json({
+    res.status(400).json({
       message: "Something went wrong",
     });
   }
