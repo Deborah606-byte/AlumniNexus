@@ -33,9 +33,6 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
   },
-  fileUpload: {
-    type: String,
-  },
   role: {
     type: String,
     enum: ["alumni", "admin"],

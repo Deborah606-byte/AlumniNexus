@@ -10,5 +10,4 @@ router.get("/me/:token", getCurrentUser);
 router.delete("/:id", deleteUser);
 router.get("/:id", getUserById);
 
-
 module.exports = router;

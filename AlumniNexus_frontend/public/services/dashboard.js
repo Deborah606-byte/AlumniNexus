@@ -121,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
     threeDotsIcon.id = "dropdownToggle"; // Set an ID for easier reference
     threeDotsIcon.className = "dropdown-toggle cursor-pointer";
     threeDotsIcon.innerHTML =
-      '<i class="fa-solid fa-ellipsis-vertical text-primary"></i>';
+      '<i class="fa-solid fa-ellipsis-vertical text-white"></i>';
 
     const dropdownMenu = document.createElement("div");
     dropdownMenu.id = "dropdownMenu"; // Set an ID for easier reference
@@ -234,7 +234,7 @@ window.addEventListener("DOMContentLoaded", () => {
           const myEvent = myEvents.filter(
             (createdEvent) => createdEvent._id == event.target.id
           )[0];
-          eventDateValue.innerHTML = myEvent.eventDate.split("T")[0];
+          eventDateValue.innerHTML = myEvent.eventDate?.split("T")[0];
           const updateForm = document.querySelector("#updateForm");
           updateForm.setAttribute("eventId", event.target.id);
 

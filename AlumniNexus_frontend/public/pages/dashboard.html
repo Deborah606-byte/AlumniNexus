@@ -17,7 +17,9 @@
   </head>
   <body class="bg-primary">
     <header class="bg-secondary-100">
-      <nav class="flex justify-between items-center container mx-auto py-2 w-[80%]">
+      <nav
+        class="flex justify-between items-center container mx-auto py-2 w-[80%]"
+      >
         <a href="#" class="font-extrabold">
           <h1 class="text-secondary-200 text-2xl">
             <span class="text-primary text-3xl">A</span>lumni<span
@@ -51,7 +53,7 @@
               >
                 <img
                   class="rounded-full h-10 w-10 border-2 border-secondary-200"
-                  src="../images/doctor 2.png"
+                  src="../images/users.png"
                   alt=""
                 />
                 <div
@@ -62,7 +64,7 @@
                       <a
                         id="update-profile-form"
                         class="block px-4 py-2 text-secondary-200 hover:text-hover"
-                        >Update Profile</a
+                        >View Profile</a
                       >
                     </li>
                     <li>
@@ -102,7 +104,7 @@
         <div class="flex justify-between">
           <h2 class="text-2xl text-secondary-100 font-semibold mb-2">
             Add Event
-          </h2> 
+          </h2>
           <span id="close-form"
             ><i class="fa-solid fa-xmark text-primary"></i
           ></span>
@@ -210,26 +212,20 @@
               >Upload image</label
             >
             <div
-          class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
-        >
-          <div class="text-center">
-            <div class="flex text-sm text-gray-600">
-              <label
-                for="image"
-                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
-              >
-                <span>Upload a file</span>
-                <input
-                  id="image"
-                  name="file"
-                  type="file"
-                  
-                />
-              </label>
+              class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
+            >
+              <div class="text-center">
+                <div class="flex text-sm text-gray-600">
+                  <label
+                    for="image"
+                    class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+                  >
+                    <span>Upload a file</span>
+                    <input id="image" name="file" type="file" />
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-            
           </div>
         </div>
 
@@ -428,26 +424,20 @@
               >Upload image</label
             >
             <div
-          class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
-        >
-          <div class="text-center">
-            <div class="flex text-sm text-gray-600">
-              <label
-                for="image"
-                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
-              >
-                <span>Upload a file</span>
-                <input
-                  id="updatedImage"
-                  name="file"
-                  type="file"
-                  
-                />
-              </label>
+              class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
+            >
+              <div class="text-center">
+                <div class="flex text-sm text-gray-600">
+                  <label
+                    for="image"
+                    class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+                  >
+                    <span>Upload a file</span>
+                    <input id="updatedImage" name="file" type="file" />
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-            
           </div>
         </div>
 
@@ -525,7 +515,7 @@
             Cancel
           </button>
           <button
-          id="update-event-button"
+            id="update-event-button"
             type="submit"
             class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
           >
@@ -567,13 +557,14 @@
     >
       <form
         action=""
-        method="POST"
+        method=""
         id="profile-form"
+        enctype="multipart/form-data"
         class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
       >
         <div class="flex justify-between">
           <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
-            Update my profile
+            My profile
           </h2>
           <span id="close-profile-form"
             ><i class="fa-solid fa-xmark text-primary"></i
@@ -595,6 +586,7 @@
               autocomplete="given-name"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="First Name"
+              disabled
             />
           </div>
 
@@ -611,6 +603,7 @@
               autocomplete="family-name"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="Last Name"
+              disabled
             />
           </div>
         </div>
@@ -629,6 +622,7 @@
               id="update-username"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="Username Eg:janesmith"
+              disabled
             />
           </div>
 
@@ -645,6 +639,7 @@
               autocomplete="email"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="Email"
+              disabled
             />
           </div>
         </div>
@@ -663,6 +658,7 @@
               name="group"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
               placeholder="Year Group"
+              disabled
             />
           </div>
           <div class="w-1/2 px-2">
@@ -676,94 +672,10 @@
               id="phone"
               name="phone"
               class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
-              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
               placeholder="230-5908-4528"
+              disabled
             />
           </div>
-        </div>
-
-        <!--  profile photo-->
-        <label for="photo" class="block text-sm font-medium text-primary"
-          >Photo</label
-        >
-        <div class="flex items-center gap-x-3">
-          <svg
-            class="h-12 w-12 text-gray-300"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <button
-            type="button"
-            class="rounded-lg bg-seconday-100 px-2.5 py-1.5 text-sm font-semibold text-secondary-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >
-            Change
-          </button>
-        </div>
-
-        <label
-          for="cover-photo"
-          class="block text-sm font-medium leading-6 text-primary"
-          >Cover photo</label
-        >
-        <div
-          class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-6"
-        >
-          <div class="text-center">
-            <svg
-              class="mx-auto h-12 w-12 text-gray-300"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <div class="mt-4 flex text-sm text-gray-600">
-              <label
-                for="file-upload"
-                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
-              >
-                <span>Upload a file</span>
-                <input
-                  id="file-upload"
-                  name="fileUpload"
-                  type="file"
-                  class="sr-only"
-                />
-              </label>
-              <p class="pl-1">or drag and drop</p>
-            </div>
-            <p class="text-xs leading-5 text-gray-600">
-              PNG, JPG, GIF up to 10MB
-            </p>
-          </div>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex justify-between mt-2">
-          <button
-            type="button"
-            class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
-            onclick="cancelUpdateProfile()"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
-          >
-            Update profile
-          </button>
         </div>
       </form>
     </div>

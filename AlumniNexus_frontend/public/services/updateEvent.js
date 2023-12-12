@@ -2,9 +2,10 @@ const updateForm = document.getElementById("updateForm");
 const updateModel = document.getElementById("update-event-modal");
 
 let updatedImage;
-const fileUpdatedInput = document.getElementById("updatedImage")
-fileUpdatedInput.addEventListener("change", function(){
-  updatedImage = fileInput?.files[0];
+const fileUpdatedInput = document.getElementById("updatedImage");
+fileUpdatedInput.addEventListener("change", function () {
+  updatedImage = fileUpdatedInput.files[0];
+  console.log("Selected file:", updatedImage);
 });
 
 const updateButton = document.getElementById("update-event-button");
@@ -16,11 +17,11 @@ updateForm.addEventListener("submit", function (event) {
   const updateEventData = new FormData(this);
   console.log(updateEventData);
   updateEventData.delete("file");
-  updateEventData.append("file", updatedImage)
+  updateEventData.append("file", updatedImage);
   const eventId = updateForm.getAttribute("eventId");
 
   fetch(`http://localhost:8080/api/events/update/${eventId}`, {
-    method: "PUT", // Assuming you use the PUT method for updates
+    method: "PUT", 
     body: updateEventData,
   })
     .then((response) => {
@@ -38,6 +39,6 @@ updateForm.addEventListener("submit", function (event) {
     })
     .catch((error) => {
       console.error("Error:", error.message);
-      alert("Error: Event update failed");
+      alert("Error: Event update failed (Upload a different image: Size 10MB)");
     });
 });
