@@ -680,6 +680,26 @@ video {
   top: 92%;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
+.top-\[\] {
+  top: ;
+}
+
+.top-\[40\%\] {
+  top: 40%;
+}
+
+.top-\[42\%\] {
+  top: 42%;
+}
+
+.top-\[39\%\] {
+  top: 39%;
+}
+
 .isolate {
   isolation: isolate;
 }
