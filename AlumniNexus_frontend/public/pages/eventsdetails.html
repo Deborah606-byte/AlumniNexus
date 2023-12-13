@@ -83,87 +83,8 @@
     <!-- event details goes here -->
     <div class="container mx-auto py-16 w-[80%]">
       <h2 class="text-secondary-100 text-3xl font-bold mb-8">Event Details</h2>
-      <h3 class="text-secondary-100 text-2xl font-medium mb-4">
-        International Alumni Mixers
-      </h3>
-      <p class="text-secondary-200 mb-4">
-        November 7, 2023 | African Leadership Campus, Pamplemousses
-      </p>
-
-      <div class="flex justify-start space-x-8 mb-4">
-        <img class="w-5 h-5" src="../images/logos_google-meet.png" alt="" />
-        <p class="text-secondary-200 font-thin text-sm">
-          Join with Google Meet
-        </p>
-        <i class="fa-solid fa-copy text-secondary-300"></i>
-      </div>
-
-      <img
-        src="../images/homecoming.jpg"
-        alt="Event Banner"
-        class="mb-4 w-full h-auto rounded-lg"
-      />
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="space-y-4">
-          <h2 class="text-secondary-100 text-xl font-medium">Event Details</h2>
-          <p class="text-secondary-200 text-sm">Date: November 7, 2023</p>
-          <p class="text-secondary-200 text-sm">Time: 10:00 AM - 4:00 PM</p>
-          <p class="text-secondary-200 text-sm">
-            Location: African Leadership Campus, <br />
-            Pamplemousses
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <h2 class="text-secondary-100 text-xl font-medium">Agenda</h2>
-          <ul class="text-secondary-200 text-sm space-y-4">
-            <li>10:00 AM - Registration</li>
-            <li>11:00 AM - Opening Ceremony</li>
-            <li>12:30 PM - Lunch</li>
-            <li>2:00 PM - Speakers presentation</li>
-            <li>3:30 PM - Networking Session</li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h2 class="text-secondary-100 text-xl font-medium">Speakers</h2>
-          <ul class="text-secondary-200 text-sm space-y-4">
-            <li>John Doe - CEO, AlumniNexus</li>
-            <li>Jane Smith - Scholarship Recipient</li>
-            <!-- Add more speakers as needed -->
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-8">
-        <h2 class="text-secondary-100 text-xl font-medium">
-          Event Description
-        </h2>
-        <p class="text-secondary-200 text-base font-light leading-relaxed mb-4">
-          Join us for our International Alumni Mixers, a vibrant celebration of
-          our global alumni community. Whether you reside in bustling cities or
-          serene landscapes, these mixers provide a unique platform to connect
-          with fellow alumni from around the world. Engage in enriching
-          conversations, share your experiences, and establish enduring
-          connections that transcend borders.
-        </p>
-
-        <p class="text-secondary-200 text-base font-light leading-relaxed mb-4">
-          The event will feature a dynamic agenda, including insightful
-          discussions, networking sessions, and opportunities to rediscover the
-          diverse talents within our alumni network. No matter where life has
-          taken you since graduation, these mixers offer a chance to rekindle
-          old connections and forge new ones.
-        </p>
-
-        <p class="text-secondary-200 text-base font-light italic">
-          Don't miss this exciting opportunity to be part of a worldwide network
-          of alumni excellence. Join us at our next International Alumni Mixer
-          and experience the power of global connections.
-        </p>
-      </div>
-
+      
+      <div id="all-events-details"></div>
       <!-- invited guests -->
       <div class="py-10">
         <h3 class="text-secondary-100 font-medium text-xl">
@@ -316,5 +237,6 @@
       </div>
     </div>
     <script src="../js/navbar.js"></script>
+    <script defer type="module" src="../services/eventDetails.js"></script>
   </body>
 </html>

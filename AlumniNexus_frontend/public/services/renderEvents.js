@@ -103,17 +103,21 @@ function createEventCard(event) {
   buttonContainer.className = "flex justify-between items-center px-2 py-2";
 
   const viewDetailsBtn = document.createElement("a");
-  viewDetailsBtn.href = "/details";
-  viewDetailsBtn.className =
-    "bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover";
-  viewDetailsBtn.textContent = "View Details";
+  // viewDetailsBtn.href = `/details?eventId=${event._id}`;
+  viewDetailsBtn.innerHTML = `<button id=${event._id} class="view-event-details bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover">View Details</button>`;
+  viewDetailsBtn.setAttribute("data-event-id", event._id);
+  viewDetailsBtn.setAttribute("href", `/details?eventId=${event._id}`);
   buttonContainer.appendChild(viewDetailsBtn);
+
+  // Add an event listener to handle the click event
+  // viewDetailsBtn.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  //   console.log(event.target.id);
+  // });
 
   const rsvpBtn = document.createElement("a");
   rsvpBtn.href = "/rsvp";
-  rsvpBtn.className =
-    "bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover";
-  rsvpBtn.textContent = "RSVP";
+  rsvpBtn.innerHTML = `<button id=${event._id} class="rsvp-events bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover">RSVP</button>`;
   buttonContainer.appendChild(rsvpBtn);
 
   card.appendChild(buttonContainer);
