@@ -252,7 +252,7 @@
               <form
                 id="signupForm"
                 action=""
-                method=""
+                method="POST"
                 class="bg-white p-4 rounded-lg shadow-2xl max-w-2xl mx-auto"
               >
                 <div class="flex justify-between">
@@ -279,7 +279,7 @@
                       <input
                         type="text"
                         name="username"
-                        id="username"
+                        id="alumniname"
                         autocomplete="username"
                         class="w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                         placeholder="Username Eg: janesmith"
@@ -300,7 +300,7 @@
                       <input
                         type="text"
                         name="firstName"
-                        id="first-name"
+                        id="alumni-name"
                         autocomplete="given-name"
                         class="w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                         placeholder="First Name"
@@ -319,7 +319,7 @@
                       <input
                         type="text"
                         name="lastName"
-                        id="last-name"
+                        id="alumni-name"
                         autocomplete="family-name"
                         class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                         placeholder="Last Name"
@@ -333,7 +333,7 @@
                         ><i class="fa-solid fa-envelope text-primary"></i
                       ></span>
                       <input
-                        id="email"
+                        id="alumniEmail"
                         name="email"
                         type="email"
                         autocomplete="email"
@@ -367,7 +367,7 @@
                       ></span>
                       <input
                         type="tel"
-                        id="phone"
+                        id="alumniPhone"
                         name="phone"
                         class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                         placeholder="230-5908-4528"
@@ -384,8 +384,8 @@
                         ><i class="fa-solid fa-location-dot"></i
                       ></span>
                       <input
-                        type="address"
-                        id="address"
+                        type="text"
+                        id="alumniAddress"
                         name="address"
                         class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
                         placeholder="Address"
@@ -399,7 +399,7 @@
                         ><i class="fa-solid fa-user"></i
                       ></span>
                       <input
-                        type="role"
+                        type="text"
                         id="role"
                         name="role"
                         class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
@@ -462,7 +462,7 @@
               <form
                 id="updateMemberForm"
                 action=""
-                method=""
+                method="POST"
                 class="bg-white p-4 rounded-lg shadow-2xl max-w-2xl mx-auto"
               >
                 <div class="flex justify-between">
@@ -621,12 +621,37 @@
                   >
                   <button
                     type="submit"
-                    id="signupButton"
+                    id="updateMemberButton"
                     class="rounded-full text-secondary-200 bg-primary px-5 py-2 hover:text-hover"
                   >
                     Update Member
                   </button>
                 </div>
+              </form>
+            </div>
+
+            <!-- deleting member-->
+
+            <div
+              id="delete-member-modal"
+              class="justify-center bg-white hidden p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+            >
+              <div class="flex justify-between">
+                <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+                  Delete Member
+                </h2>
+                <span id=""
+                  ><i class="close-delete fa-solid fa-xmark text-primary"></i
+                ></span>
+              </div>
+              <form id="delete-member" action="" method="">
+                <!-- Button -->
+                <button
+                  type="submit"
+                  class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                >
+                  Delete Member
+                </button>
               </form>
             </div>
           </div>
@@ -1042,6 +1067,8 @@
     <script src="../js/memberChart.js"></script>
     <script src="../js/eventChart.js"></script>
     <script src="../services/admin.js"></script>
+    <script src="../services/updateMember.js"></script>
+    <script src="../services/deleteMember.js"></script>
     <script src="../js/member.js"></script>
     <script src="../js/password.js"></script>
   </body>

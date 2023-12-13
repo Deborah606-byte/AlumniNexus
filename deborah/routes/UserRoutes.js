@@ -6,6 +6,7 @@ const {
   login,
   logout,
   deleteUser,
+  updateUser,
   getCurrentUser,
   getUserById,
   getAllUsers,
@@ -15,7 +16,8 @@ router.post("/signup", signup);
 router.post("/login", login);
 router.get("/logout", logout);
 router.get("/me/:token", getCurrentUser);
-router.delete("/:id", deleteUser);
+router.delete("/delete/:id", deleteUser);
+router.put("/update/:id", updateUser);
 router.get("/all", getAllUsers);
 router.get("/:id", getUserById);
 

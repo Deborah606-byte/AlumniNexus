@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  let alumni = [];
   const currentUser = JSON.parse(localStorage.getItem("alumni")) || null;
   const memberContainer = document.getElementById("member-container");
 
@@ -133,11 +134,11 @@ window.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify(Object.fromEntries(addMember)),
       })
-        .then((response) => {
+        .then(async (response) => {
           if (!response.ok) {
-            throw new Error("Network response was not ok");
+            const error = await response.json();
+            throw new Error(error.data.message);
           }
-          return response.json();
         })
         .then((data) => {
           // Log the received data
@@ -153,7 +154,8 @@ window.addEventListener("DOMContentLoaded", () => {
           }
         })
         .catch((error) => {
-          console.error("Error adding member:", error.message);
+          alert(error.message);
+          console.error("Error adding member:", error);
         });
     });
 
@@ -181,6 +183,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // Render or process the list of members as needed
         console.log("All Members:", members);
         renderMember(members);
+        alumni = members;
         // Attach event listeners after events are rendered
         attachEventListeners();
       })
@@ -218,8 +221,14 @@ window.addEventListener("DOMContentLoaded", () => {
         updateForm.setAttribute("memberId", member.target.id);
 
         if (member.target.id) {
+          const alumniMember = alumni.filter(
+            (alumniUser) => alumniUser._id == member.target.id
+          )[0];
           // Iterate over the form elements
-          for (const fieldName in member) {
+          const data = {
+            ...alumniMember,
+          };
+          for (const fieldName in data) {
             if (data.hasOwnProperty(fieldName)) {
               // Find the input element with the corresponding name
               const inputElement = updateForm.elements[fieldName];
@@ -236,7 +245,27 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     deleteMemberElements.forEach((deleteMemberElement) => {
-      deleteMemberElement.addEventListener("click", (member) => {});
+      deleteMemberElement.addEventListener("click", (member) => {
+        const deleteMemberModal = document.querySelector(
+          "#delete-member-modal"
+        );
+        deleteMemberModal.classList.remove("hidden");
+
+        const closeDelelteForm = document.querySelector(".close-delete");
+        closeDelelteForm.addEventListener("click", () => {
+          deleteMemberModal.classList.add("hidden");
+        });
+
+        if (member.target.id) {
+          const alumniMember = alumni.filter(
+            (alumniUser) => alumniUser._id == member.target.id
+          )[0];
+
+          console.log(alumniMember);
+          const deleteForm = document.querySelector("#delete-member");
+          deleteForm.setAttribute("memberId", member.target.id);
+        }
+      });
     });
   }
 });

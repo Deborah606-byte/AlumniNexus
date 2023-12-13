@@ -1,12 +1,12 @@
-const deleteForm = document.getElementById("delete-event");
-const deleteModel = document.getElementById("delete-event-modal");
+const deleteForm = document.getElementById("delete-member");
+const deleteModel = document.getElementById("delete-member-modal");
 deleteForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const eventId = deleteForm.getAttribute("eventId");
+  const memberId = deleteForm.getAttribute("memberId");
 
-  fetch(`http://localhost:8080/api/events/delete/${eventId}`, {
-    method: "DELETE", // Assuming you use the PUT method for updates
+  fetch(`http://localhost:8080/api/users/delete/${memberId}`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
@@ -19,12 +19,11 @@ deleteForm.addEventListener("submit", function (event) {
     })
     .then((data) => {
       console.log("Success:", data.message);
-      alert("Event Deleted Successfully!");
-      // document.getElementById("updateModal").classList.add("hidden");
+      alert("Member Deleted Successfully!");
       window.location.reload();
     })
     .catch((error) => {
       console.error("Error:", error.message);
-      alert("Error: Event update failed");
+      alert("Error: Member delete failed");
     });
 });
