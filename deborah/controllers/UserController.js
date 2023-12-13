@@ -24,17 +24,23 @@ const signup = async (req, res) => {
     firstName,
     lastName,
     address
-    )
+  );
 
   try {
-
-    if(!username || !firstName || !lastName || !email || !password || !address){
+    if (
+      !username ||
+      !firstName ||
+      !lastName ||
+      !email ||
+      !password ||
+      !address
+    ) {
       return res.status(400).json({
         message: "fail",
         data: {
           message: "Please fill all required fields",
         },
-      }); 
+      });
     }
 
     //Check if user already exists
@@ -239,6 +245,22 @@ const getUserById = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const allUsers = await User.find();
+
+    res.status(200).json({
+      message: "All users retrieved successfully",
+      users: allUsers,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      message: "Something went wrong",
+    });
+  }
+};
+
 module.exports = {
   signup,
   login,
@@ -246,4 +268,5 @@ module.exports = {
   deleteUser,
   getCurrentUser,
   getUserById,
+  getAllUsers,
 };
