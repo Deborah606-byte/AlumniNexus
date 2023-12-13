@@ -64,8 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Edit Alumni
     const editLi = document.createElement("li");
     const editLink = document.createElement("a");
-    editLink.href = "#";
-    editLink.id = `edit-${memberId}`;
+    editLink.id = `${memberId}`;
     editLink.className =
       "open-admin-edit-form block px-4 py-2 text-secondary-200 hover:text-hover";
     editLink.textContent = "Edit Alumni";
@@ -74,8 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Delete Alumni
     const deleteLi = document.createElement("li");
     const deleteLink = document.createElement("a");
-    deleteLink.href = "#";
-    deleteLink.id = `delete-${memberId}`;
+    deleteLink.id = `${memberId}`;
     deleteLink.className =
       "open-admin-delete-form block px-4 py-2 text-secondary-200 hover:text-hover";
     deleteLink.textContent = "Delete Alumni";
@@ -92,6 +90,13 @@ window.addEventListener("DOMContentLoaded", () => {
     // Event listener for showing/hiding the dropdown
     actionSpan.addEventListener("click", function () {
       dropdownMenu.classList.toggle("hidden");
+    });
+
+    // Event listener to close dropdown when clicking outside
+    document.addEventListener("click", (member) => {
+      if (!actionDiv.contains(member.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
     });
 
     return actionDiv;
@@ -111,6 +116,46 @@ window.addEventListener("DOMContentLoaded", () => {
     email.value = currentUser.user?.email || "";
     yearGroup.value = currentUser.user?.group || "";
     phone.value = currentUser.user?.phone || "";
+
+    const signupForm = document.getElementById("signupForm");
+    const signupButton = document.getElementById("signupButton");
+
+    signupForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const addMember = new FormData(signupForm);
+
+      // Fetch API to add a new alumni member
+      fetch("http://localhost:8080/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(addMember)),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Log the received data
+          console.log("Data received from server:", data);
+
+          // Check for success or handle the response as needed
+          if (data.success) {
+            alert("Signup successful!");
+            window.location.reload();
+          } else {
+            // Handle the case where the signup was not successful
+            console.error("Signup failed:", data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error adding member:", error.message);
+        });
+    });
 
     // Fetch all members
     fetch("http://localhost:8080/api/users/all")
@@ -136,9 +181,62 @@ window.addEventListener("DOMContentLoaded", () => {
         // Render or process the list of members as needed
         console.log("All Members:", members);
         renderMember(members);
+        // Attach event listeners after events are rendered
+        attachEventListeners();
       })
       .catch((error) => {
         console.error("Error fetching members:", error.message);
       });
+  }
+
+  function attachEventListeners() {
+    const editMemberElements = document.querySelectorAll(
+      ".open-admin-edit-form"
+    );
+    const deleteMemberElements = document.querySelectorAll(
+      ".open-admin-delete-form"
+    );
+
+    editMemberElements.forEach((editMemberElement) => {
+      editMemberElement.addEventListener("click", (member) => {
+        const updateMemberModal = document.querySelector(
+          "#update-member-modal"
+        );
+        updateMemberModal.classList.remove("hidden");
+
+        const closeUpdateForm = document.querySelector(".close-update-form");
+        closeUpdateForm.addEventListener("click", () => {
+          updateMemberModal.classList.add("hidden");
+        });
+
+        const cancelUpdate = document.querySelector("#cancelUpdateMember");
+        cancelUpdate.addEventListener("click", () => {
+          updateMemberModal.classList.add("hidden");
+        });
+
+        const updateForm = document.querySelector("#updateMemberForm");
+        updateForm.setAttribute("memberId", member.target.id);
+
+        if (member.target.id) {
+          // Iterate over the form elements
+          for (const fieldName in member) {
+            if (data.hasOwnProperty(fieldName)) {
+              // Find the input element with the corresponding name
+              const inputElement = updateForm.elements[fieldName];
+
+              // Check if the input element exists
+              if (inputElement) {
+                // Assign the value from the data object
+                inputElement.value = data[fieldName];
+              }
+            }
+          }
+        }
+      });
+    });
+
+    deleteMemberElements.forEach((deleteMemberElement) => {
+      deleteMemberElement.addEventListener("click", (member) => {});
+    });
   }
 });

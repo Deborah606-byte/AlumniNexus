@@ -202,7 +202,7 @@
             </div>
           </div>
 
-          <!-- Members -->
+          <!-- Add Members -->
           <div
             id="members"
             class="bg-secondary-200 p-8 rounded-lg mt-10 hidden"
@@ -449,6 +449,182 @@
                     class="rounded-full text-secondary-200 bg-primary px-5 py-2 hover:text-hover"
                   >
                     Sign Up
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- update member -->
+            <div
+              id="update-member-modal"
+              class="fixed inset-0 z-50 items-center justify-center hidden"
+            >
+              <form
+                id="updateMemberForm"
+                action=""
+                method=""
+                class="bg-white p-4 rounded-lg shadow-2xl max-w-2xl mx-auto"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-2xl text-secondary-100 font-semibold mb-2">
+                    Update Member
+                  </h2>
+                  <span id=""
+                    ><i
+                      class="close-update-form fa-solid fa-xmark text-primary"
+                    ></i
+                  ></span>
+                </div>
+
+                <!-- Username and First Name -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <div class="relative flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-user text-primary"></i
+                      ></span>
+                      <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        autocomplete="username"
+                        class="w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Username Eg: janesmith"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <div class="relative flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-user text-primary"></i
+                      ></span>
+                      <input
+                        type="text"
+                        name="firstName"
+                        id="first-name"
+                        autocomplete="given-name"
+                        class="w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="First Name"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Last Name and Email -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-user text-primary"></i
+                      ></span>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="last-name"
+                        autocomplete="family-name"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-envelope text-primary"></i
+                      ></span>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Year Group and Phone -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-users text-primary"></i
+                      ></span>
+                      <input
+                        type="text"
+                        name="group"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Year Group"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-phone"></i
+                      ></span>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="230-5908-4528"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Address and Role -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-location-dot"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Address"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <div class="relative w-full flex items-center">
+                      <span class="absolute top-2 left-5"
+                        ><i class="fa-solid fa-user"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="role"
+                        name="role"
+                        class="block w-full p-2 pl-10 rounded-lg border-gray-500 border-2 placeholder:pl-2 placeholder:text-secondary-100/50"
+                        placeholder="Role"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-between">
+                  <a
+                    id="cancelUpdateMember"
+                    class="rounded-full bg-secondary-100 text-secondary-200 px-4 py-2 hover:underline hover:text-primary"
+                    href=""
+                    >Cancel</a
+                  >
+                  <button
+                    type="submit"
+                    id="signupButton"
+                    class="rounded-full text-secondary-200 bg-primary px-5 py-2 hover:text-hover"
+                  >
+                    Update Member
                   </button>
                 </div>
               </form>
@@ -867,7 +1043,6 @@
     <script src="../js/eventChart.js"></script>
     <script src="../services/admin.js"></script>
     <script src="../js/member.js"></script>
-    <script src="../services/signup.js"></script>
     <script src="../js/password.js"></script>
   </body>
 </html>
