@@ -31,6 +31,7 @@ const job = require("./routes/jobRoutes");
 const alumniStories = require("./routes/storiesRoutes");
 const registerEvent = require("./routes/rsvpRoutes");
 const jobDetails = require("./routes/jobDetailsRoutes");
+const error = require("./routes/404Routes");
 
 //public
 app.use("/", aboutRoutes);
@@ -48,12 +49,8 @@ app.use("/stories", alumniStories);
 app.use("/rsvp", registerEvent);
 app.use("/jobdetails", jobDetails);
 
-// // Handle 404 errors
-// app.get("*", (req, res) => {
-//   res
-//     .status(404)
-//     .sendFile(path.join(__dirname, "../../public", "pages", "404.html"));
-// });
+// Handle 404 errors
+app.use("*", error);
 
 // Start the server
 app.listen(3000, () => console.log("Server started and running on port 3000"));

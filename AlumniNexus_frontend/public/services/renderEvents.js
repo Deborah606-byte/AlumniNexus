@@ -116,8 +116,9 @@ function createEventCard(event) {
   // });
 
   const rsvpBtn = document.createElement("a");
-  rsvpBtn.href = "/rsvp";
   rsvpBtn.innerHTML = `<button id=${event._id} class="rsvp-events bg-secondary-100 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover">RSVP</button>`;
+  rsvpBtn.setAttribute("data-event-id", event._id);
+  rsvpBtn.setAttribute("href", `/rsvp?eventId=${event._id}`);
   buttonContainer.appendChild(rsvpBtn);
 
   card.appendChild(buttonContainer);

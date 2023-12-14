@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   function createMemberCard(member) {
     const card = document.createElement("div");
     card.id = member._id;
-    card.className = "grid grid-cols-5 py-4 font-light";
+    card.className = "grid lg:grid-cols-5 py-4 font-light";
 
     const usernameElement = createCardElement(member.username);
     const firstNameElement = createCardElement(member.firstName);

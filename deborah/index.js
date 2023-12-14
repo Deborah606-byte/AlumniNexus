@@ -9,6 +9,7 @@ const fileUploads = require("express-fileupload");
 
 const userRoutes = require("./routes/UserRoutes.js");
 const eventRoutes = require("./routes/EventRoutes.js");
+const rsvpRoutes = require("./routes/RsvpRoutes.js");
 
 const app = express();
 app.use(bodyParser.json());
@@ -34,6 +35,7 @@ const port = 8080;
 
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/rsvp", rsvpRoutes);
 //Add routers here
 
 app.get("/", (req, res) => {
