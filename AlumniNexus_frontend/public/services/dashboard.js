@@ -267,7 +267,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const deleteModal = document.querySelector("#delete-event-modal");
         deleteModal.classList.remove("hidden");
 
-        const closeDelelteForm = document.querySelector(".close-delete");
+        const closeDelelteForm = document.querySelector(".close-event-delete");
         closeDelelteForm.addEventListener("click", () => {
           deleteModal.classList.add("hidden");
         });

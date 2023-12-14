@@ -74,13 +74,6 @@
             <span class="absolute left-0"
               ><i class="fa-solid fa-calendar-check text-secondary-200"></i
             ></span>
-            <a
-              href="#"
-              class="text-secondary-100 font-medium dashboard-menu-item"
-              data-section="myevents"
-              onclick="showSection('myevents')"
-              >My Events</a
-            >
           </div>
           <div class="relative space-x-10">
             <span class="absolute left-0"
@@ -143,9 +136,6 @@
                     </ul>
                   </div>
                 </div>
-              </li>
-              <li class="pt-2">
-                <a class="text-primary">Deborah Ama Paintsil</a>
               </li>
             </ul>
           </div>
@@ -678,140 +668,478 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-6 py-5 space-x-4">
-              <!-- Sample Event Data -->
-              <div class="">
-                <p class="text-primary text-lg mb-2">Category</p>
-                <p>Professional Development</p>
-              </div>
-              <div>
-                <p class="text-primary text-lg mb-2">Date</p>
-                <p>Sep 12, 2023</p>
-              </div>
-              <div>
-                <p class="text-primary text-lg mb-2">Time</p>
-                <p>02:30 pm</p>
-              </div>
-              <div>
-                <p class="text-primary text-lg mb-2">Duration</p>
-                <p>4 hours</p>
-              </div>
-              <div>
-                <p class="text-primary text-lg mb-2">Location</p>
-                <p>ALC Campus</p>
-              </div>
-              <div>
-                <p class="text-primary text-lg mb-2">Action</p>
-                <span id="dropdown-toggle" class="cursor-pointer">
-                  <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
-                </span>
-                <!-- Dropdown Menu -->
-                <div
-                  id="dropdown-menu"
-                  class="hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
-                >
-                  <ul class="py-1">
-                    <li>
-                      <a
-                        href="#"
-                        id="edit-event-form"
-                        class="updateEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
-                        >Edit Event</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        class="deleteEventbutton block px-4 py-2 text-secondary-200 hover:text-hover"
-                        >Delete Event</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <!-- render events -->
+            <div
+              id="event-container"
+              class="py-4 grid lg:grid-cols-2 gap-10"
+            ></div>
 
-            <!-- Chart -->
-            <div class="mt-10">
-              <h4 class="text-secondary-100 font-semibold text-lg mb-4">
-                Event Categories Chart
-              </h4>
-              <canvas id="eventCategoryChart" width="400" height="200"></canvas>
-            </div>
-          </div>
-
-          <!-- myevents -->
-          <div
-            id="myevents"
-            class="bg-secondary-200 p-8 rounded-lg mt-10 hidden"
-          >
-            <div class="grid grid-cols-2 gap-10">
-              <div class="card shadow-sm relative bg-secondary-300">
-                <img
-                  class=""
-                  src="../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif"
-                  alt="seminar"
-                  class="w-full"
-                />
-
-                <div class="absolute top-[52%] left-0 bg-black/50 w-full">
-                  <ul class="list-disc px-6 py-2">
-                    <li class="text-secondary-200 font-medium">
-                      Leadership Skills
-                    </li>
-                    <li class="text-secondary-200 font-medium">Management</li>
-                    <li class="text-secondary-200 font-medium">
-                      Personal Development
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="absolute top-2 right-5">
-                  <span id="" class="dropdown-toggle cursor-pointer"
-                    ><i class="fa-solid fa-ellipsis-vertical text-primary"></i
+            <!-- adding event -->
+            <div
+              id="event-modal"
+              class="fixed inset-0 z-50 items-center justify-center hidden"
+            >
+              <form
+                action=""
+                method=""
+                id="event-form"
+                enctype="multipart/form-data"
+                class="bg-white p-4 rounded-lg shadow-2xl max-w-2xl mx-auto"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-2xl text-secondary-100 font-semibold mb-2">
+                    Add Event
+                  </h2>
+                  <span id="close-form"
+                    ><i class="fa-solid fa-xmark text-primary"></i
                   ></span>
-                  <!-- Dropdown Menu -->
-                  <div
-                    id=""
-                    class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-primary rounded-lg shadow-lg border border-secondary-300"
-                  >
-                    <ul class="py-1">
-                      <li>
-                        <a
-                          id=""
-                          class="edit-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
-                          >Edit Event</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          class="delete-event-form cursor-pointer block px-4 py-2 text-secondary-200 hover:text-hover"
-                          >Delete Event</a
-                        >
-                      </li>
-                    </ul>
+                </div>
+
+                <!-- Event Name -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventCategory"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Categories</label
+                    >
+                    <select
+                      id="eventCategory"
+                      name="eventCategory"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                    >
+                      <option value="None">None</option>
+                      <option value="Professional Development">
+                        Professional Development
+                      </option>
+                      <option value="Networking">Networking</option>
+                      <option value="Campus Events">Campus Events</option>
+                    </select>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventName"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Name</label
+                    >
+                    <input
+                      type="text"
+                      id="eventName"
+                      name="eventName"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
                   </div>
                 </div>
-                <div class="flex justify-start space-x-8 mb-4">
-                  <div class="bg-primary px-4 py-2">
-                    <p class="text-secondary-200 font-medium">Nov</p>
-                    <p class="text-secondary-200 font-medium">23</p>
+
+                <!-- event description and event speaker -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventSpeaker"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Speaker</label
+                    >
+                    <input
+                      type="text"
+                      id="eventSpeaker1"
+                      name="eventSpeaker1"
+                      class="w-full p-2 mb-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
+                    <input
+                      type="text"
+                      id="eventSpeaker2"
+                      name="eventSpeaker2"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
                   </div>
-                  <div class="p-2">
-                    <p class="text-primary font-medium text-2xl mb-2">
-                      Leadership Summit
-                    </p>
-                    <div class="relative">
-                      <span class="absolute"
-                        ><i class="fa-regular fa-clock text-primary"></i
-                      ></span>
-                      <p class="pl-6 text-secondary-200 font-semibold text-">
-                        12:00 noon
-                      </p>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDescription"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Description</label
+                    >
+                    <textarea
+                      id="eventDescription"
+                      name="eventDescription"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- event Agenda and image upload-->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventAgenda"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Agenda</label
+                    >
+                    <textarea
+                      id="eventAgenda"
+                      name="eventAgenda"
+                      class="w-full block p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="image"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Upload image</label
+                    >
+                    <div
+                      class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
+                    >
+                      <div class="text-center">
+                        <div class="flex text-sm text-gray-600">
+                          <label
+                            for="image"
+                            class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+                          >
+                            <span>Upload a file</span>
+                            <input id="image" name="file" type="file" />
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- Date and Time -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDate"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Date</label
+                    >
+                    <input
+                      type="date"
+                      id="eventDate"
+                      name="eventDate"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
+                  </div>
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventTime"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Time</label
+                    >
+                    <input
+                      type="time"
+                      id="eventTime"
+                      name="eventTime"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!--  Duration and Location-->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDuration"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Duration (hours)</label
+                    >
+                    <input
+                      type="number"
+                      id="eventDuration"
+                      name="eventDuration"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventLocation"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Location</label
+                    >
+                    <input
+                      type="text"
+                      id="eventLocation"
+                      name="eventLocation"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-between">
+                  <button
+                    type="button"
+                    class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+                    onclick="cancelEvent()"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    id="create-event-button"
+                    type="submit"
+                    class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                  >
+                    Create Event
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- update event -->
+            <div
+              id="update-event-modal"
+              class="fixed inset-0 z-50 justify-center bg-white p-4 rounded-lg shadow-2xl hidden max-w-2xl mx-auto"
+            >
+              <div class="flex justify-between">
+                <h2 class="text-2xl text-secondary-100 font-semibold mb-2">
+                  Update Event
+                </h2>
+                <span id=""
+                  ><i class="close-update fa-solid fa-xmark text-primary"></i
+                ></span>
               </div>
+              <form
+                action=""
+                method=""
+                id="updateForm"
+                enctype="multipart/form-data"
+              >
+                <!-- event category -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventCategory"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Category</label
+                    >
+                    <input
+                      type="text"
+                      id="eventCategory"
+                      name="eventCategory"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventName"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Name</label
+                    >
+                    <input
+                      type="text"
+                      id="eventName"
+                      name="eventName"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- event description and event speaker -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventSpeaker"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Speaker</label
+                    >
+                    <input
+                      type="text"
+                      id="eventSpeaker1"
+                      name="eventSpeaker1"
+                      class="w-full p-2 mb-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
+                    <input
+                      type="text"
+                      id="eventSpeaker2"
+                      name="eventSpeaker2"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      required
+                    />
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDescription"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Description</label
+                    >
+                    <textarea
+                      id="eventDescription"
+                      name="eventDescription"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- event Agenda and image upload-->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventAgenda"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Event Agenda</label
+                    >
+                    <textarea
+                      id="eventAgenda"
+                      name="eventAgenda"
+                      class="w-full block p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="image"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Upload image</label
+                    >
+                    <div
+                      class="flex justify-center rounded-lg border border-dashed border-primary px-8 py-5"
+                    >
+                      <div class="text-center">
+                        <div class="flex text-sm text-gray-600">
+                          <label
+                            for="image"
+                            class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-hover px-6"
+                          >
+                            <span>Upload a file</span>
+                            <input id="updatedImage" name="file" type="file" />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Date and Time -->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDate"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Date: <span id="eventDateValue"></span
+                    ></label>
+
+                    <input
+                      type="date"
+                      id="eventDate"
+                      name="eventDate"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2 placeholder:text-secondary-200/50"
+                    />
+                  </div>
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventTime"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Time</label
+                    >
+                    <input
+                      type="time"
+                      id="eventTime"
+                      name="eventTime"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!--  Duration and Location-->
+                <div class="mb-4 flex flex-wrap -mx-2">
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventDuration"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Duration (hours)</label
+                    >
+                    <input
+                      type="number"
+                      id="eventDuration"
+                      name="eventDuration"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                  <div class="w-1/2 px-2">
+                    <label
+                      for="eventLocation"
+                      class="block text-secondary-100 text-sm font-medium"
+                      >Location</label
+                    >
+                    <input
+                      type="text"
+                      id="eventLocation"
+                      name="eventLocation"
+                      class="w-full p-2 rounded-lg border-gray-500 border-2"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-between">
+                  <button
+                    id="cancelUpdate"
+                    type="button"
+                    class="bg-secondary-300 text-secondary-200 rounded-lg py-2 px-4 hover:text-hover"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    id="update-event-button"
+                    type="submit"
+                    class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                  >
+                    Update Event
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- deleting an event -->
+
+            <div
+              id="delete-event-modal"
+              class="inset-0 z-50 justify-center mt-4 bg-white hidden p-8 rounded-lg shadow-2xl max-w-2xl mx-auto"
+            >
+              <div class="flex justify-between">
+                <h2 class="text-2xl text-secondary-100 font-semibold mb-6">
+                  Delete Event
+                </h2>
+                <span id=""
+                  ><i
+                    class="close-event-delete fa-solid fa-xmark text-primary"
+                  ></i
+                ></span>
+              </div>
+              <form id="delete-event" action="" method="">
+                <!-- Button -->
+                <button
+                  type="submit"
+                  class="bg-primary text-secondary-100 rounded-lg py-2 px-4 hover:text-hover"
+                >
+                  Delete Event
+                </button>
+              </form>
             </div>
           </div>
 
@@ -1064,12 +1392,12 @@
     <script src="../js/profile.js"></script>
     <script src="../js/admin.js"></script>
     <script src="../js/logout.js"></script>
-    <script src="../js/memberChart.js"></script>
-    <script src="../js/eventChart.js"></script>
-    <script src="../services/admin.js"></script>
+    <script src="../js/addEvent.js"></script>
+    <script defer type="module" src="../services/admin.js"></script>
     <script src="../services/updateMember.js"></script>
     <script src="../services/deleteMember.js"></script>
     <script src="../js/member.js"></script>
     <script src="../js/password.js"></script>
+    <script src="../services/events.js"></script>
   </body>
 </html>
