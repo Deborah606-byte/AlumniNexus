@@ -1,15 +1,15 @@
-const updateForm = document.getElementById("updateMemberForm");
-const updateModel = document.getElementById("update-member-modal");
+const updateMemberForm = document.getElementById("updateMemberForm");
+const updateMemberModal = document.getElementById("update-member-modal");
 
-const updateButton = document.getElementById("updateMemberButton");
-updateForm.addEventListener("submit", function (event) {
+const updateMemberButton = document.getElementById("updateMemberButton");
+updateMemberForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  updateButton.innerHTML = "Updating...";
+  updateMemberButton.innerHTML = "Updating...";
 
   const updateMemberData = new FormData(this);
   console.log(updateMemberData);
-  const memberId = updateForm.getAttribute("memberId");
+  const memberId = updateMemberForm.getAttribute("memberId");
 
   fetch(`http://localhost:8080/api/users/update/${memberId}`, {
     method: "PUT",
@@ -27,7 +27,7 @@ updateForm.addEventListener("submit", function (event) {
     .then((data) => {
       console.log("Success:", data.message);
       alert("Member Updated Successfully!");
-      updateButton.innerHTML = "Update Member";
+      updateMemberButton.innerHTML = "Update Member";
       // document.getElementById("updateModal").classList.add("hidden");
       window.location.reload();
     })

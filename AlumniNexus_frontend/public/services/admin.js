@@ -350,8 +350,8 @@ window.addEventListener("DOMContentLoaded", async () => {
           updateMemberModal.classList.add("hidden");
         });
 
-        const updateForm = document.querySelector("#updateMemberForm");
-        updateForm.setAttribute("memberId", member.target.id);
+        constupdateMemberForm = document.querySelector("#updateMemberForm");
+        updateMemberForm.setAttribute("memberId", member.target.id);
 
         if (member.target.id) {
           const alumniMember = alumni.filter(
@@ -364,7 +364,7 @@ window.addEventListener("DOMContentLoaded", async () => {
           for (const fieldName in data) {
             if (data.hasOwnProperty(fieldName)) {
               // Find the input element with the corresponding name
-              const inputElement = updateForm.elements[fieldName];
+              const inputElement = updateMemberForm.elements[fieldName];
 
               // Check if the input element exists
               if (inputElement) {
@@ -428,8 +428,8 @@ window.addEventListener("DOMContentLoaded", async () => {
           )[0];
           eventDateValue.innerHTML =
             alumniCreatedEvent.eventDate?.split("T")[0];
-          const updateForm = document.querySelector("#updateForm");
-          updateForm.setAttribute("eventId", event.target.id);
+          const updateMemberForm = document.querySelector("#updateForm");
+          updateMemberForm.setAttribute("eventId", event.target.id);
 
           const data = {
             eventDate: alumniCreatedEvent.eventDate,
@@ -442,7 +442,7 @@ window.addEventListener("DOMContentLoaded", async () => {
           for (const fieldName in data) {
             if (data.hasOwnProperty(fieldName)) {
               // Find the input element with the corresponding name
-              const inputElement = updateForm.elements[fieldName];
+              const inputElement = updateMemberForm.elements[fieldName];
 
               // Check if the input element exists
               if (inputElement) {
@@ -457,12 +457,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     deleteEventElements.forEach((deleteEventElement) => {
       deleteEventElement.addEventListener("click", (event) => {
-        const deleteModal = document.querySelector("#delete-event-modal");
-        deleteModal.classList.remove("hidden");
+        const deleteMemberModel = document.querySelector("#delete-event-modal");
+        deleteMemberModel.classList.remove("hidden");
 
         const closeDelelteForm = document.querySelector(".close-event-delete");
         closeDelelteForm.addEventListener("click", () => {
-          deleteModal.classList.add("hidden");
+          deleteMemberModel.classList.add("hidden");
         });
 
         if (event.target.id) {
@@ -471,8 +471,8 @@ window.addEventListener("DOMContentLoaded", async () => {
           )[0];
 
           console.log(alumniCreatedEvent);
-          const deleteForm = document.querySelector("#delete-event");
-          deleteForm.setAttribute("eventId", event.target.id);
+          const deleteMemberForm = document.querySelector("#delete-event");
+          deleteMemberForm.setAttribute("eventId", event.target.id);
         }
       });
     });

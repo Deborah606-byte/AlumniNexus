@@ -1,9 +1,9 @@
-const deleteForm = document.getElementById("delete-member");
-const deleteModel = document.getElementById("delete-member-modal");
-deleteForm.addEventListener("submit", function (event) {
+const deleteMemberForm = document.getElementById("delete-member");
+const deleteMemberModel = document.getElementById("delete-member-modal");
+deleteMemberForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const memberId = deleteForm.getAttribute("memberId");
+  const memberId = deleteMemberForm.getAttribute("memberId");
 
   fetch(`http://localhost:8080/api/users/delete/${memberId}`, {
     method: "DELETE",
