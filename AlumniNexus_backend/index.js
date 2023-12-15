@@ -36,7 +36,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
