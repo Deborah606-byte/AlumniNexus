@@ -19,7 +19,8 @@ app.use(fileUploads({ useTempFiles: true, tempFileDir: "/tmp" }));
 
 const allowedOrigins = ["http://localhost:3000", "http://127.0.0.1:3000"];
 const corsOptions = {
-  // credentials: true,
+  credentials: true,
+  optionSuccessStatus: 200,
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || origin == undefined) {
       callback(null, true);
