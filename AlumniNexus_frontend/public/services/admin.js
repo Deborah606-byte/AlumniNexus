@@ -247,7 +247,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       const addMember = new FormData(signupForm);
 
       // Fetch API to add a new alumni member
-      fetch("http://localhost:8080/api/users/signup", {
+      fetch("https://alumni-nexus-api.vercel.app/api/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -280,7 +280,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Fetch all members
-    fetch("http://localhost:8080/api/users/all")
+    fetch("https://alumni-nexus-api.vercel.app/api/users/all")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

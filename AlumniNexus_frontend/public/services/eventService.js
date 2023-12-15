@@ -1,17 +1,19 @@
 async function getAllEvents() {
   try {
-      const response = await fetch("http://localhost:8080/api/events/all");
+    const response = await fetch(
+      "https://alumni-nexus-api.vercel.app/api/events/all"
+    );
 
-      if (!response.ok) {
-          throw new Error("Network response was not ok");
-      }
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-      const data = await response.json();
-      const events = data.events || [];
-      return events;
+    const data = await response.json();
+    const events = data.events || [];
+    return events;
   } catch (error) {
-      console.error("Error fetching events:", error.message);
-      throw error;
+    console.error("Error fetching events:", error.message);
+    throw error;
   }
 }
 

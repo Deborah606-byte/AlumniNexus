@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentUser = JSON.parse(localStorage.getItem("alumni")) || null;
   if (currentUser) {
     const alumniDashboard = document.getElementById("dashboard-link");
-    console.log(currentUser);
+    // console.log(currentUser);
     alumniDashboard?.addEventListener("click", function () {
       if (currentUser.user.role == "alumni") {
         window.location.href = "/dashboard";
@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   } else {
-    // Show a popup message
+    //Show a popup message
     // alert("Please login!.");
-    // window.location.href = "/auth/login";
+    window.location.href = "/auth/login";
   }
 });
 

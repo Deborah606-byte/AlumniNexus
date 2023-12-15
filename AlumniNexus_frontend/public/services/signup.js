@@ -5,7 +5,7 @@ document
 
     const formData = new FormData(this);
 
-    fetch("http://localhost:8080/api/users/signup", {
+    fetch("https://alumni-nexus-api.vercel.app/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

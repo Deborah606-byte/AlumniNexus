@@ -11,7 +11,7 @@ updateMemberForm.addEventListener("submit", function (event) {
   console.log(updateMemberData);
   const memberId = updateMemberForm.getAttribute("memberId");
 
-  fetch(`http://localhost:8080/api/users/update/${memberId}`, {
+  fetch(`https://alumni-nexus-api.vercel.app/api/users/update/${memberId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

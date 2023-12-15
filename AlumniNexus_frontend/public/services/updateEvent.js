@@ -20,8 +20,8 @@ updateForm.addEventListener("submit", function (event) {
   updateEventData.append("file", updatedImage);
   const eventId = updateForm.getAttribute("eventId");
 
-  fetch(`http://localhost:8080/api/events/update/${eventId}`, {
-    method: "PUT", 
+  fetch(`https://alumni-nexus-api.vercel.app/api/events/update/${eventId}`, {
+    method: "PUT",
     body: updateEventData,
   })
     .then((response) => {
