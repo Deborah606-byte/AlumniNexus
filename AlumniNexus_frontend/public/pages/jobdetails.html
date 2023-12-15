@@ -108,6 +108,7 @@
 
           <!-- Job Application Form -->
           <form
+            id="application-form"
             action="#"
             method="POST"
             class="grid lg:grid-cols-1 md:grid-cols-2 gap-6"
@@ -134,9 +135,6 @@
                 class="w-full px-4 py-2 border border-secondary-300 rounded-md mb-4"
               />
             </div>
-
-            <!-- Other form fields (e.g., resume upload, cover letter) go here -->
-
             <div class="col-span-2">
               <label for="message" class="text-secondary-200"
                 >Why are you a good fit for this position?</label
@@ -158,6 +156,12 @@
               </button>
             </div>
           </form>
+          <p
+            id="apply"
+            class="text-secondary-200 font-light text-sm pt-2 hidden"
+          >
+            Thanks for applying for this job, will contact you soon
+          </p>
         </div>
       </section>
 
@@ -285,6 +289,6 @@
 
     <script src="../js/navbar.js"></script>
     <script src="../services/verification.js"></script>
-    
+    <script src="../js/jobApplication.js"></script>
   </body>
 </html>
