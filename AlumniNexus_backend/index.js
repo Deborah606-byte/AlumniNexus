@@ -17,7 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUploads({ useTempFiles: true }));
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://alumni-nexus-api.vercel.app",
+];
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
