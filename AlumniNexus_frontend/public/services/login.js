@@ -32,8 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Login successful! Welcome.");
 
           const redirectPath = localStorage.getItem("redirectPath") || "/home";
-          // Redirect to the saved path
-          window.location.href = redirectPath || "/home";
+          if (data.data.user.role == "admin") {
+            window.location.href = "/admin";
+          } else {
+            // Redirect to the saved path
+            window.location.href = redirectPath || "/home";
+          }
         })
         .catch((error) => {
           console.error("Error:", error);

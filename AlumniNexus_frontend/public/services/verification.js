@@ -37,10 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           console.log("Success:", data.message);
           // Get the saved redirect path from local storage
-          const redirectPath = localStorage.getItem("redirectPath") || "/home";
+          let redirectPath = localStorage.getItem("redirectPath") || "/home";
           // Clear the saved redirect path from local storage
           localStorage.removeItem("redirectPath");
-
           // Check if the path is in the protected routes
           const isProtectedRoute = protectedRoutes.some((route) =>
             window.location.pathname.startsWith(route)
