@@ -192,7 +192,11 @@
                   event announcements. Join our community and never miss out on
                   exciting news.
                 </p>
-                <div class="mt-6 flex max-w-md gap-x-4">
+                <form
+                  id="subscribe-form"
+                  method="POST"
+                  class="mt-6 flex max-w-md gap-x-4"
+                >
                   <label for="email-address" class="sr-only"
                     >Email address</label
                   >
@@ -211,7 +215,13 @@
                   >
                     Subscribe
                   </button>
-                </div>
+                </form>
+                <p
+                  id="subscribe"
+                  class="text-secondary-200 font-light text-sm pt-2 hidden"
+                >
+                  Thanks for subscribing to our newsletter
+                </p>
               </div>
               <dl
                 class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
@@ -412,6 +422,6 @@
 
     <script src="../js/navbar.js"></script>
     <script src="../services/verification.js"></script>
-    
+    <script src="../js/subscribe.js"></script>
   </body>
 </html>
