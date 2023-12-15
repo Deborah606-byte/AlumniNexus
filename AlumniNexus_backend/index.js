@@ -22,7 +22,7 @@ const allowedOrigins = [
   "https://alumni-nexus-api.vercel.app",
 ];
 const corsOptions = {
-  credentials: true,
+  // credentials: true,
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || origin == undefined) {
       callback(null, true);
