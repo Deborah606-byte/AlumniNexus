@@ -5,7 +5,7 @@ deleteMemberForm.addEventListener("submit", function (event) {
 
   const memberId = deleteMemberForm.getAttribute("memberId");
 
-  fetch(`http://localhost:8080/api/users/delete/${memberId}`, {
+  fetch(`https://alumni-nexus-api.vercel.app/api/users/delete/${memberId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

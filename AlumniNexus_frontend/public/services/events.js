@@ -1,6 +1,6 @@
 let image;
-const fileInput = document.getElementById("image")
-fileInput.addEventListener("change", function(){
+const fileInput = document.getElementById("image");
+fileInput.addEventListener("change", function () {
   image = fileInput?.files[0];
 });
 
@@ -15,7 +15,7 @@ document
 
     const eventData = new FormData(this);
     eventData.delete("file");
-    eventData.append("file", image)
+    eventData.append("file", image);
 
     const currentUser = JSON.parse(localStorage.getItem("alumni")) || null;
     console.log({
@@ -28,7 +28,7 @@ document
     const { _id: userId } = currentUser.user;
     eventData.append("userId", userId);
 
-    fetch("http://localhost:8080/api/events/create", {
+    fetch("https://alumni-nexus-api.vercel.app/api/events/create", {
       method: "POST",
       body: eventData,
     })

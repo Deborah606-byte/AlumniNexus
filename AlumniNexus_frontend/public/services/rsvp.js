@@ -26,7 +26,7 @@ document
 
     const formRsvpData = new FormData(this);
 
-    fetch("http://localhost:8080/api/rsvp/create", {
+    fetch("https://alumni-nexus-api.vercel.app/api/rsvp/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

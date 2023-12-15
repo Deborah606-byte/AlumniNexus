@@ -183,7 +183,9 @@ window.addEventListener("DOMContentLoaded", () => {
     if (userId) {
       loader.classList.remove("hidden");
       loader.classList.add("flex");
-      fetch(`http://localhost:8080/api/events/my-events/${userId}`)
+      fetch(
+        `https://alumni-nexus-api.vercel.app/api/events/my-events/${userId}`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");

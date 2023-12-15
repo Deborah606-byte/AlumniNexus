@@ -5,7 +5,7 @@ deleteForm.addEventListener("submit", function (event) {
 
   const eventId = deleteForm.getAttribute("eventId");
 
-  fetch(`http://localhost:8080/api/events/delete/${eventId}`, {
+  fetch(`https://alumni-nexus-api.vercel.app/api/events/delete/${eventId}`, {
     method: "DELETE", // Assuming you use the PUT method for updates
     headers: {
       "Content-Type": "application/json",
