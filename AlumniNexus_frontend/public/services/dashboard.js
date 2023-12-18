@@ -95,7 +95,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const clockIcon = document.createElement("span");
     clockIcon.className = "absolute";
-    clockIcon.innerHTML = '<i class="fa-regular fa-clock text-primary"></i>';
+    clockIcon.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" class="text-primary fill-current"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>';
 
     const eventTime = document.createElement("p");
     eventTime.className = "pl-6 text-secondary-200 font-semibold text-";
@@ -121,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
     threeDotsIcon.id = "dropdownToggle"; // Set an ID for easier reference
     threeDotsIcon.className = "dropdown-toggle cursor-pointer";
     threeDotsIcon.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="4" viewBox="0 0 128 512" class="text-white"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>';
+      '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="4" viewBox="0 0 128 512" class="text-white fill-current"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>';
 
     const dropdownMenu = document.createElement("div");
     dropdownMenu.id = "dropdownMenu"; // Set an ID for easier reference
