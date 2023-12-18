@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
     img.className = "w-full";
     img.src =
       event?.image?.url ||
-      "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
+      "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.jpg";
     img.alt = event.eventName;
 
     card.appendChild(img);

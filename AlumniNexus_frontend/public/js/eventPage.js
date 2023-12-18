@@ -53,7 +53,7 @@ function createEventCard(event) {
   img.className = "object-cover w-full h-[200px]";
   img.src =
     event?.image?.url ||
-    "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.avif";
+    "../images/audience-seminar-applauding-young-black-woman-lectern_625516-3573.jpg";
   img.alt = event.eventName;
   aspectWrapper.appendChild(img);
 
